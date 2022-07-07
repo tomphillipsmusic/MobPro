@@ -11,10 +11,21 @@ struct ContentView: View {
     @EnvironmentObject var vm: MobSessionManager
     
     var body: some View {
-        VStack {
-            RotationLabel(session: vm.session)
-
-            TeamMemberList()
+        NavigationView {
+            VStack {
+                RotationLabel(session: vm.session)
+                TeamMemberList()
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Image("MobProLogo")
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}, label: {
+                        Image(systemName: "gear")
+                    })
+                }
+            }
         }
     }
 }
