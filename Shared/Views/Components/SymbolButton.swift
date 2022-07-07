@@ -18,6 +18,7 @@ struct SymbolButton: View {
                 .foregroundColor(color)
                 .frame(width: 30, height: 30, alignment: .center)
         })
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

@@ -19,6 +19,7 @@ struct AddTeamMemberRow: View {
             if !newMemberName.isEmpty {
                 SymbolButton(action: addMember, symbolName: "plus", color: .green)
             }
+            
         }
     }
     

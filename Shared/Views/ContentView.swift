@@ -21,7 +21,11 @@ struct ContentView: View {
                     Image("MobProLogo")
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        withAnimation {
+                            vm.isEditing.toggle()
+                        }
+                    }, label: {
                         Image(systemName: "gear")
                     })
                 }

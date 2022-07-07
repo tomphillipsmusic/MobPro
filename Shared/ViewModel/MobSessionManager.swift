@@ -9,6 +9,7 @@ import Foundation
 
 class MobSessionManager: ObservableObject {
     @Published private(set) var session = MobSession()
+    @Published var isEditing = false
     
     func addMember(named name: String) {
         let memberToAdd = TeamMember(name: name, role: .researcher)
@@ -17,5 +18,9 @@ class MobSessionManager: ObservableObject {
     
     func delete(at offsets: IndexSet) {
         session.teamMembers.remove(atOffsets: offsets)
+    }
+    
+    func delete(teamMember: TeamMember) {
+        session.teamMembers.removeAll { $0.id == teamMember.id }
     }
 }
