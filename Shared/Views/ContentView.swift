@@ -14,17 +14,11 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 RotationLabel(session: vm.session)
-                
+                TimerView()
                 HStack {
                     Spacer()
                     
-                    SymbolButton(action: {
-                        withAnimation {
-                            vm.shuffleTeam()
-                        }
-                    }, symbolName: "shuffle", color: .mobOrange)
-                        .font(.title)
-                        .padding(.trailing, 30)
+                    shuffleButton
                 }
                 
                 TeamMemberList()
@@ -44,6 +38,16 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    var shuffleButton: some View {
+        SymbolButton(action: {
+            withAnimation {
+                vm.shuffleTeam()
+            }
+        }, symbolName: "shuffle", color: .mobOrange)
+            .font(.title)
+            .padding(.trailing, 30)
     }
 }
 

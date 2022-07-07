@@ -22,7 +22,7 @@ struct TeamMemberListRow: View {
             if vm.isEditing {
                 SymbolButton(action: {
                     isShowingDeleteAlert.toggle()
-                }, symbolName: "trash", color: .red)
+                }, symbolName: "trash", color: .mobRed)
             }
         }
         .alert("Are you sure you want to delete \(teamMember.name) from the team?", isPresented: $isShowingDeleteAlert) {

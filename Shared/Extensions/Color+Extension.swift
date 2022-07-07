@@ -13,4 +13,5 @@ extension Color {
     static let mobYellow = Color("MobYellow")
     static let mobOrange = Color("MobOrange")
     static let mobRed = Color("MobRed")
+    static let mobGray = Color("MobGray")
 }

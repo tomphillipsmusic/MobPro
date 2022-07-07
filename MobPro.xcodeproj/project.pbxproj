@@ -23,6 +23,10 @@
 		3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD0287742EC007D18DB /* MobSessionManager.swift */; };
 		3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD828776D52007D18DB /* Color+Extension.swift */; };
 		3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD828776D52007D18DB /* Color+Extension.swift */; };
+		3E128FDC287787BF007D18DB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDB287787BF007D18DB /* TimerView.swift */; };
+		3E128FDD287787BF007D18DB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDB287787BF007D18DB /* TimerView.swift */; };
+		3E128FDF28778B15007D18DB /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDE28778B15007D18DB /* TimerManager.swift */; };
+		3E128FE028778B15007D18DB /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDE28778B15007D18DB /* TimerManager.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
@@ -40,6 +44,8 @@
 		3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberRow.swift; sourceTree = "<group>"; };
 		3E128FD0287742EC007D18DB /* MobSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSessionManager.swift; sourceTree = "<group>"; };
 		3E128FD828776D52007D18DB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		3E128FDB287787BF007D18DB /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		3E128FDE28778B15007D18DB /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
 		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 			children = (
 				3E128FD62877471C007D18DB /* Components */,
 				3EA31E27287729AA00972DB5 /* ContentView.swift */,
+				3E128FDB287787BF007D18DB /* TimerView.swift */,
 				3E128FC428773F1A007D18DB /* RotationLabel.swift */,
 				3E128FC128773ABB007D18DB /* TeamMemberList.swift */,
 				3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */,
@@ -114,6 +121,7 @@
 		3EA31E20287729AA00972DB5 = {
 			isa = PBXGroup;
 			children = (
+				3E128FDE28778B15007D18DB /* TimerManager.swift */,
 				3EA31E25287729AA00972DB5 /* Shared */,
 				3EA31E34287729AB00972DB5 /* macOS */,
 				3EA31E2E287729AB00972DB5 /* Products */,
@@ -254,8 +262,10 @@
 				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */,
 				3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3E128FDC287787BF007D18DB /* TimerView.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
+				3E128FDF28778B15007D18DB /* TimerManager.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E128FC8287740AD007D18DB /* SymbolButton.swift in Sources */,
 			);
@@ -271,8 +281,10 @@
 				3E128FC0287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */,
 				3E128FC328773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3E128FDD287787BF007D18DB /* TimerView.swift in Sources */,
 				3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */,
+				3E128FE028778B15007D18DB /* TimerManager.swift in Sources */,
 				3E128FC628773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E128FC9287740AD007D18DB /* SymbolButton.swift in Sources */,
 			);
