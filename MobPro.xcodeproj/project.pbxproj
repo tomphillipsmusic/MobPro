@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E128FBF287732E5007D18DB /* MobSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FBE287732E5007D18DB /* MobSession.swift */; };
+		3E128FC0287732E5007D18DB /* MobSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FBE287732E5007D18DB /* MobSession.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E128FBE287732E5007D18DB /* MobSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSession.swift; sourceTree = "<group>"; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
 		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			children = (
 				3EA31E26287729AA00972DB5 /* MobProApp.swift */,
 				3EA31E27287729AA00972DB5 /* ContentView.swift */,
+				3E128FBE287732E5007D18DB /* MobSession.swift */,
 				3EA31E28287729AB00972DB5 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -176,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 			);
@@ -185,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E128FC0287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */,
 				3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */,
 			);

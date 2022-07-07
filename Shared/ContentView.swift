@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var session = MobSession()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Text("Round \(session.currentRotationNumber) / \(session.numberOfRotationsBetweenBreaks)")
+            .font(.title2)
+            .bold()
     }
 }
 
