@@ -19,13 +19,14 @@ struct AddTeamMemberRow: View {
             if !newMemberName.isEmpty {
                 SymbolButton(action: addMember, symbolName: "plus", color: .green)
             }
-            
         }
     }
     
     func addMember() {
-        vm.addMember(named: newMemberName)
-        newMemberName = ""
+        withAnimation {
+            vm.addMember(named: newMemberName)
+            newMemberName = ""
+        }
     }
 }
 
