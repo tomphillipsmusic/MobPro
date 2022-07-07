@@ -24,6 +24,6 @@ struct SymbolButton: View {
 
 struct SymbolButton_Previews: PreviewProvider {
     static var previews: some View {
-        SymbolButton(action: {}, symbolName: "plus", color: .blue)
+        SymbolButton(action: {}, symbolName: "plus", color: .mobGreen)
     }
 }

@@ -21,6 +21,8 @@
 		3E128FCF28774205007D18DB /* AddTeamMemberRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */; };
 		3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD0287742EC007D18DB /* MobSessionManager.swift */; };
 		3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD0287742EC007D18DB /* MobSessionManager.swift */; };
+		3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD828776D52007D18DB /* Color+Extension.swift */; };
+		3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD828776D52007D18DB /* Color+Extension.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
@@ -37,6 +39,7 @@
 		3E128FCA28774193007D18DB /* TeamMemberListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberListRow.swift; sourceTree = "<group>"; };
 		3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberRow.swift; sourceTree = "<group>"; };
 		3E128FD0287742EC007D18DB /* MobSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSessionManager.swift; sourceTree = "<group>"; };
+		3E128FD828776D52007D18DB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
 		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +103,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3E128FD728776D3F007D18DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E128FD828776D52007D18DB /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3EA31E20287729AA00972DB5 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +127,7 @@
 				3E128FD5287746FB007D18DB /* Views */,
 				3E128FD4287746EF007D18DB /* ViewModel */,
 				3E128FD3287746DD007D18DB /* Models */,
+				3E128FD728776D3F007D18DB /* Extensions */,
 				3EA31E28287729AB00972DB5 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -237,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E128FCB28774193007D18DB /* TeamMemberListRow.swift in Sources */,
+				3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */,
 				3E128FCE28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
 				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */,
@@ -253,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E128FCC28774193007D18DB /* TeamMemberListRow.swift in Sources */,
+				3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */,
 				3E128FCF28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
 				3E128FC0287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */,
