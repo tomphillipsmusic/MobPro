@@ -11,9 +11,33 @@ struct ContentView: View {
     @State private var session = MobSession()
     
     var body: some View {
-        Text("Round \(session.currentRotationNumber) / \(session.numberOfRotationsBetweenBreaks)")
-            .font(.title2)
-            .bold()
+        VStack {
+            Text("Round \(session.currentRotationNumber) / \(session.numberOfRotationsBetweenBreaks)")
+                .font(.title2)
+                .bold()
+
+            List {
+                Section(content:  {
+                    ForEach(session.teamMembers) { teamMember in
+                        HStack {
+                            Text(teamMember.name)
+                            Spacer()
+                            
+                            Button(action: {}, label: {
+                                Image(systemName: teamMember.role.symbolName)
+                                    .foregroundColor(.blue)
+                                    .frame(width: 30, height: 30, alignment: .center)
+                            })
+                            
+                        }
+                    }
+                }, header: {
+                        Text("Team Members")
+                            .font(.headline)
+                })
+            }
+            .listStyle(.plain)
+        }
     }
 }
 
