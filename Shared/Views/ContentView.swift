@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var session = MobSession()
+    @EnvironmentObject var vm: MobSessionManager
     
     var body: some View {
         VStack {
-            Text("Round \(session.currentRotationNumber) / \(session.numberOfRotationsBetweenBreaks)")
-                .font(.title2)
-                .bold()
+            RotationLabel(session: vm.session)
 
-            TeamMemberList(teamMembers: $session.teamMembers)
+            TeamMemberList()
         }
     }
 }
@@ -24,5 +22,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MobSessionManager())
     }
 }
