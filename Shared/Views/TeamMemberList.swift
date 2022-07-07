@@ -17,6 +17,7 @@ struct TeamMemberList: View {
                 ForEach(vm.session.teamMembers) { teamMember in
                     TeamMemberListRow(teamMember: teamMember)
                 }
+                .onDelete(perform: vm.delete)
                 
                 AddTeamMemberRow()
             }, header: {

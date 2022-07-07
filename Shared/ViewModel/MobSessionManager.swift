@@ -14,4 +14,8 @@ class MobSessionManager: ObservableObject {
         let memberToAdd = TeamMember(name: name, role: .researcher)
         session.teamMembers.append(memberToAdd)
     }
+    
+    func delete(at offsets: IndexSet) {
+        session.teamMembers.remove(atOffsets: offsets)
+    }
 }
