@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RotationLabel: View {
-    var session: MobSession
+    @EnvironmentObject var vm: MobSessionManager
     
     var body: some View {
-        Text("Rotation \(session.currentRotationNumber) / \(session.numberOfRotationsBetweenBreaks)")
+        Text("Rotation \(vm.currentRotationNumber) / \(vm.session.numberOfRotationsBetweenBreaks)")
             .font(.title2)
             .bold()
     }
@@ -19,7 +19,8 @@ struct RotationLabel: View {
 
 struct RotationLabel_Previews: PreviewProvider {
     static var previews: some View {
-        RotationLabel(session: MobSession())
+        RotationLabel()
+            .environmentObject(MobSessionManager())
     }
 }
 

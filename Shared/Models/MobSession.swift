@@ -8,7 +8,6 @@
 import Foundation
 
 struct MobSession {
-    var currentRotationNumber: Int = 1
     var numberOfRotationsBetweenBreaks: Int = 5
     var teamMembers: [TeamMember] = sampleTeam
     var isActive = false    

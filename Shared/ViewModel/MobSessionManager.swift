@@ -8,9 +8,10 @@
 import Foundation
 
 class MobSessionManager: ObservableObject {
-    @Published private(set) var session = MobSession()
+    @Published var session = MobSession()
     @Published var isEditing = false
-    @Published var timerManager = TimerManager()
+    @Published var mobTimer = MobTimer()
+    @Published var currentRotationNumber = 1
     
     private func assignRoles() {
         for index in 0..<session.teamMembers.count {
@@ -32,6 +33,10 @@ class MobSessionManager: ObservableObject {
     func shuffleTeam() {
         session.teamMembers.shuffle()
         assignRoles()
+    }
+
+    func shiftTeam() {
+        session.teamMembers.shiftInPlace()
     }
 }
 
@@ -58,42 +63,27 @@ extension MobSessionManager {
 extension MobSessionManager {
     
     func startTime() {
-        timerManager.isTimerRunning = true
-        timerManager.minutes = timerManager.timeRemaining / 60
-        timerManager.seconds = timerManager.timeRemaining % 60
+        mobTimer.isTimerRunning = true
 
-        timerManager.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-
-            if self.timerManager.timeRemaining == 0 {
+        mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if self.mobTimer.timeRemaining == 0 {
                 self.resetTimer()
-                
+                self.currentRotationNumber += 1
             } else {
                 self.updateTimeRemaining()
             }
         }
     }
-    
-    func resumeTimer() {
-        timerManager.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
 
-            if self.timerManager.timeRemaining == 0 {
-                self.resetTimer()
-                self.timerManager.timeRemaining = self.timerManager.rotationLength
-            } else {
-                self.updateTimeRemaining()
-            }
-        }
-    }
-    
     func resetTimer() {
-        timerManager.isTimerRunning = false
-        timerManager.timer?.invalidate()
-        timerManager.timer = nil
+        mobTimer.isTimerRunning = false
+        mobTimer.timer?.invalidate()
+        mobTimer.timer = nil
     }
     
     func updateTimeRemaining() {
-        timerManager.timeRemaining -= 1
-        timerManager.minutes = timerManager.timeRemaining / 60
-        timerManager.seconds = timerManager.timeRemaining % 60
+        mobTimer.timeRemaining -= 1
+        mobTimer.minutes = mobTimer.timeRemaining / 60
+        mobTimer.seconds = mobTimer.timeRemaining % 60
     }
 }

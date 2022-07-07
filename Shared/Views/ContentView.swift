@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                RotationLabel(session: vm.session)
+                RotationLabel()
                 TimerView()
                 HStack {
                     Spacer()
