@@ -14,6 +14,19 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 RotationLabel(session: vm.session)
+                
+                HStack {
+                    Spacer()
+                    
+                    SymbolButton(action: {
+                        withAnimation {
+                            vm.shuffleTeam()
+                        }
+                    }, symbolName: "shuffle", color: .mobOrange)
+                        .font(.title)
+                        .padding(.trailing, 30)
+                }
+                
                 TeamMemberList()
             }
             .toolbar {

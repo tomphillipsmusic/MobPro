@@ -10,23 +10,15 @@ import Foundation
 class MobSessionManager: ObservableObject {
     @Published private(set) var session = MobSession()
     @Published var isEditing = false
-}
-
-// CRUD Functions
-extension MobSessionManager {
-    func addMember(named name: String) {
-        let indexOfNewMember = session.teamMembers.count
-        let memberToAdd = TeamMember(name: name, role: determineRole(for: indexOfNewMember))
-        session.teamMembers.append(memberToAdd)
-    }
     
-    func assignRoles() {
+    
+    private func assignRoles() {
         for index in 0..<session.teamMembers.count {
             session.teamMembers[index].role = determineRole(for: index)
         }
     }
     
-    func determineRole(for index: Int) -> Role {
+    private func determineRole(for index: Int) -> Role {
         switch index {
         case 0:
             return .driver
@@ -35,6 +27,20 @@ extension MobSessionManager {
         default:
             return .researcher
         }
+    }
+    
+    func shuffleTeam() {
+        session.teamMembers.shuffle()
+        assignRoles()
+    }
+}
+
+// CRUD Functions
+extension MobSessionManager {
+    func addMember(named name: String) {
+        let indexOfNewMember = session.teamMembers.count
+        let memberToAdd = TeamMember(name: name, role: determineRole(for: indexOfNewMember))
+        session.teamMembers.append(memberToAdd)
     }
     
     func delete(at offsets: IndexSet) {
