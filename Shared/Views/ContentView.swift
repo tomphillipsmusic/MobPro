@@ -25,6 +25,7 @@ struct ContentView: View {
                 
                 TeamMemberList()
             }
+            .animation(.default)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Image("MobProLogo")

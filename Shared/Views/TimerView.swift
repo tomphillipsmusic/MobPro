@@ -13,19 +13,26 @@ struct TimerView: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(.mobGreen)
+                .foregroundColor(vm.isOnBreak ? .mobOrange : .mobGreen)
                 .padding()
             VStack {
+                
+                if vm.isOnBreak {
+                    Text("BREAK")
+                }
+                
                 Text(vm.timerText)
                     .padding()
                 
-                Button(action: {
-                    withAnimation {       
-                        vm.timerTapped()
-                    }
-                }, label: {
-                    Image(systemName: vm.mobTimer.isTimerRunning ? "pause.fill" : "play.fill")
-                })
+                if !vm.isOnBreak {
+                    Button(action: {
+                        withAnimation {
+                            vm.timerTapped()
+                        }
+                    }, label: {
+                        Image(systemName: vm.mobTimer.isTimerRunning ? "pause.fill" : "play.fill")
+                    })
+                }
             }
             .font(.largeTitle)
             .foregroundColor(.white)

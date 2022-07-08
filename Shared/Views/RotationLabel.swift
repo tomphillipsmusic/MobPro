@@ -11,9 +11,11 @@ struct RotationLabel: View {
     @EnvironmentObject var vm: MobSessionManager
     
     var body: some View {
-        Text("Rotation \(vm.currentRotationNumber) / \(vm.session.numberOfRotationsBetweenBreaks)")
-            .font(.title2)
-            .bold()
+        if !vm.isOnBreak {
+            Text("Rotation \(vm.currentRotationNumber) / \(vm.session.numberOfRotationsBetweenBreaks)")
+                .font(.title2)
+                .bold()
+        }
     }
 }
 

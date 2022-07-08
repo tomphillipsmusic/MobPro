@@ -12,9 +12,14 @@ class MobSessionManager: ObservableObject {
     @Published var mobTimer = MobTimer()
     @Published var isEditing = false
     @Published var currentRotationNumber = 1
+    @Published var isOnBreak = false
     
     var timerText: String {
-        mobTimer.isTimerRunning ? mobTimer.formattedTime : "START"
+        if mobTimer.isTimerRunning {
+            return mobTimer.formattedTime
+        } else {
+            return "START"
+        }
     }
 }
 
@@ -27,11 +32,24 @@ extension MobSessionManager {
     }
     
     private func setUpNewRotation() {
+        if isOnBreak {
+            isOnBreak = false
+            currentRotationNumber %= session.numberOfRotationsBetweenBreaks
+
+        } else {
+            currentRotationNumber += 1
+            mobTimer.timeRemaining = mobTimer.rotationLength
+            shiftTeam()
+            assignRoles()
+        }
+        
         resetTimer()
-        mobTimer.timeRemaining = mobTimer.rotationLength
-        currentRotationNumber += 1
-        shiftTeam()
-        assignRoles()
+
+        if currentRotationNumber == session.numberOfRotationsBetweenBreaks + 1 {
+            isOnBreak = true
+            mobTimer.timeRemaining = session.breakLengthInSeconds
+            startTime()
+        }
     }
 
     private func shiftTeam() {
