@@ -8,20 +8,26 @@
 import Foundation
 
 struct MobTimer {
-    var isTimerRunning = false
     var timer: Timer? = nil
-    var rotationLength = 30
+    var rotationLength = 720
     var timeRemaining: Int
-    var minutes: Int
-    var seconds: Int
+    var minutes: Int {
+        timeRemaining / 60
+    }
+    
+    var seconds: Int {
+        timeRemaining % 60
+    }
+    
+    var isTimerRunning: Bool {
+        timer != nil
+    }
+    
     var formattedTime: String {
         "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
     }
     
     init() {
         timeRemaining = rotationLength
-        minutes = timeRemaining / 60
-        seconds = timeRemaining % 60
     }
-    
 }

@@ -13,15 +13,6 @@ struct MobSession {
     var isActive = false    
 }
 
-extension MobSession {
-    static let sampleTeam = [
-        TeamMember(name: "Tom", role: .driver),
-        TeamMember(name: "Zoe", role: .navigator),
-        TeamMember(name: "Tyriq", role: .researcher),
-        TeamMember(name: "Arlaya", role: .sponsor)
-    ]
-}
-
 struct TeamMember: Identifiable {
     let id = UUID()
     var name: String
@@ -50,4 +41,14 @@ enum Role {
             return "person.3"
         }
     }
+}
+
+// MARK: Test Data
+extension MobSession {
+    static let sampleTeam = [
+        TeamMember(name: "Tom", role: .driver),
+        TeamMember(name: "Zoe", role: .navigator),
+        TeamMember(name: "Tyriq", role: .researcher),
+        TeamMember(name: "Arlaya", role: .sponsor)
+    ]
 }

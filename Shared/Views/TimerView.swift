@@ -16,16 +16,12 @@ struct TimerView: View {
                 .foregroundColor(.mobGreen)
                 .padding()
             VStack {
-                Text(vm.mobTimer.isTimerRunning ? vm.mobTimer.formattedTime : "START")
+                Text(vm.timerText)
                     .padding()
                 
                 Button(action: {
                     withAnimation {       
-                        if vm.mobTimer.isTimerRunning {
-                            vm.resetTimer()
-                        } else {
-                            vm.startTime()
-                        }
+                        vm.timerTapped()
                     }
                 }, label: {
                     Image(systemName: vm.mobTimer.isTimerRunning ? "pause.fill" : "play.fill")
@@ -33,13 +29,6 @@ struct TimerView: View {
             }
             .font(.largeTitle)
             .foregroundColor(.white)
-        }
-        .onReceive(vm.$currentRotationNumber) { _ in
-            withAnimation {
-                DispatchQueue.main.async {
-                    vm.shiftTeam()
-                }
-            }
         }
     }
 }

@@ -18,7 +18,9 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    shuffleButton
+                    if !vm.mobTimer.isTimerRunning {
+                        shuffleButton
+                    }
                 }
                 
                 TeamMemberList()

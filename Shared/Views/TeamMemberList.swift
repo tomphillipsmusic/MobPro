@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TeamMemberList: View {
     @EnvironmentObject var vm: MobSessionManager
-    @State private var newMemberName = ""
     
     var body: some View {
         List {

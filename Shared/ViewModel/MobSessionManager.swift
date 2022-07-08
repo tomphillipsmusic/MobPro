@@ -9,16 +9,41 @@ import Foundation
 
 class MobSessionManager: ObservableObject {
     @Published var session = MobSession()
-    @Published var isEditing = false
     @Published var mobTimer = MobTimer()
+    @Published var isEditing = false
     @Published var currentRotationNumber = 1
+    
+    var timerText: String {
+        mobTimer.isTimerRunning ? mobTimer.formattedTime : "START"
+    }
+}
+
+// MARK: Team Management Logic
+extension MobSessionManager {
+    
+    func shuffleTeam() {
+        session.teamMembers.shuffle()
+        assignRoles()
+    }
+    
+    private func setUpNewRotation() {
+        resetTimer()
+        mobTimer.timeRemaining = mobTimer.rotationLength
+        currentRotationNumber += 1
+        shiftTeam()
+        assignRoles()
+    }
+
+    private func shiftTeam() {
+        session.teamMembers.shiftInPlace()
+    }
     
     private func assignRoles() {
         for index in 0..<session.teamMembers.count {
             session.teamMembers[index].role = determineRole(for: index)
         }
     }
-    
+
     private func determineRole(for index: Int) -> Role {
         switch index {
         case 0:
@@ -29,22 +54,14 @@ class MobSessionManager: ObservableObject {
             return .researcher
         }
     }
-    
-    func shuffleTeam() {
-        session.teamMembers.shuffle()
-        assignRoles()
-    }
-
-    func shiftTeam() {
-        session.teamMembers.shiftInPlace()
-    }
 }
 
-// CRUD Functions
+// MARK: CRUD Functions
 extension MobSessionManager {
     func addMember(named name: String) {
         let indexOfNewMember = session.teamMembers.count
-        let memberToAdd = TeamMember(name: name, role: determineRole(for: indexOfNewMember))
+        let role = determineRole(for: indexOfNewMember)
+        let memberToAdd = TeamMember(name: name, role: role)
         session.teamMembers.append(memberToAdd)
     }
     
@@ -59,31 +76,28 @@ extension MobSessionManager {
     }
 }
 
-// Timer Logic
+// MARK: Timer Logic
 extension MobSessionManager {
+    func timerTapped() {
+        if mobTimer.isTimerRunning {
+            resetTimer()
+        } else {
+            startTime()
+        }
+    }
     
-    func startTime() {
-        mobTimer.isTimerRunning = true
-
+    private func startTime() {
         mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.mobTimer.timeRemaining == 0 {
-                self.resetTimer()
-                self.currentRotationNumber += 1
+                self.setUpNewRotation()
             } else {
-                self.updateTimeRemaining()
+                self.mobTimer.timeRemaining -= 1
             }
         }
     }
 
-    func resetTimer() {
-        mobTimer.isTimerRunning = false
+    private func resetTimer() {
         mobTimer.timer?.invalidate()
         mobTimer.timer = nil
-    }
-    
-    func updateTimeRemaining() {
-        mobTimer.timeRemaining -= 1
-        mobTimer.minutes = mobTimer.timeRemaining / 60
-        mobTimer.seconds = mobTimer.timeRemaining % 60
     }
 }
