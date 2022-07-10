@@ -13,8 +13,8 @@ struct MobSession {
     var teamMembers: [TeamMember] = sampleTeam
     var isActive = false
     var configurations = [
-        Configuration(value: 7, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen"),
-        Configuration(value: 5, maxValue: 10, isTimeValue: false, label: "Time Between Breaks", color: "MobGreenYellow"),
+        Configuration(value: 7 * 60, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen"),
+        Configuration(value: 5, maxValue: 10 * 60, isTimeValue: false, label: "Rounds Between Breaks", color: "MobYellowGreen"),
         Configuration(value: 5, maxValue: 60 * 30, isTimeValue: true, label: "Break Length", color: "MobOrange")
     ]
 }
@@ -29,9 +29,10 @@ struct Configuration: Identifiable {
     let id = UUID()
     var value: Int
     let maxValue: Int
-    var isTimeValue: Bool
-    var label: String
-    var color: String
+    let isTimeValue: Bool
+    let label: String
+    let color: String
+    var progress: Double = 0
 }
 
 enum Role {

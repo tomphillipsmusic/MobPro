@@ -14,20 +14,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if vm.isEditing {
-//                    ScrollView(.horizontal, showsIndicators: false) {
-//
-//                        HStack(spacing: 20){
-//                            ForEach(vm.session.configurations) { configuration in
-//                                CircleSelector(value: .constant(0), maxValue: configuration.maxValue)
-//                            }
-//                        }
-//
-//                    }
-                    
+                if vm.isEditing {                    
                     TabView {
                         ForEach(vm.session.configurations) { configuration in
-                            CircleSelector(value: .constant(0), maxValue: configuration.maxValue)
+                            let index = vm.session.configurations.firstIndex { $0.id == configuration.id}
+                            CircleSelector(configuration: $vm.session.configurations[index!])
                                 
                         }
                     }

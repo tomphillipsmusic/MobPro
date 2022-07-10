@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct CircleSelector: View {
-    @Binding var value: Int
+    @Binding var configuration: Configuration
     @State private var size = UIScreen.main.bounds.width - 120
     @State private var progress: CGFloat
-    @State private var angle: Double = 0
-    var maxValue: Int
-    var isTimeValue: Bool = true
+    @State private var angle: Double
+    
     var minutes: Int {
-        Int(progress * CGFloat(maxValue)) / 60
+        Int(progress * CGFloat(configuration.maxValue)) / 60
     }
 
     let lineWidth: CGFloat = 25.0
     
-    init(value: Binding<Int>, maxValue: Int) {
-        _value = value
-        progress = CGFloat(value.wrappedValue) / CGFloat(maxValue)
-        self.maxValue = maxValue
+    init(configuration: Binding<Configuration>) {
+        _configuration = configuration
+        let progress = CGFloat(configuration.wrappedValue.value) / CGFloat(configuration.wrappedValue.maxValue)
+        _progress = State(initialValue: progress)
+        _angle = State(initialValue: Double(progress * Double(360)))
+
     }
     
     var body: some View {
         VStack {
-            Text("Round Length")
+            Text(configuration.label)
                 .padding(.bottom, 10)
                 .font(.title2)
             ZStack {
@@ -42,7 +43,7 @@ struct CircleSelector: View {
                 // Progress
                 Circle()
                     .trim(from: 0, to: progress)
-                    .stroke(Color.mobGreen, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                    .stroke(Color(configuration.color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .frame(width: size, height: size)
                     .rotationEffect(.init(degrees: -90))
                 
@@ -55,7 +56,7 @@ struct CircleSelector: View {
                 
                 //Drag Circle
                 Circle()
-                    .fill(Color.mobGreen)
+                    .fill(Color(configuration.color))
                     .frame(width: lineWidth * 2, height: lineWidth * 2)
                     .offset(x: size / 2)
                     .rotationEffect(.init(degrees: angle))
@@ -65,10 +66,16 @@ struct CircleSelector: View {
                 
                 VStack {
                     Text("\(minutes)")
-                        .font(.largeTitle)
-                    Text("Minutes")
+                        .font(
+                        .largeTitle)
+
+// DEBUG Only                    Text("\(configuration.value)")
+
+                    if configuration.isTimeValue {
+                        Text("Minutes")
+                    }
                 }
-                .foregroundColor(.mobGreen)
+                .foregroundColor(Color(configuration.color))
                 .font(.largeTitle)
                                 
             }
@@ -98,7 +105,7 @@ struct CircleSelector: View {
             // Progress
             let progress = angle / 360
             self.progress = progress
-            self.value = Int(progress * CGFloat(maxValue)) / 60
+            self.configuration.value = Int(progress * CGFloat(configuration.maxValue)) / 60
             self.angle = Double(angle)
         }
     }
@@ -106,6 +113,6 @@ struct CircleSelector: View {
 
 struct CircleSelector_Previews: PreviewProvider {
     static var previews: some View {
-        CircleSelector(value: .constant(0), maxValue: 1000)
+        CircleSelector(configuration: .constant(Configuration(value: 7, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen")))
     }
 }
