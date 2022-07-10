@@ -14,8 +14,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                RotationLabel()
-                TimerView()
+                if vm.isEditing {
+                    CircleSelector(value: $vm.mobTimer.rotationLength, maxValue: 60 * 60)
+                } else {
+                    RotationLabel()
+                    TimerView()
+                }
                 HStack {
                     Spacer()
                     

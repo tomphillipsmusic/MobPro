@@ -31,6 +31,8 @@
 		3E128FE3287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
 		3E128FFF287B2ED3007D18DB /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FFE287B2ED3007D18DB /* CircleTest.swift */; };
 		3E129000287B2ED3007D18DB /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FFE287B2ED3007D18DB /* CircleTest.swift */; };
+		3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
+		3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
@@ -52,6 +54,7 @@
 		3E128FDE28778B15007D18DB /* MobTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimer.swift; sourceTree = "<group>"; };
 		3E128FE1287797AA007D18DB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		3E128FFE287B2ED3007D18DB /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
+		3E129004287B3A30007D18DB /* CircleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleSelector.swift; path = Shared/CircleSelector.swift; sourceTree = SOURCE_ROOT; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
 		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 		3E128FD62877471C007D18DB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3E129004287B3A30007D18DB /* CircleSelector.swift */,
 				3E128FC7287740AD007D18DB /* SymbolButton.swift */,
 			);
 			path = Components;
@@ -271,6 +275,7 @@
 				3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */,
 				3E128FFF287B2ED3007D18DB /* CircleTest.swift in Sources */,
 				3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */,
 				3E128FDC287787BF007D18DB /* TimerView.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
@@ -292,6 +297,7 @@
 				3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */,
 				3E129000287B2ED3007D18DB /* CircleTest.swift in Sources */,
 				3E128FC328773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */,
 				3E128FDD287787BF007D18DB /* TimerView.swift in Sources */,
 				3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */,

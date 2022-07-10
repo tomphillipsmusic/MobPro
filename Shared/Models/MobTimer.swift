@@ -9,7 +9,7 @@ import Foundation
 
 struct MobTimer {
     var timer: Timer? = nil
-    var rotationLength = 720
+    var rotationLength = 5
     var timeRemaining: Int
     var minutes: Int {
         timeRemaining / 60

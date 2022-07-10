@@ -1,30 +1,36 @@
 //
-//  CircleTest.swift
+//  CircleSelector.swift
 //  MobPro
 //
 //  Created by Tom Phillips on 7/10/22.
 //
 
-import Foundation
 import SwiftUI
 
-// https://kavsoft.dev/swiftui_2.0_circular_slider
-struct CircleTest: View {
-    @State private var size = UIScreen.main.bounds.width - 100
-    @State private var progress: CGFloat = 0
+struct CircleSelector: View {
+    @Binding var value: Int
+    @State private var size = UIScreen.main.bounds.width - 120
+    @State private var progress: CGFloat
     @State private var angle: Double = 0
-    var maxValue: Int = 1000
+    var maxValue: Int
+    var isTimeValue: Bool = true
     var minutes: Int {
         Int(progress * CGFloat(maxValue)) / 60
     }
-    
-    var seconds: Int {
-        Int(progress * CGFloat(maxValue)) % 60
-    }
+
     let lineWidth: CGFloat = 25.0
+    
+    init(value: Binding<Int>, maxValue: Int) {
+        _value = value
+        progress = CGFloat(value.wrappedValue) / CGFloat(maxValue)
+        self.maxValue = maxValue
+    }
     
     var body: some View {
         VStack {
+            Text("Round Length")
+                .padding(.bottom, 10)
+                .font(.title2)
             ZStack {
                 Circle()
                     .stroke(Color.mobGray, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
@@ -47,16 +53,25 @@ struct CircleTest: View {
                 //Drag Circle
                 Circle()
                     .fill(Color.mobGreen)
-                    .frame(width: lineWidth, height: lineWidth)
+                    .frame(width: lineWidth * 2, height: lineWidth * 2)
                     .offset(x: size / 2)
                     .rotationEffect(.init(degrees: angle))
                     .gesture(DragGesture().onChanged(onDrag(value:)))
                     .rotationEffect(.init(degrees: -90))
                 
                 
-                Text("\(minutes):\(seconds < 10 ? "0":"")\(seconds)")
-                    .font(.largeTitle)
+                VStack {
+                    Text("\(minutes)")
+                        .font(.largeTitle)
+                    Text("Minutes")
+                }
+                .foregroundColor(.mobGreen)
+                .font(.largeTitle)
+                                
             }
+            .padding()
+            Text("Progress: \(progress)")
+            Text("Value: \(value)")
         }
     }
     
@@ -82,13 +97,14 @@ struct CircleTest: View {
             // Progress
             let progress = angle / 360
             self.progress = progress
+            self.value = Int(progress * CGFloat(maxValue)) / 60
             self.angle = Double(angle)
         }
     }
 }
 
-struct CircleTest_Previews: PreviewProvider {
+struct CircleSelector_Previews: PreviewProvider {
     static var previews: some View {
-        CircleTest()
+        CircleSelector(value: .constant(0), maxValue: 1000)
     }
 }
