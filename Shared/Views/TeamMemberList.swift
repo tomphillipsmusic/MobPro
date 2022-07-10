@@ -16,6 +16,7 @@ struct TeamMemberList: View {
                 ForEach(vm.session.teamMembers) { teamMember in
                     TeamMemberListRow(teamMember: teamMember)
                 }
+                .onMove(perform: move)
                 .onDelete(perform: vm.delete)
                 
                 AddTeamMemberRow()
@@ -27,6 +28,10 @@ struct TeamMemberList: View {
         }
         .listStyle(.plain)
         .animation(.default, value: vm.session.teamMembers)
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        vm.moveTeamMember(from: source, to: destination)
     }
 }
 

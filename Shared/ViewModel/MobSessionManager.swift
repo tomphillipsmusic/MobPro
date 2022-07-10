@@ -31,6 +31,11 @@ extension MobSessionManager {
         assignRoles()
     }
     
+    func moveTeamMember(from source: IndexSet, to destination: Int) {
+        session.teamMembers.move(fromOffsets: source, toOffset: destination)
+        assignRoles()
+    }
+    
     private func setUpNewRotation() {
         if isOnBreak {
             isOnBreak = false
