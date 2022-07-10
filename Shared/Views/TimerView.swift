@@ -15,6 +15,8 @@ struct TimerView: View {
             Circle()
                 .foregroundColor(vm.isOnBreak ? .mobOrange : .mobGreen)
                 .padding()
+                .animation(.default, value: vm.isOnBreak)
+                .animation(.default, value: vm.mobTimer.isTimerRunning)
             VStack {
                 
                 if vm.isOnBreak {

@@ -26,6 +26,7 @@ struct TeamMemberList: View {
             })
         }
         .listStyle(.plain)
+        .animation(.default, value: vm.session.teamMembers)
     }
 }
 
