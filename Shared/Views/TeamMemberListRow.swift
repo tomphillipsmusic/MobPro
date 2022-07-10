@@ -18,22 +18,6 @@ struct TeamMemberListRow: View {
             Spacer()
             
             SymbolButton(action: {}, symbolName: teamMember.role.symbolName, color: .blue)
-// Custom delete button that was removed because cannot find how to override default delete
-//            if vm.isEditing {
-//                SymbolButton(action: {
-//                    isShowingDeleteAlert.toggle()
-//                }, symbolName: "trash", color: .mobRed)
-//            }
-//        }
-//        .alert("Are you sure you want to delete \(teamMember.name) from the team?", isPresented: $isShowingDeleteAlert) {
-//            Button("Delete", role: .destructive) {
-//                withAnimation {
-//                    vm.delete(teamMember: teamMember)
-//                }
-//            }
-//            Button("Cancel", role: .cancel) {
-//                isShowingDeleteAlert = false
-//            }
         }
     }
 }

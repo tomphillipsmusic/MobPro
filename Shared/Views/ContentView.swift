@@ -28,29 +28,8 @@ struct ContentView: View {
                     .environment(\.editMode, $editMode)
             }
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("MobProLogo")
-                }
-                    
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        withAnimation {
-                            if editMode == .inactive {
-                                editMode = .active
-                            } else if editMode == .active{
-                                editMode = .inactive
-                            }
-                            vm.isEditing.toggle()
-                        }
-                    }, label: {
-                        if vm.isEditing {
-                            Text("Save")
-                                .foregroundColor(.mobGreen)
-                        } else {
-                            Image(systemName: "gear")
-                        }
-                    })
-                }
+                logo
+                toggleSettingsButton
             }
         }
     }
@@ -63,6 +42,37 @@ struct ContentView: View {
         }, symbolName: "shuffle", color: .mobOrange)
             .font(.title)
             .padding(.trailing, 30)
+    }
+}
+
+// MARK: Navigation Toolbar Items
+extension ContentView {
+    var logo: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            Image("MobProLogo")
+        }
+    }
+    
+    var toggleSettingsButton: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button(action: {
+                withAnimation {
+                    if editMode == .inactive {
+                        editMode = .active
+                    } else if editMode == .active{
+                        editMode = .inactive
+                    }
+                    vm.isEditing.toggle()
+                }
+            }, label: {
+                if vm.isEditing {
+                    Text("Save")
+                        .foregroundColor(.mobGreen)
+                } else {
+                    Image(systemName: "gear")
+                }
+            })
+        }
     }
 }
 
