@@ -15,7 +15,26 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 if vm.isEditing {
-                    CircleSelector(value: $vm.mobTimer.rotationLength, maxValue: 60 * 60)
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//
+//                        HStack(spacing: 20){
+//                            ForEach(vm.session.configurations) { configuration in
+//                                CircleSelector(value: .constant(0), maxValue: configuration.maxValue)
+//                            }
+//                        }
+//
+//                    }
+                    
+                    TabView {
+                        ForEach(vm.session.configurations) { configuration in
+                            CircleSelector(value: .constant(0), maxValue: configuration.maxValue)
+                                
+                        }
+                    }
+                    .frame(minHeight: UIScreen.main.bounds.height * 0.42)
+                    .tabViewStyle(.page(indexDisplayMode: .always))
+                    .padding()
+                    
                 } else {
                     RotationLabel()
                     TimerView()

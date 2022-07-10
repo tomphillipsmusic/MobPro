@@ -25,7 +25,8 @@ struct TeamMember: Identifiable, Equatable {
     var role: Role
 }
 
-struct Configuration {
+struct Configuration: Identifiable {
+    let id = UUID()
     var value: Int
     let maxValue: Int
     var isTimeValue: Bool

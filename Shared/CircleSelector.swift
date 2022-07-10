@@ -33,6 +33,9 @@ struct CircleSelector: View {
                 .font(.title2)
             ZStack {
                 Circle()
+                    .frame(width: size, height: size)
+                    .foregroundColor(.mobGray)
+                Circle()
                     .stroke(Color.mobGray, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
                 
@@ -70,8 +73,6 @@ struct CircleSelector: View {
                                 
             }
             .padding()
-            Text("Progress: \(progress)")
-            Text("Value: \(value)")
         }
     }
     
