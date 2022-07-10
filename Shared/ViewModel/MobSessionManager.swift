@@ -38,23 +38,36 @@ extension MobSessionManager {
     
     private func setUpNewRotation() {
         if isOnBreak {
-            isOnBreak = false
-            currentRotationNumber %= session.numberOfRotationsBetweenBreaks
-
+            endBreak()
         } else {
-            currentRotationNumber += 1
-            mobTimer.timeRemaining = mobTimer.rotationLength
-            shiftTeam()
-            assignRoles()
+            setUpNextRound()
         }
         
         resetTimer()
-
-        if currentRotationNumber == session.numberOfRotationsBetweenBreaks + 1 {
-            isOnBreak = true
-            mobTimer.timeRemaining = session.breakLengthInSeconds
-            startTime()
+        let isBreakTime = currentRotationNumber == session.numberOfRotationsBetweenBreaks + 1
+        
+        if isBreakTime {
+            startBreak()
         }
+    }
+    
+    func endBreak() {
+        isOnBreak = false
+        currentRotationNumber %= session.numberOfRotationsBetweenBreaks
+        mobTimer.timeRemaining = mobTimer.rotationLength
+    }
+    
+    func setUpNextRound() {
+        currentRotationNumber += 1
+        mobTimer.timeRemaining = mobTimer.rotationLength
+        shiftTeam()
+        assignRoles()
+    }
+    
+    func startBreak() {
+        isOnBreak = true
+        mobTimer.timeRemaining = session.breakLengthInSeconds
+        startTime()
     }
 
     private func shiftTeam() {
