@@ -47,7 +47,7 @@ struct CircleSelector: View {
                 //Drag Circle
                 Circle()
                     .fill(Color(configuration.color))
-                    .frame(width: lineWidth * 2, height: lineWidth * 2)
+                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
                     .offset(x: size / 2)
                     .rotationEffect(.init(degrees: configuration.angle))
                     .gesture(DragGesture().onChanged(onDrag(value:)))
