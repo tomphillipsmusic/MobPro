@@ -26,7 +26,11 @@ struct ContentView: View {
                     
                 } else {
                     RotationLabel()
-                    TimerView()
+                    if vm.mobTimer.isTimerRunning {
+                        TimerCountdown()
+                    } else {
+                        TimerView()
+                    }
                 }
                 HStack {
                     Spacer()
