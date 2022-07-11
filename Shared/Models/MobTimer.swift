@@ -9,7 +9,11 @@ import Foundation
 
 struct MobTimer {
     var timer: Timer? = nil
-    var rotationLength = 5
+    var rotationLength = Configuration(value: 7 * 60, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen") {
+        didSet {
+            timeRemaining = rotationLength.value
+        }
+    }
     var timeRemaining: Int
     var minutes: Int {
         timeRemaining / 60
@@ -28,6 +32,6 @@ struct MobTimer {
     }
     
     init() {
-        timeRemaining = rotationLength
+        timeRemaining = rotationLength.value
     }
 }

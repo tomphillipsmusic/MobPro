@@ -14,6 +14,10 @@ class MobSessionManager: ObservableObject {
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
     
+    var numberOfRoundsBeforeBreak: Int {
+        session.numberOfRotationsBetweenBreaks.value / 60
+    }
+    
     var timerText: String {
         if mobTimer.isTimerRunning {
             return mobTimer.formattedTime
@@ -44,7 +48,7 @@ extension MobSessionManager {
         }
         
         resetTimer()
-        let isBreakTime = currentRotationNumber == session.numberOfRotationsBetweenBreaks + 1
+        let isBreakTime = currentRotationNumber == numberOfRoundsBeforeBreak + 1
         
         if isBreakTime {
             startBreak()
@@ -53,20 +57,20 @@ extension MobSessionManager {
     
     func endBreak() {
         isOnBreak = false
-        currentRotationNumber %= session.numberOfRotationsBetweenBreaks
-        mobTimer.timeRemaining = mobTimer.rotationLength
+        currentRotationNumber = 1
+        mobTimer.timeRemaining = mobTimer.rotationLength.value
     }
     
     func setUpNextRound() {
         currentRotationNumber += 1
-        mobTimer.timeRemaining = mobTimer.rotationLength
+        mobTimer.timeRemaining = mobTimer.rotationLength.value
         shiftTeam()
         assignRoles()
     }
     
     func startBreak() {
         isOnBreak = true
-        mobTimer.timeRemaining = session.breakLengthInSeconds
+        mobTimer.timeRemaining = session.breakLengthInSeconds.value
         startTime()
     }
 

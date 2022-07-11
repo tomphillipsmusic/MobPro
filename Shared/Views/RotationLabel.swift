@@ -12,7 +12,7 @@ struct RotationLabel: View {
     
     var body: some View {
         if !vm.isOnBreak {
-            Text("Rotation \(vm.currentRotationNumber) / \(vm.session.numberOfRotationsBetweenBreaks)")
+            Text("Rotation \(vm.currentRotationNumber) / \(vm.numberOfRoundsBeforeBreak)")
                 .font(.title2)
                 .bold()
         }

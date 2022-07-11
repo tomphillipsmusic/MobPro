@@ -16,11 +16,9 @@ struct ContentView: View {
             VStack {
                 if vm.isEditing {                    
                     TabView {
-                        ForEach(vm.session.configurations) { configuration in
-                            let index = vm.session.configurations.firstIndex { $0.id == configuration.id}
-                            CircleSelector(configuration: $vm.session.configurations[index!])
-                                
-                        }
+                        CircleSelector(configuration: $vm.mobTimer.rotationLength)
+                        CircleSelector(configuration: $vm.session.numberOfRotationsBetweenBreaks)
+                        CircleSelector(configuration: $vm.session.breakLengthInSeconds)
                     }
                     .frame(minHeight: UIScreen.main.bounds.height * 0.42)
                     .tabViewStyle(.page(indexDisplayMode: .always))

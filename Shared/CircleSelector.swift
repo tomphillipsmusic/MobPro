@@ -10,22 +10,12 @@ import SwiftUI
 struct CircleSelector: View {
     @Binding var configuration: Configuration
     @State private var size = UIScreen.main.bounds.width - 120
-    @State private var progress: CGFloat
-    @State private var angle: Double
     
     var minutes: Int {
-        Int(progress * CGFloat(configuration.maxValue)) / 60
+        Int(configuration.progress * CGFloat(configuration.maxValue)) / 60
     }
 
     let lineWidth: CGFloat = 25.0
-    
-    init(configuration: Binding<Configuration>) {
-        _configuration = configuration
-        let progress = CGFloat(configuration.wrappedValue.value) / CGFloat(configuration.wrappedValue.maxValue)
-        _progress = State(initialValue: progress)
-        _angle = State(initialValue: Double(progress * Double(360)))
-
-    }
     
     var body: some View {
         VStack {
@@ -42,7 +32,7 @@ struct CircleSelector: View {
                 
                 // Progress
                 Circle()
-                    .trim(from: 0, to: progress)
+                    .trim(from: 0, to: configuration.progress)
                     .stroke(Color(configuration.color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .frame(width: size, height: size)
                     .rotationEffect(.init(degrees: -90))
@@ -59,7 +49,7 @@ struct CircleSelector: View {
                     .fill(Color(configuration.color))
                     .frame(width: lineWidth * 2, height: lineWidth * 2)
                     .offset(x: size / 2)
-                    .rotationEffect(.init(degrees: angle))
+                    .rotationEffect(.init(degrees: configuration.angle))
                     .gesture(DragGesture().onChanged(onDrag(value:)))
                     .rotationEffect(.init(degrees: -90))
                 
@@ -68,8 +58,6 @@ struct CircleSelector: View {
                     Text("\(minutes)")
                         .font(
                         .largeTitle)
-
-// DEBUG Only                    Text("\(configuration.value)")
 
                     if configuration.isTimeValue {
                         Text("Minutes")
@@ -104,9 +92,9 @@ struct CircleSelector: View {
             
             // Progress
             let progress = angle / 360
-            self.progress = progress
-            self.configuration.value = Int(progress * CGFloat(configuration.maxValue)) / 60
-            self.angle = Double(angle)
+            self.configuration.progress = progress
+            self.configuration.value = minutes * 60
+            self.configuration.angle = Double(angle)
         }
     }
 }

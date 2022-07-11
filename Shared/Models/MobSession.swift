@@ -8,15 +8,10 @@
 import Foundation
 
 struct MobSession {
-    var numberOfRotationsBetweenBreaks: Int = 2
-    var breakLengthInSeconds: Int = 10
     var teamMembers: [TeamMember] = sampleTeam
     var isActive = false
-    var configurations = [
-        Configuration(value: 7 * 60, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen"),
-        Configuration(value: 5, maxValue: 10 * 60, isTimeValue: false, label: "Rounds Between Breaks", color: "MobYellowGreen"),
-        Configuration(value: 5, maxValue: 60 * 30, isTimeValue: true, label: "Break Length", color: "MobOrange")
-    ]
+    var breakLengthInSeconds = Configuration(value: 5 * 60, maxValue: 60 * 30, isTimeValue: true, label: "Break Length", color: "MobOrange")
+    var numberOfRotationsBetweenBreaks = Configuration(value: 5 * 60, maxValue: 10 * 60, isTimeValue: false, label: "Rounds Between Breaks", color: "MobYellowGreen")
 }
 
 struct TeamMember: Identifiable, Equatable {
@@ -33,6 +28,17 @@ struct Configuration: Identifiable {
     let label: String
     let color: String
     var progress: Double = 0
+    var angle: Double
+    
+    init(value: Int, maxValue: Int, isTimeValue: Bool, label: String, color: String) {
+        self.value = value
+        self.maxValue = maxValue
+        self.isTimeValue = isTimeValue
+        self.label = label
+        self.color = color
+        progress = Double(value) / Double(maxValue)
+        angle = Double(progress * Double(360))
+    }
 }
 
 enum Role {
