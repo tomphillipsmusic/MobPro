@@ -13,6 +13,23 @@ struct TimerCountdown: View {
 
     let lineWidth: CGFloat = 25.0
     
+    
+    var timerColor: Color {
+        let timeRemaining = Double(vm.mobTimer.timeRemaining)
+        let rotationLength = Double(vm.mobTimer.rotationLength.value)
+        if timeRemaining >= rotationLength * 0.8 {
+            return .mobGreen
+        } else if timeRemaining >= rotationLength * 0.6 {
+            return .mobYellowGreen
+        } else if timeRemaining >= rotationLength * 0.4 {
+            return .mobYellow
+        } else if timeRemaining >= rotationLength * 0.2 {
+            return .mobOrange
+        } else {
+            return .mobRed
+        }
+    }
+    
     var body: some View {
         VStack {
 
@@ -27,13 +44,13 @@ struct TimerCountdown: View {
                 // Progress
                 Circle()
                     .trim(from: 0, to: CGFloat(CGFloat(vm.mobTimer.timeRemaining) / CGFloat(vm.mobTimer.rotationLength.value)))
-                    .stroke(Color.mobGreen, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                    .stroke(timerColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .frame(width: size, height: size)
                     .rotationEffect(.init(degrees: -90))
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
                 
                 Circle()
-                    .fill((Color.mobGreen))
+                    .fill((timerColor))
                     .frame(width: lineWidth * 2, height: lineWidth * 1.5)
                     .offset(x: size / 2)
                     .rotationEffect(.init(degrees: Double((Double(vm.mobTimer.timeRemaining) / Double(vm.mobTimer.rotationLength.value)) * 360.0)))
@@ -59,7 +76,7 @@ struct TimerCountdown: View {
                         })
                     }
                 }
-                .foregroundColor(.mobGreen)
+                .foregroundColor(timerColor)
                 .font(.largeTitle)
                                 
             }
