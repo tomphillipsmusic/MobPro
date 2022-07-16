@@ -35,6 +35,10 @@ struct MobTimer {
         Double(Double(timeRemaining) / Double(rotationLength.value))
     }
     
+    var degrees: Double {
+        Double((Double(timeRemaining) / Double(rotationLength.value)) * 360.0)
+    }
+    
     init() {
         timeRemaining = rotationLength.value
     }

@@ -30,30 +30,20 @@ struct CircleSelector: View {
                     .stroke(Color.mobGray, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
                 
-                // Progress
-//                Circle()
-//                    .trim(from: 0, to: configuration.progress)
-//                    .stroke(Color(configuration.color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-//                    .frame(width: size, height: size)
-//                    .rotationEffect(.init(degrees: -90))
-                
                 ProgressCircle(progress: configuration.progress, color: Color(configuration.color))
-                
-                // Inner Finish Curve
+
+                //Drag Circle
 //                Circle()
-//                    .fill(Color.white)
-//                    .frame(width: 55, height: 55)
+//                    .fill(Color(configuration.color))
+//                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
 //                    .offset(x: size / 2)
+//                    .rotationEffect(.init(degrees: configuration.angle))
+//                    .gesture(DragGesture().onChanged(onDrag(value:)))
 //                    .rotationEffect(.init(degrees: -90))
                 
-                //Drag Circle
-                Circle()
-                    .fill(Color(configuration.color))
-                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
-                    .offset(x: size / 2)
-                    .rotationEffect(.init(degrees: configuration.angle))
+                CurrentValueCircle(color: Color(configuration.color), degrees: configuration.angle)
                     .gesture(DragGesture().onChanged(onDrag(value:)))
-                    .rotationEffect(.init(degrees: -90))
+                        .rotationEffect(.init(degrees: -90))
                 
                 
                 VStack {

@@ -41,22 +41,19 @@ struct TimerCountdown: View {
                     .stroke(Color.mobGray, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
                 
-                // Progress
-//                Circle()
-//                    .trim(from: 0, to: CGFloat(CGFloat(vm.mobTimer.timeRemaining) / CGFloat(vm.mobTimer.rotationLength.value)))
-//                    .stroke(timerColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-//                    .frame(width: size, height: size)
-//                    .rotationEffect(.init(degrees: -90))
-//                    .animation(.linear, value: vm.mobTimer.timeRemaining)
-                
                 ProgressCircle(progress: vm.mobTimer.timerProgress, color: timerColor)
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
                 
-                Circle()
-                    .fill((timerColor))
-                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
-                    .offset(x: size / 2)
-                    .rotationEffect(.init(degrees: Double((Double(vm.mobTimer.timeRemaining) / Double(vm.mobTimer.rotationLength.value)) * 360.0)))
+//                // Time indicator
+//                Circle()
+//                    .fill((timerColor))
+//                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
+//                    .offset(x: size / 2)
+//                    .rotationEffect(.init(degrees: Double((Double(vm.mobTimer.timeRemaining) / Double(vm.mobTimer.rotationLength.value)) * 360.0)))
+//                    .rotationEffect(.init(degrees: -90))
+//                    .animation(.linear, value: vm.mobTimer.timeRemaining)
+                
+                CurrentValueCircle(color: timerColor, degrees: vm.mobTimer.degrees)
                     .rotationEffect(.init(degrees: -90))
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
 
@@ -110,6 +107,22 @@ struct ProgressCircle: View {
             .rotationEffect(.init(degrees: -90))
     }
 }
+
+struct CurrentValueCircle: View {
+    @State private var size = UIScreen.main.bounds.width - 120
+    let color: Color
+    let lineWidth: CGFloat = 25.0
+    let degrees: Double
+
+    var body: some View {
+        Circle()
+            .fill((color))
+            .frame(width: lineWidth * 2, height: lineWidth * 1.5)
+            .offset(x: size / 2)
+            .rotationEffect(.init(degrees: degrees))
+    }
+}
+
 
 struct TimerCountdown_Previews: PreviewProvider {
     static var previews: some View {
