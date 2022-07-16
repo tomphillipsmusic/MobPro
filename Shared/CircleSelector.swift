@@ -53,19 +53,19 @@ struct CircleSelector: View {
         
         // Converting to angle
         
-        var angle = radians * 180 / .pi
+        var angle = radians * (Constants.degreesInACircle / 2) / .pi
         
         // 0 to 360
         if angle < 0 {
-            angle = 360 + angle
+            angle = Constants.degreesInACircle + angle
         }
         
         withAnimation(Animation.linear(duration: 0.15)) {
             
             // Progress
-            let progress = angle / 360
+            let progress = angle / Constants.degreesInACircle
             self.configuration.progress = progress
-            self.configuration.value = configuration.formattedValue * 60
+            self.configuration.value = configuration.formattedValue * Constants.secondsPerMinute
             self.configuration.angle = Double(angle)
         }
     }
@@ -73,6 +73,6 @@ struct CircleSelector: View {
 
 struct CircleSelector_Previews: PreviewProvider {
     static var previews: some View {
-        CircleSelector(configuration: .constant(Configuration(value: 7, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen")))
+        CircleSelector(configuration: .constant(Configuration(value: 7, maxValue: 60 * Constants.secondsPerMinute, isTimeValue: true, label: "Round Length", color: "MobGreen")))
     }
 }
