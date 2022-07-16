@@ -60,6 +60,11 @@ struct TimerCountdown: View {
                 
                 
                 VStack {
+                    
+                    if vm.isOnBreak {
+                        Text("BREAK")
+                    }
+                    
                     Text("\(vm.timerText)")
                         .font(
                         .largeTitle)

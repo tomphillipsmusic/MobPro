@@ -71,7 +71,7 @@ extension MobSessionManager {
     func startBreak() {
         isOnBreak = true
         mobTimer.timeRemaining = session.breakLengthInSeconds.value
-        startTime()
+        startTimer()
     }
 
     private func shiftTeam() {
@@ -122,11 +122,11 @@ extension MobSessionManager {
         if mobTimer.isTimerRunning {
             resetTimer()
         } else {
-            startTime()
+            startTimer()
         }
     }
     
-    private func startTime() {
+    private func startTimer() {
         mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.mobTimer.timeRemaining == 0 {
                 self.setUpNewRotation()
