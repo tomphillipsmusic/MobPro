@@ -42,11 +42,14 @@ struct TimerCountdown: View {
                     .frame(width: size, height: size)
                 
                 // Progress
-                Circle()
-                    .trim(from: 0, to: CGFloat(CGFloat(vm.mobTimer.timeRemaining) / CGFloat(vm.mobTimer.rotationLength.value)))
-                    .stroke(timerColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-                    .frame(width: size, height: size)
-                    .rotationEffect(.init(degrees: -90))
+//                Circle()
+//                    .trim(from: 0, to: CGFloat(CGFloat(vm.mobTimer.timeRemaining) / CGFloat(vm.mobTimer.rotationLength.value)))
+//                    .stroke(timerColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+//                    .frame(width: size, height: size)
+//                    .rotationEffect(.init(degrees: -90))
+//                    .animation(.linear, value: vm.mobTimer.timeRemaining)
+                
+                ProgressCircle(progress: vm.mobTimer.timerProgress, color: timerColor)
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
                 
                 Circle()
@@ -57,8 +60,6 @@ struct TimerCountdown: View {
                     .rotationEffect(.init(degrees: -90))
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
 
-                
-                
                 VStack {
                     
                     if vm.isOnBreak {
@@ -94,6 +95,22 @@ struct TimerCountdown: View {
         }
     }
 }
+
+struct ProgressCircle: View {
+    var progress: Double
+    @State private var size = UIScreen.main.bounds.width - 120
+    var color: Color
+    let lineWidth: CGFloat = 25.0
+    
+    var body: some View {
+        Circle()
+            .trim(from: 0, to: progress)
+            .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+            .frame(width: size, height: size)
+            .rotationEffect(.init(degrees: -90))
+    }
+}
+
 struct TimerCountdown_Previews: PreviewProvider {
     static var previews: some View {
         TimerCountdown()

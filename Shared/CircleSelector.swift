@@ -31,11 +31,13 @@ struct CircleSelector: View {
                     .frame(width: size, height: size)
                 
                 // Progress
-                Circle()
-                    .trim(from: 0, to: configuration.progress)
-                    .stroke(Color(configuration.color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-                    .frame(width: size, height: size)
-                    .rotationEffect(.init(degrees: -90))
+//                Circle()
+//                    .trim(from: 0, to: configuration.progress)
+//                    .stroke(Color(configuration.color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+//                    .frame(width: size, height: size)
+//                    .rotationEffect(.init(degrees: -90))
+                
+                ProgressCircle(progress: configuration.progress, color: Color(configuration.color))
                 
                 // Inner Finish Curve
 //                Circle()

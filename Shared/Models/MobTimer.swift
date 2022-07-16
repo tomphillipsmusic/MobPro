@@ -31,6 +31,10 @@ struct MobTimer {
         "\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
     }
     
+    var timerProgress: Double {
+        Double(Double(timeRemaining) / Double(rotationLength.value))
+    }
+    
     init() {
         timeRemaining = rotationLength.value
     }
