@@ -13,23 +13,6 @@ struct TimerCountdown: View {
 
     let lineWidth: CGFloat = 25.0
     
-    
-    var timerColor: Color {
-        let timeRemaining = Double(vm.mobTimer.timeRemaining)
-        let rotationLength = Double(vm.mobTimer.rotationLength.value)
-        if timeRemaining >= rotationLength * 0.8 {
-            return .mobGreen
-        } else if timeRemaining >= rotationLength * 0.6 {
-            return .mobYellowGreen
-        } else if timeRemaining >= rotationLength * 0.4 {
-            return .mobYellow
-        } else if timeRemaining >= rotationLength * 0.2 {
-            return .mobOrange
-        } else {
-            return .mobRed
-        }
-    }
-    
     var body: some View {
         VStack {
 
@@ -37,23 +20,11 @@ struct TimerCountdown: View {
                 Circle()
                     .frame(width: size, height: size)
                     .foregroundColor(.mobGray)
-                Circle()
-                    .stroke(Color.mobGray, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
-                    .frame(width: size, height: size)
                 
-                ProgressCircle(progress: vm.mobTimer.timerProgress, color: timerColor)
+                ProgressCircle(progress: vm.mobTimer.timerProgress, color: vm.mobTimer.color)
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
                 
-//                // Time indicator
-//                Circle()
-//                    .fill((timerColor))
-//                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
-//                    .offset(x: size / 2)
-//                    .rotationEffect(.init(degrees: Double((Double(vm.mobTimer.timeRemaining) / Double(vm.mobTimer.rotationLength.value)) * 360.0)))
-//                    .rotationEffect(.init(degrees: -90))
-//                    .animation(.linear, value: vm.mobTimer.timeRemaining)
-                
-                CurrentValueCircle(color: timerColor, degrees: vm.mobTimer.degrees)
+                CurrentValueCircle(color: vm.mobTimer.color, degrees: vm.mobTimer.degrees)
                     .rotationEffect(.init(degrees: -90))
                     .animation(.linear, value: vm.mobTimer.timeRemaining)
 
@@ -79,49 +50,15 @@ struct TimerCountdown: View {
                         })
                     }
                 }
-                .foregroundColor(timerColor)
+                .foregroundColor(vm.mobTimer.color)
                 .font(.largeTitle)
                                 
             }
             .padding()
-//            Text("Time Remaining: \(vm.mobTimer.timeRemaining)")
-//            Text("Rotation Length: \(vm.mobTimer.rotationLength.value)")
-//
-//            Text("Progress: \(CGFloat(vm.mobTimer.timeRemaining / vm.mobTimer.rotationLength.value))")
-//            Text("Angle: \(Double((vm.mobTimer.timeRemaining / vm.mobTimer.rotationLength.value) * 360))")
         }
     }
 }
 
-struct ProgressCircle: View {
-    var progress: Double
-    @State private var size = UIScreen.main.bounds.width - 120
-    var color: Color
-    let lineWidth: CGFloat = 25.0
-    
-    var body: some View {
-        Circle()
-            .trim(from: 0, to: progress)
-            .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-            .frame(width: size, height: size)
-            .rotationEffect(.init(degrees: -90))
-    }
-}
-
-struct CurrentValueCircle: View {
-    @State private var size = UIScreen.main.bounds.width - 120
-    let color: Color
-    let lineWidth: CGFloat = 25.0
-    let degrees: Double
-
-    var body: some View {
-        Circle()
-            .fill((color))
-            .frame(width: lineWidth * 2, height: lineWidth * 1.5)
-            .offset(x: size / 2)
-            .rotationEffect(.init(degrees: degrees))
-    }
-}
 
 
 struct TimerCountdown_Previews: PreviewProvider {

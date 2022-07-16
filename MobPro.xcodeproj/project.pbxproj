@@ -29,13 +29,14 @@
 		3E128FE028778B15007D18DB /* MobTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDE28778B15007D18DB /* MobTimer.swift */; };
 		3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
 		3E128FE3287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
-		3E128FFF287B2ED3007D18DB /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FFE287B2ED3007D18DB /* CircleTest.swift */; };
-		3E129000287B2ED3007D18DB /* CircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FFE287B2ED3007D18DB /* CircleTest.swift */; };
 		3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3E6175DF287C9F98004EB19B /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* TimerCountdown.swift */; };
 		3E6175E0287C9F98004EB19B /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* TimerCountdown.swift */; };
 		3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */; };
+		3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4EF28832669004B57C0 /* ProgressCircle.swift */; };
+		3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */; };
+		3E74F4F4288327E4004B57C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4F3288327E4004B57C0 /* Constants.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
@@ -56,10 +57,12 @@
 		3E128FDB287787BF007D18DB /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		3E128FDE28778B15007D18DB /* MobTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimer.swift; sourceTree = "<group>"; };
 		3E128FE1287797AA007D18DB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
-		3E128FFE287B2ED3007D18DB /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
 		3E129004287B3A30007D18DB /* CircleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleSelector.swift; path = Shared/CircleSelector.swift; sourceTree = SOURCE_ROOT; };
 		3E6175DE287C9F98004EB19B /* TimerCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCountdown.swift; sourceTree = "<group>"; };
 		3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSessionView.swift; sourceTree = "<group>"; };
+		3E74F4EF28832669004B57C0 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
+		3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentValueCircle.swift; sourceTree = "<group>"; };
+		3E74F4F3288327E4004B57C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
 		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				3E128FD0287742EC007D18DB /* MobSessionManager.swift */,
-				3E128FFE287B2ED3007D18DB /* CircleTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -125,6 +127,8 @@
 			children = (
 				3E129004287B3A30007D18DB /* CircleSelector.swift */,
 				3E128FC7287740AD007D18DB /* SymbolButton.swift */,
+				3E74F4EF28832669004B57C0 /* ProgressCircle.swift */,
+				3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA31E26287729AA00972DB5 /* MobProApp.swift */,
+				3E74F4F3288327E4004B57C0 /* Constants.swift */,
 				3E128FD5287746FB007D18DB /* Views */,
 				3E128FD4287746EF007D18DB /* ViewModel */,
 				3E128FD3287746DD007D18DB /* Models */,
@@ -279,15 +284,17 @@
 				3E6175DF287C9F98004EB19B /* TimerCountdown.swift in Sources */,
 				3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */,
 				3E128FCE28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
+				3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */,
 				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */,
-				3E128FFF287B2ED3007D18DB /* CircleTest.swift in Sources */,
 				3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */,
 				3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */,
+				3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */,
 				3E128FDC287787BF007D18DB /* TimerView.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
+				3E74F4F4288327E4004B57C0 /* Constants.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
 				3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */,
@@ -305,7 +312,6 @@
 				3E128FCF28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
 				3E128FC0287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */,
-				3E129000287B2ED3007D18DB /* CircleTest.swift in Sources */,
 				3E128FC328773ABB007D18DB /* TeamMemberList.swift in Sources */,
 				3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */,
 				3E128FDD287787BF007D18DB /* TimerView.swift in Sources */,

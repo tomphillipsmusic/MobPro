@@ -5,7 +5,7 @@
 //  Created by Tom Phillips on 7/7/22.
 //
 
-import Foundation
+import SwiftUI
 
 struct MobTimer {
     var timer: Timer? = nil
@@ -37,6 +37,22 @@ struct MobTimer {
     
     var degrees: Double {
         Double((Double(timeRemaining) / Double(rotationLength.value)) * 360.0)
+    }
+    
+    var color: Color {
+        let timeRemaining = Double(timeRemaining)
+        let rotationLength = Double(rotationLength.value)
+        if timeRemaining >= rotationLength * 0.8 {
+            return .mobGreen
+        } else if timeRemaining >= rotationLength * 0.6 {
+            return .mobYellowGreen
+        } else if timeRemaining >= rotationLength * 0.4 {
+            return .mobYellow
+        } else if timeRemaining >= rotationLength * 0.2 {
+            return .mobOrange
+        } else {
+            return .mobRed
+        }
     }
     
     init() {

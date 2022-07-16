@@ -9,13 +9,6 @@ import SwiftUI
 
 struct CircleSelector: View {
     @Binding var configuration: Configuration
-    @State private var size = UIScreen.main.bounds.width - 120
-    
-    var minutes: Int {
-        Int(configuration.progress * CGFloat(configuration.maxValue)) / 60
-    }
-
-    let lineWidth: CGFloat = 25.0
     
     var body: some View {
         VStack {
@@ -24,30 +17,17 @@ struct CircleSelector: View {
                 .font(.title2)
             ZStack {
                 Circle()
-                    .frame(width: size, height: size)
+                    .frame(width: Constants.circleSize, height: Constants.circleSize)
                     .foregroundColor(.mobGray)
-                Circle()
-                    .stroke(Color.mobGray, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
-                    .frame(width: size, height: size)
                 
                 ProgressCircle(progress: configuration.progress, color: Color(configuration.color))
-
-                //Drag Circle
-//                Circle()
-//                    .fill(Color(configuration.color))
-//                    .frame(width: lineWidth * 2, height: lineWidth * 1.5)
-//                    .offset(x: size / 2)
-//                    .rotationEffect(.init(degrees: configuration.angle))
-//                    .gesture(DragGesture().onChanged(onDrag(value:)))
-//                    .rotationEffect(.init(degrees: -90))
                 
                 CurrentValueCircle(color: Color(configuration.color), degrees: configuration.angle)
                     .gesture(DragGesture().onChanged(onDrag(value:)))
                         .rotationEffect(.init(degrees: -90))
                 
-                
                 VStack {
-                    Text("\(minutes)")
+                    Text("\(configuration.formattedValue)")
                         .font(
                         .largeTitle)
 
@@ -69,7 +49,7 @@ struct CircleSelector: View {
         let vector = CGVector(dx: value.location.x, dy: value.location.y)
         
         // Eliminating drag gesture size. Since size is 55, radius is 27.5
-        let radians = atan2(vector.dy - (lineWidth / 2), vector.dx - (lineWidth / 2))
+        let radians = atan2(vector.dy - (Constants.lineWidth / 2), vector.dx - (Constants.lineWidth / 2))
         
         // Converting to angle
         
@@ -85,7 +65,7 @@ struct CircleSelector: View {
             // Progress
             let progress = angle / 360
             self.configuration.progress = progress
-            self.configuration.value = minutes * 60
+            self.configuration.value = configuration.formattedValue * 60
             self.configuration.angle = Double(angle)
         }
     }

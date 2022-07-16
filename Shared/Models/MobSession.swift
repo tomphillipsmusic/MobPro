@@ -30,6 +30,10 @@ struct Configuration: Identifiable {
     var progress: Double = 0
     var angle: Double
     
+    var formattedValue: Int {
+        (Int(progress * Double(maxValue)) / 60)
+    }
+    
     init(value: Int, maxValue: Int, isTimeValue: Bool, label: String, color: String) {
         self.value = value
         self.maxValue = maxValue
