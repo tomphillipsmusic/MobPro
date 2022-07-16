@@ -10,11 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var vm: MobSessionManager
     @State private var editMode = EditMode.inactive
+    @State private var showingEndSessionAlert = false
     
     var body: some View {
         NavigationView {
             VStack {
-                if vm.isEditing {                    
+                if vm.isEditing {
                     ConfigureSessionView()
                 } else {
                     RotationLabel()
@@ -34,10 +35,25 @@ struct ContentView: View {
                 
                 TeamMemberList()
                     .environment(\.editMode, $editMode)
+                
+                if vm.isEditing {
+                    RoundedRectangleButton(label: "End Mobbing Session", color: .mobRed) {
+                        showingEndSessionAlert = true
+                    }
+                    .padding()
+                }
             }
             .toolbar {
                 logo
                 toggleSettingsButton
+            }
+            .alert("Are You Sure You Want to End Your Mobbing Session?", isPresented: $showingEndSessionAlert) {
+                Button("Cancel", role: .cancel) {
+                    showingEndSessionAlert = false
+                }
+                Button("End Session", role: .destructive) {
+                    vm.endSession()
+                }
             }
         }
     }
@@ -48,8 +64,8 @@ struct ContentView: View {
                 vm.shuffleTeam()
             }
         }, symbolName: "shuffle", color: .mobOrange)
-            .font(.title)
-            .padding(.trailing, 30)
+        .font(.title)
+        .padding(.trailing, 30)
     }
 }
 

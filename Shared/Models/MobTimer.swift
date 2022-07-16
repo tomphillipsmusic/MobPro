@@ -9,18 +9,20 @@ import SwiftUI
 
 struct MobTimer {
     var timer: Timer? = nil
-    var rotationLength = Configuration(value: 7 * 60, maxValue: 60 * 60, isTimeValue: true, label: "Round Length", color: "MobGreen") {
+    var timeRemaining: Int
+    
+    var rotationLength = Configuration(value: 7 * Constants.secondsPerMinute, maxValue: 60 * Constants.secondsPerMinute, isTimeValue: true, label: "Round Length", color: "MobGreen") {
         didSet {
             timeRemaining = rotationLength.value
         }
     }
-    var timeRemaining: Int
+    
     var minutes: Int {
-        timeRemaining / 60
+        timeRemaining / Constants.secondsPerMinute
     }
     
     var seconds: Int {
-        timeRemaining % 60
+        timeRemaining % Constants.secondsPerMinute
     }
     
     var isTimerRunning: Bool {
@@ -36,7 +38,7 @@ struct MobTimer {
     }
     
     var degrees: Double {
-        Double((Double(timeRemaining) / Double(rotationLength.value)) * 360.0)
+        Double((Double(timeRemaining) / Double(rotationLength.value)) * Constants.degreesInACircle)
     }
     
     var color: Color {

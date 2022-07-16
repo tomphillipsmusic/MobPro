@@ -31,6 +31,15 @@ class MobSessionManager: ObservableObject {
 // MARK: Team Management Logic
 extension MobSessionManager {
     
+    func endSession() {
+        currentRotationNumber = 1
+        mobTimer.timer = nil
+        mobTimer.timeRemaining = mobTimer.rotationLength.value
+        isOnBreak = false
+        isEditing = false
+        session.teamMembers = []
+    }
+    
     func shuffleTeam() {
         session.teamMembers.shuffle()
         assignRoles()
@@ -56,20 +65,20 @@ extension MobSessionManager {
         }
     }
     
-    func endBreak() {
+    private func endBreak() {
         isOnBreak = false
         currentRotationNumber = 1
         mobTimer.timeRemaining = mobTimer.rotationLength.value
     }
     
-    func setUpNextRound() {
+    private func setUpNextRound() {
         currentRotationNumber += 1
         mobTimer.timeRemaining = mobTimer.rotationLength.value
         shiftTeam()
         assignRoles()
     }
     
-    func startBreak() {
+    private func startBreak() {
         isOnBreak = true
         mobTimer.timeRemaining = session.breakLengthInSeconds.value
         startTimer()
