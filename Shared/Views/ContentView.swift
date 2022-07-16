@@ -15,15 +15,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 if vm.isEditing {                    
-                    TabView {
-                        CircleSelector(configuration: $vm.mobTimer.rotationLength)
-                        CircleSelector(configuration: $vm.session.numberOfRotationsBetweenBreaks)
-                        CircleSelector(configuration: $vm.session.breakLengthInSeconds)
-                    }
-                    .frame(minHeight: UIScreen.main.bounds.height * 0.42)
-                    .tabViewStyle(.page(indexDisplayMode: .always))
-                    .padding()
-                    
+                    ConfigureSessionView()
                 } else {
                     RotationLabel()
                     if vm.mobTimer.isTimerRunning {

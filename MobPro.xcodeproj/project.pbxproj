@@ -35,6 +35,7 @@
 		3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3E6175DF287C9F98004EB19B /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* TimerCountdown.swift */; };
 		3E6175E0287C9F98004EB19B /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* TimerCountdown.swift */; };
+		3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
@@ -58,6 +59,7 @@
 		3E128FFE287B2ED3007D18DB /* CircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTest.swift; sourceTree = "<group>"; };
 		3E129004287B3A30007D18DB /* CircleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleSelector.swift; path = Shared/CircleSelector.swift; sourceTree = SOURCE_ROOT; };
 		3E6175DE287C9F98004EB19B /* TimerCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCountdown.swift; sourceTree = "<group>"; };
+		3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSessionView.swift; sourceTree = "<group>"; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
 		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				3E128FD62877471C007D18DB /* Components */,
 				3EA31E27287729AA00972DB5 /* ContentView.swift */,
+				3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */,
 				3E128FDB287787BF007D18DB /* TimerView.swift */,
 				3E6175DE287C9F98004EB19B /* TimerCountdown.swift */,
 				3E128FC428773F1A007D18DB /* RotationLabel.swift */,
@@ -287,6 +290,7 @@
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
+				3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */,
 				3E128FC8287740AD007D18DB /* SymbolButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
