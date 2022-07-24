@@ -26,6 +26,9 @@ class MobSessionManager: ObservableObject {
         }
     }
     
+    var isTeamValid: Bool {
+        session.teamMembers.count > 1
+    }
 }
 
 // MARK: Team Management Logic
