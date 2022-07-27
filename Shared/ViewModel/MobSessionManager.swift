@@ -171,7 +171,7 @@ extension MobSessionManager {
                       
     func movedToBackground() {
         print("Moving to the background")
-        notificationDate = Date()
+        movedToBackgroundDate = Date()
         resetTimer()
     }
     
