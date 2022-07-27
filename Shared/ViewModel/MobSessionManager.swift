@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class MobSessionManager: ObservableObject {
     @Published var session = MobSession()
@@ -13,6 +14,7 @@ class MobSessionManager: ObservableObject {
     @Published var isEditing = false
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
+    @Published var movedToBackgroundDate = Date()
     
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
@@ -26,6 +28,9 @@ class MobSessionManager: ObservableObject {
         }
     }
     
+    var isTeamValid: Bool {
+        session.teamMembers.count > 1
+    }
 }
 
 // MARK: Team Management Logic
@@ -133,6 +138,7 @@ extension MobSessionManager {
             resetTimer()
         } else {
             startTimer()
+            scheduleLocalNotification()
         }
     }
     
@@ -149,5 +155,46 @@ extension MobSessionManager {
     private func resetTimer() {
         mobTimer.timer?.invalidate()
         mobTimer.timer = nil
+    }
+}
+
+// MARK: Custom User Notifications
+extension MobSessionManager {
+    func requestPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge , .sound]) { success, error in
+            if success {
+                print("Permission Granted!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+                      
+    func movedToBackground() {
+        print("Moving to the background")
+        movedToBackgroundDate = Date()
+        resetTimer()
+    }
+    
+    func movingToForeGround() {
+        print("Moving to the foreground")
+        if mobTimer.timeRemaining < mobTimer.rotationLength.value {
+            let deltaTime = Int(Date().timeIntervalSince(movedToBackgroundDate))
+            
+            mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
+            startTimer()
+        }
+    }
+    
+    func scheduleLocalNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "\(isOnBreak ? "Break" : "Round") has ended."
+        content.body = "Tap to return to MobPro"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(mobTimer.rotationLength.value), repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
     }
 }

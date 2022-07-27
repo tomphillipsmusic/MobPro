@@ -55,6 +55,13 @@ struct ContentView: View {
                     vm.endSession()
                 }
             }
+            .onAppear(perform: vm.requestPermission)
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
+                vm.movedToBackground()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                vm.movingToForeGround()
+            }
         }
     }
     

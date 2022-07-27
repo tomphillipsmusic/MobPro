@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TimerView: View {
     @EnvironmentObject var vm: MobSessionManager
-    
     var body: some View {
         ZStack {
             Circle()
@@ -17,6 +16,14 @@ struct TimerView: View {
                 .padding()
                 .animation(.default, value: vm.isOnBreak)
                 .animation(.default, value: vm.mobTimer.isTimerRunning)
+                .opacity(vm.isTeamValid ? 1 : 0.5)
+                .onTapGesture {
+                    if vm.isTeamValid {
+                        withAnimation {
+                            vm.timerTapped()
+                        }
+                    }
+                }
             VStack {
                 
                 if vm.isOnBreak {
@@ -34,6 +41,7 @@ struct TimerView: View {
                     }, label: {
                         Image(systemName: vm.mobTimer.isTimerRunning ? "pause.fill" : "play.fill")
                     })
+                    .disabled(!vm.isTeamValid)
                 }
             }
             .font(.largeTitle)
