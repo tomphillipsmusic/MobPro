@@ -138,6 +138,7 @@ extension MobSessionManager {
             resetTimer()
         } else {
             startTimer()
+            scheduleLocalNotification()
         }
     }
     
@@ -183,5 +184,17 @@ extension MobSessionManager {
             mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
             startTimer()
         }
+    }
+    
+    func scheduleLocalNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "\(isOnBreak ? "Break" : "Round") has ended."
+        content.body = "Tap to return to MobPro"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(mobTimer.rotationLength.value), repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
     }
 }
