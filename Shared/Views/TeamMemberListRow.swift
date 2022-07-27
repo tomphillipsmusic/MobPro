@@ -10,14 +10,19 @@ import SwiftUI
 struct TeamMemberListRow: View {
     var teamMember: TeamMember
     @EnvironmentObject var vm: MobSessionManager
-    @State private var isShowingDeleteAlert = false
+    @State private var isShowingRoleDescription = false
 
     var body: some View {
         HStack {
             Text(teamMember.name)
             Spacer()
             
-            SymbolButton(action: {}, symbolName: teamMember.role.symbolName, color: .blue)
+            SymbolButton(action: {
+                isShowingRoleDescription.toggle()
+            }, symbolName: teamMember.role.symbolName, color: .blue)
+        }
+        .popover(isPresented: $isShowingRoleDescription) {
+            RoleDescriptionView(role: teamMember.role)
         }
     }
 }

@@ -45,36 +45,12 @@ struct Configuration: Identifiable {
     }
 }
 
-enum Role {
-    case driver
-    case navigator
-    case researcher
-    case sponsor
-    case observer
-    
-    var symbolName: String {
-        switch self {
-            
-        case .driver:
-            return "car"
-        case .navigator:
-            return "globe.europe.africa"
-        case .researcher:
-            return "text.book.closed"
-        case .sponsor:
-            return "hands.clap"
-        case .observer:
-            return "person.3"
-        }
-    }
-}
-
 // MARK: Test Data
 extension MobSession {
     static let sampleTeam = [
         TeamMember(name: "Tom", role: .driver),
         TeamMember(name: "Zoe", role: .navigator),
         TeamMember(name: "Tyriq", role: .researcher),
-        TeamMember(name: "Arlaya", role: .sponsor)
+        TeamMember(name: "Arlaya", role: .researcher)
     ]
 }
