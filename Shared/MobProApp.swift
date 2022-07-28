@@ -13,7 +13,7 @@ struct MobProApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MobSessionView()
                 .environmentObject(mobSessionManager)
         }
     }

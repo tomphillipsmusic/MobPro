@@ -17,7 +17,6 @@ class MobSessionManager: ObservableObject {
     @Published var movedToBackgroundDate = Date()
     @Published var isKeyboardPresented = false
 
-    
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
     }
@@ -162,7 +161,7 @@ extension MobSessionManager {
 
 // MARK: Custom User Notifications
 extension MobSessionManager {
-    func requestPermission() {
+    func requestNotificationPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge , .sound]) { success, error in
             if success {
                 print("Permission Granted!")

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TimerCountdown: View {
+struct ActiveTimerView: View {
     @EnvironmentObject var vm: MobSessionManager
     @State private var size = UIScreen.main.bounds.width - 120
 
@@ -46,7 +46,7 @@ struct TimerCountdown: View {
                                 vm.timerTapped()
                             }
                         }, label: {
-                            Image(systemName: vm.mobTimer.isTimerRunning ? "pause.fill" : "play.fill")
+                            Image(systemName: "pause.fill")
                         })
                     }
                 }
@@ -63,7 +63,7 @@ struct TimerCountdown: View {
 
 struct TimerCountdown_Previews: PreviewProvider {
     static var previews: some View {
-        TimerCountdown()
+        ActiveTimerView()
             .environmentObject(MobSessionManager())
 
     }

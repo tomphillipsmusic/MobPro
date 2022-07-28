@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MobSessionView: View {
     @AppStorage("firstTimeUser") var showingInfoSheet = true
     @EnvironmentObject var vm: MobSessionManager
-    @State private var editMode = EditMode.inactive
+    @State internal var editMode = EditMode.inactive
     @State private var showingEndSessionAlert = false
     
     var body: some View {
@@ -21,20 +21,12 @@ struct ContentView: View {
                     if vm.isEditing {
                         ConfigureSessionView()
                     } else {
-                        RotationLabel()
-                        if vm.mobTimer.isTimerRunning {
-                            TimerCountdown()
-                        } else {
-                            TimerView()
-                        }
+                        MobTimerView(isTimerRunning: vm.mobTimer.isTimerRunning)
                     }
                     HStack {
                         infoButton
                         Spacer()
-                        
-                        if !vm.mobTimer.isTimerRunning {
-                            shuffleButton
-                        }
+                        shuffleButton
                     }
                 }
                 
@@ -63,7 +55,7 @@ struct ContentView: View {
             .sheet(isPresented: $showingInfoSheet) {
                 OnboardingView(firstTime: $showingInfoSheet)
             }
-            .onAppear(perform: vm.requestPermission)
+            .onAppear(perform: vm.requestNotificationPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
                 vm.movedToBackground()
             }
@@ -76,60 +68,11 @@ struct ContentView: View {
             .animation(.spring(), value: vm.isKeyboardPresented)
         }
     }
-    
-    var infoButton: some View {
-        SymbolButton(action: {
-            showingInfoSheet = true
-        }, symbolName: "info.circle", color: .mobOrange)
-        .font(.title)
-        .padding(.leading, 30)
-    }
-    
-    var shuffleButton: some View {
-        SymbolButton(action: {
-            withAnimation {
-                vm.shuffleTeam()
-            }
-        }, symbolName: "shuffle", color: .mobOrange)
-        .font(.title)
-        .padding(.trailing, 30)
-    }
-}
-
-// MARK: Navigation Toolbar Items
-extension ContentView {
-    var logo: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            Image("MobProLogo")
-        }
-    }
-    
-    var toggleSettingsButton: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: {
-                withAnimation {
-                    if editMode == .inactive {
-                        editMode = .active
-                    } else if editMode == .active{
-                        editMode = .inactive
-                    }
-                    vm.isEditing.toggle()
-                }
-            }, label: {
-                if vm.isEditing {
-                    Text("Save")
-                        .foregroundColor(.mobGreen)
-                } else {
-                    Image(systemName: "gear")
-                }
-            })
-        }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MobSessionView()
             .environmentObject(MobSessionManager())
     }
 }

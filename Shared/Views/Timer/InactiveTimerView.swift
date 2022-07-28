@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct TimerView: View {
+struct InactiveTimerView: View {
     @EnvironmentObject var vm: MobSessionManager
+    
     var body: some View {
         ZStack {
             Circle()
@@ -39,7 +40,7 @@ struct TimerView: View {
                             vm.timerTapped()
                         }
                     }, label: {
-                        Image(systemName: vm.mobTimer.isTimerRunning ? "pause.fill" : "play.fill")
+                        Image(systemName: "play.fill")
                     })
                     .disabled(!vm.isTeamValid)
                 }
@@ -52,7 +53,7 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        InactiveTimerView()
             .environmentObject(MobSessionManager())
     }
 }

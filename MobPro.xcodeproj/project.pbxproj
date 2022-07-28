@@ -23,16 +23,16 @@
 		3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD0287742EC007D18DB /* MobSessionManager.swift */; };
 		3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD828776D52007D18DB /* Color+Extension.swift */; };
 		3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FD828776D52007D18DB /* Color+Extension.swift */; };
-		3E128FDC287787BF007D18DB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDB287787BF007D18DB /* TimerView.swift */; };
-		3E128FDD287787BF007D18DB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDB287787BF007D18DB /* TimerView.swift */; };
+		3E128FDC287787BF007D18DB /* InactiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDB287787BF007D18DB /* InactiveTimerView.swift */; };
+		3E128FDD287787BF007D18DB /* InactiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDB287787BF007D18DB /* InactiveTimerView.swift */; };
 		3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDE28778B15007D18DB /* MobTimer.swift */; };
 		3E128FE028778B15007D18DB /* MobTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FDE28778B15007D18DB /* MobTimer.swift */; };
 		3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
 		3E128FE3287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
 		3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
-		3E6175DF287C9F98004EB19B /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* TimerCountdown.swift */; };
-		3E6175E0287C9F98004EB19B /* TimerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* TimerCountdown.swift */; };
+		3E6175DF287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
+		3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
 		3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */; };
 		3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4EF28832669004B57C0 /* ProgressCircle.swift */; };
 		3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */; };
@@ -40,8 +40,8 @@
 		3E74F4F628835412004B57C0 /* RoundedRectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4F528835412004B57C0 /* RoundedRectangleButton.swift */; };
 		3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
 		3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E26287729AA00972DB5 /* MobProApp.swift */; };
-		3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
-		3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* ContentView.swift */; };
+		3EA31E38287729AB00972DB5 /* MobSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* MobSessionView.swift */; };
+		3EA31E39287729AB00972DB5 /* MobSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* MobSessionView.swift */; };
 		3EA31E3A287729AB00972DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA31E28287729AB00972DB5 /* Assets.xcassets */; };
 		3EA31E3B287729AB00972DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA31E28287729AB00972DB5 /* Assets.xcassets */; };
 		3EACA7442891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
@@ -55,6 +55,14 @@
 		3EACA75128921A9B001FF168 /* View+KeyboardReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75028921A9B001FF168 /* View+KeyboardReadable.swift */; };
 		3EACA75228921B92001FF168 /* View+KeyboardReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75028921A9B001FF168 /* View+KeyboardReadable.swift */; };
 		3EACA75428921DEF001FF168 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75328921DEF001FF168 /* UIApplication+EndEditing.swift */; };
+		3EACA75928922770001FF168 /* OnboardingDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75828922770001FF168 /* OnboardingDetailRow.swift */; };
+		3EACA75A28922770001FF168 /* OnboardingDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75828922770001FF168 /* OnboardingDetailRow.swift */; };
+		3EACA75C289229AC001FF168 /* MobTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75B289229AC001FF168 /* MobTimerView.swift */; };
+		3EACA75D289229AC001FF168 /* MobTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75B289229AC001FF168 /* MobTimerView.swift */; };
+		3EACA75F28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */; };
+		3EACA76028922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */; };
+		3EACA76228922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */; };
+		3EACA76328922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,18 +74,18 @@
 		3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberRow.swift; sourceTree = "<group>"; };
 		3E128FD0287742EC007D18DB /* MobSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSessionManager.swift; sourceTree = "<group>"; };
 		3E128FD828776D52007D18DB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		3E128FDB287787BF007D18DB /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		3E128FDB287787BF007D18DB /* InactiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveTimerView.swift; sourceTree = "<group>"; };
 		3E128FDE28778B15007D18DB /* MobTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimer.swift; sourceTree = "<group>"; };
 		3E128FE1287797AA007D18DB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		3E129004287B3A30007D18DB /* CircleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleSelector.swift; path = Shared/CircleSelector.swift; sourceTree = SOURCE_ROOT; };
-		3E6175DE287C9F98004EB19B /* TimerCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCountdown.swift; sourceTree = "<group>"; };
+		3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimerView.swift; sourceTree = "<group>"; };
 		3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSessionView.swift; sourceTree = "<group>"; };
 		3E74F4EF28832669004B57C0 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentValueCircle.swift; sourceTree = "<group>"; };
 		3E74F4F3288327E4004B57C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E74F4F528835412004B57C0 /* RoundedRectangleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButton.swift; sourceTree = "<group>"; };
 		3EA31E26287729AA00972DB5 /* MobProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobProApp.swift; sourceTree = "<group>"; };
-		3EA31E27287729AA00972DB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3EA31E27287729AA00972DB5 /* MobSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSessionView.swift; sourceTree = "<group>"; };
 		3EA31E28287729AB00972DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EA31E2D287729AB00972DB5 /* MobPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA31E33287729AB00972DB5 /* MobPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +96,10 @@
 		3EACA74C28920C4F001FF168 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		3EACA75028921A9B001FF168 /* View+KeyboardReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+KeyboardReadable.swift"; sourceTree = "<group>"; };
 		3EACA75328921DEF001FF168 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		3EACA75828922770001FF168 /* OnboardingDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDetailRow.swift; sourceTree = "<group>"; };
+		3EACA75B289229AC001FF168 /* MobTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimerView.swift; sourceTree = "<group>"; };
+		3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobSessionView+NavigationToolbarItems.swift"; sourceTree = "<group>"; };
+		3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobSessionView+MiddleButtons.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,17 +141,13 @@
 		3E128FD5287746FB007D18DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3EACA76428922E7D001FF168 /* MobSessionView */,
+				3EACA75728922756001FF168 /* Onboarding */,
+				3EACA75628922710001FF168 /* Timer */,
+				3EACA755289226FB001FF168 /* TeamMemberList */,
 				3E128FD62877471C007D18DB /* Components */,
-				3EA31E27287729AA00972DB5 /* ContentView.swift */,
 				3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */,
-				3E128FDB287787BF007D18DB /* TimerView.swift */,
-				3E6175DE287C9F98004EB19B /* TimerCountdown.swift */,
-				3E128FC428773F1A007D18DB /* RotationLabel.swift */,
-				3E128FC128773ABB007D18DB /* TeamMemberList.swift */,
-				3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */,
-				3E128FCA28774193007D18DB /* TeamMemberListRow.swift */,
 				3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */,
-				3EACA74928920C1E001FF168 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +214,46 @@
 				3EA31E35287729AB00972DB5 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		3EACA755289226FB001FF168 /* TeamMemberList */ = {
+			isa = PBXGroup;
+			children = (
+				3E128FCD28774205007D18DB /* AddTeamMemberRow.swift */,
+				3E128FC128773ABB007D18DB /* TeamMemberList.swift */,
+				3E128FCA28774193007D18DB /* TeamMemberListRow.swift */,
+			);
+			path = TeamMemberList;
+			sourceTree = "<group>";
+		};
+		3EACA75628922710001FF168 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				3E128FDB287787BF007D18DB /* InactiveTimerView.swift */,
+				3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */,
+				3E128FC428773F1A007D18DB /* RotationLabel.swift */,
+				3EACA75B289229AC001FF168 /* MobTimerView.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		3EACA75728922756001FF168 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3EACA74928920C1E001FF168 /* OnboardingView.swift */,
+				3EACA75828922770001FF168 /* OnboardingDetailRow.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		3EACA76428922E7D001FF168 /* MobSessionView */ = {
+			isa = PBXGroup;
+			children = (
+				3EA31E27287729AA00972DB5 /* MobSessionView.swift */,
+				3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */,
+				3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */,
+			);
+			path = MobSessionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,20 +356,24 @@
 			files = (
 				3E128FCB28774193007D18DB /* TeamMemberListRow.swift in Sources */,
 				3EACA75428921DEF001FF168 /* UIApplication+EndEditing.swift in Sources */,
-				3E6175DF287C9F98004EB19B /* TimerCountdown.swift in Sources */,
+				3E6175DF287C9F98004EB19B /* ActiveTimerView.swift in Sources */,
 				3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */,
 				3E128FCE28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
 				3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */,
 				3E74F4F628835412004B57C0 /* RoundedRectangleButton.swift in Sources */,
+				3EACA75C289229AC001FF168 /* MobTimerView.swift in Sources */,
 				3EACA74D28920C4F001FF168 /* CloseButton.swift in Sources */,
 				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
-				3EA31E38287729AB00972DB5 /* ContentView.swift in Sources */,
+				3EA31E38287729AB00972DB5 /* MobSessionView.swift in Sources */,
+				3EACA76228922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */,
 				3EACA7442891D56A001FF168 /* Role.swift in Sources */,
+				3EACA75928922770001FF168 /* OnboardingDetailRow.swift in Sources */,
 				3EACA7472891D7B3001FF168 /* RoleDescriptionView.swift in Sources */,
 				3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3EACA75F28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */,
 				3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */,
 				3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */,
-				3E128FDC287787BF007D18DB /* TimerView.swift in Sources */,
+				3E128FDC287787BF007D18DB /* InactiveTimerView.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
@@ -341,24 +393,28 @@
 			files = (
 				3E128FCC28774193007D18DB /* TeamMemberListRow.swift in Sources */,
 				3EACA75228921B92001FF168 /* View+KeyboardReadable.swift in Sources */,
-				3E6175E0287C9F98004EB19B /* TimerCountdown.swift in Sources */,
+				3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */,
 				3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */,
 				3EACA74B28920C1E001FF168 /* OnboardingView.swift in Sources */,
 				3E128FCF28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
 				3E128FC0287732E5007D18DB /* MobSession.swift in Sources */,
-				3EA31E39287729AB00972DB5 /* ContentView.swift in Sources */,
+				3EA31E39287729AB00972DB5 /* MobSessionView.swift in Sources */,
 				3E128FC328773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3EACA76028922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */,
 				3EACA7452891D56A001FF168 /* Role.swift in Sources */,
 				3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */,
+				3EACA75A28922770001FF168 /* OnboardingDetailRow.swift in Sources */,
 				3EACA74E28920C4F001FF168 /* CloseButton.swift in Sources */,
-				3E128FDD287787BF007D18DB /* TimerView.swift in Sources */,
+				3E128FDD287787BF007D18DB /* InactiveTimerView.swift in Sources */,
 				3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3EACA7482891D7B3001FF168 /* RoleDescriptionView.swift in Sources */,
+				3EACA75D289229AC001FF168 /* MobTimerView.swift in Sources */,
 				3E128FE028778B15007D18DB /* MobTimer.swift in Sources */,
 				3E128FC628773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E128FE3287797AA007D18DB /* Array+Extension.swift in Sources */,
 				3E128FC9287740AD007D18DB /* SymbolButton.swift in Sources */,
+				3EACA76328922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = PU4JAM9L7Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -489,7 +545,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = PU4JAM9L7Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -521,7 +577,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
