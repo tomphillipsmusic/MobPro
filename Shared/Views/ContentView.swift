@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("firstTimeUser") var firstTime = true
     @EnvironmentObject var vm: MobSessionManager
     @State private var editMode = EditMode.inactive
     @State private var showingEndSessionAlert = false
@@ -54,6 +55,9 @@ struct ContentView: View {
                 Button("End Session", role: .destructive) {
                     vm.endSession()
                 }
+            }
+            .sheet(isPresented: $firstTime) {
+                OnboardingView(firstTime: $firstTime)
             }
             .onAppear(perform: vm.requestPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
