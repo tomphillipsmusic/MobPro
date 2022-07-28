@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingDetailRow: View {
     let symbol: String
     let text: String
+    let color: Color
     
     var body: some View {
         HStack {
@@ -19,12 +20,11 @@ struct OnboardingDetailRow: View {
                 .frame(width: 32)
                 .scaledToFit()
                 .padding()
-                .foregroundColor(.mobYellow)
+                .foregroundColor(color)
             
             Text(text)
-                .foregroundColor(.mobGreen)
                 .font(.body)
-            
+                .padding(.trailing)
         }
     }
 }

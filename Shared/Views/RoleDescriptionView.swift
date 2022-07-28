@@ -17,16 +17,15 @@ struct RoleDescriptionView: View {
             Text("You are \(role == .researcher ? "a" : "the") \(role.rawValue) \(Image(systemName: role.symbolName))")
                 .font(.largeTitle)
                 .padding()
-            
+                .foregroundColor(role.color)
+
             VStack(alignment: .leading) {
-                ForEach(role.responsibilities, id:\.self) { responsibility in
-                    Text("- \(responsibility)")
-                        .padding()
+                ForEach(role.responsibilities, id:\.text) { responsibility in
+                    OnboardingDetailRow(symbol: responsibility.symbol, text: responsibility.text, color: responsibility.color)
                 }
             }
             Spacer()
         }
-        .foregroundColor(.mobGreen)
     }
 }
 
