@@ -33,7 +33,7 @@ struct OnboardingView: View {
                 OnboardingDetailRow(symbol: "person.3.fill", text: "Easily adjust your mob as you go so you never have to stop coding as your mob changes", color: .mobYellowGreen)
             }
         
-            RoundedRectangleButton(label: "Start Mobbing", color: .mobGreen, action: {
+            RoundedRectangleButton(label: "Start Mobbing", color: .mobGreenButtonBG, action: {
                 firstTime = false
                 dismiss()
             })
