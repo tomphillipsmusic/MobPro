@@ -21,6 +21,10 @@ struct OnboardingView: View {
                 .padding()
             
             Image("MobProLogo")
+                .resizable()
+                .scaledToFit()
+                .padding(.vertical, 5)
+                .padding(.horizontal, 60)
 
             Text("A state of the art tool that helps facilitate the practice of mob programming for coders of all levels")
                 .font(.headline)
