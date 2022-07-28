@@ -15,6 +15,8 @@ class MobSessionManager: ObservableObject {
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
     @Published var movedToBackgroundDate = Date()
+    @Published var isKeyboardPresented = false
+
     
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
