@@ -159,8 +159,9 @@ extension MobSessionManager {
     }
 }
 
-// MARK: Custom User Notifications
+// MARK: Timer End Notification
 extension MobSessionManager {
+    static let timerEndNotification = "timerEndNotification"
     func requestNotificationPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge , .sound]) { success, error in
             if success {
@@ -187,13 +188,18 @@ extension MobSessionManager {
         }
     }
     
+    func applicationTerminating() {
+        print("App terminating")
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.timerEndNotification])
+    }
+    
     func scheduleLocalNotification() {
         let content = UNMutableNotificationContent()
         content.title = "\(isOnBreak ? "Break" : "Round") has ended."
         content.sound = .default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(mobTimer.rotationLength.value), repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: Self.timerEndNotification, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
     }
