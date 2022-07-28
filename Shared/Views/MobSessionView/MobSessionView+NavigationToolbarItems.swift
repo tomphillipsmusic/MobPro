@@ -12,6 +12,9 @@ extension MobSessionView {
     var logo: some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Image("MobProLogo")
+                .resizable()
+                .scaledToFit()
+                .padding(5)
         }
     }
     

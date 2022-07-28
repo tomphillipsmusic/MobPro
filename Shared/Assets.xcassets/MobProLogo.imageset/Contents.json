@@ -1,17 +1,42 @@
 {
   "images" : [
     {
-      "filename" : "MobProLogo.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "MobProLogoLM.png",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "MobProLogoDM.png",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "appearances" : [
+        {
+          "appearance" : "contrast",
+          "value" : "high"
+        }
+      ],
+      "filename" : "MobProLogoLMHC.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        },
+        {
+          "appearance" : "contrast",
+          "value" : "high"
+        }
+      ],
+      "filename" : "MobProLogoDMHC.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
