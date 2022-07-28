@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MobSessionView: View {
     @AppStorage("firstTimeUser") var showingInfoSheet = true
     @EnvironmentObject var vm: MobSessionManager
     @State private var editMode = EditMode.inactive
@@ -97,7 +97,7 @@ struct ContentView: View {
 }
 
 // MARK: Navigation Toolbar Items
-extension ContentView {
+extension MobSessionView {
     var logo: some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Image("MobProLogo")
@@ -129,7 +129,7 @@ extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MobSessionView()
             .environmentObject(MobSessionManager())
     }
 }
