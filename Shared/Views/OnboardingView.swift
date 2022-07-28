@@ -37,10 +37,16 @@ struct OnboardingView: View {
                 firstTime = false
                 dismiss()
             })
-                .padding()
             
-            RoundedRectangleButton(label: "Learn More", color: .mobOrange, action: {})
-                .padding()
+            Link(destination: URL(string: "https://www.pluralsight.com/blog/software-development/mob-programming-101")!, label: {
+                Text("Learn More")
+                    .frame(minWidth: 20, maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Rectangle().fill(Color.mobOrange))
+                    .padding()
+                    .shadow(radius: 3.0)
+            })
         }
     }
     

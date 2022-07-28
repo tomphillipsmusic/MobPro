@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("firstTimeUser") var firstTime = true
+    @AppStorage("firstTimeUser") var showingInfoSheet = true
     @EnvironmentObject var vm: MobSessionManager
     @State private var editMode = EditMode.inactive
     @State private var showingEndSessionAlert = false
@@ -57,8 +57,8 @@ struct ContentView: View {
                     vm.endSession()
                 }
             }
-            .sheet(isPresented: $firstTime) {
-                OnboardingView(firstTime: $firstTime)
+            .sheet(isPresented: $showingInfoSheet) {
+                OnboardingView(firstTime: $showingInfoSheet)
             }
             .onAppear(perform: vm.requestPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
@@ -72,7 +72,7 @@ struct ContentView: View {
     
     var infoButton: some View {
         SymbolButton(action: {
-            firstTime = true
+            showingInfoSheet = true
         }, symbolName: "info.circle", color: .mobOrange)
         .font(.title)
         .padding(.leading, 30)
