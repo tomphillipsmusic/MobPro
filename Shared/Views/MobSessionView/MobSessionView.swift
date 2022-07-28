@@ -34,7 +34,7 @@ struct MobSessionView: View {
                     .environment(\.editMode, $editMode)
                 
                 if vm.isEditing {
-                    RoundedRectangleButton(label: "End Mobbing Session", color: .mobRed) {
+                    RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
                         showingEndSessionAlert = true
                     }
                     .padding()

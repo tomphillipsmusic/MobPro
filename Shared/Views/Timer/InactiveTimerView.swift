@@ -13,7 +13,7 @@ struct InactiveTimerView: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(vm.isOnBreak ? .mobOrange : .mobGreen)
+                .foregroundColor(vm.isOnBreak ? .mobOrangeButtonBG : .mobGreenButtonBG)
                 .padding()
                 .animation(.default, value: vm.isOnBreak)
                 .animation(.default, value: vm.mobTimer.isTimerRunning)

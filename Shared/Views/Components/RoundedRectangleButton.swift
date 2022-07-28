@@ -20,9 +20,11 @@ struct RoundedRectangleButton: View {
                 .frame(minWidth: 20, maxWidth: .infinity)
                 .foregroundColor(.white)
                 .padding()
-                .background(Rectangle().fill(color))
+                .background {
+                    RoundedRectangle(cornerRadius: 10.0).fill(color)
+                        .shadow(radius: 3.0)
+                }
                 .padding()
-                .shadow(radius: 3.0)
         }
     }
 }
