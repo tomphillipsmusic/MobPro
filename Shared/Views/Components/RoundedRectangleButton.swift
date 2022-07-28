@@ -13,11 +13,17 @@ struct RoundedRectangleButton: View {
     let action: () -> Void
     
     var body: some View {
-        Button(label, action: action)
-        .foregroundColor(.white)
-        .buttonStyle(.borderedProminent)
-        .tint(.mobRed)
-        .controlSize(.large)
+        Button {
+            action()
+        } label: {
+            Text(label)
+                .frame(minWidth: 20, maxWidth: .infinity)
+                .foregroundColor(.white)
+                .padding()
+                .background(Rectangle().fill(color))
+                .padding()
+                .shadow(radius: 3.0)
+        }
     }
 }
 

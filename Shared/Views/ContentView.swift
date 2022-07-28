@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("firstTimeUser") var showingInfoSheet = true
     @EnvironmentObject var vm: MobSessionManager
     @State private var editMode = EditMode.inactive
     @State private var showingEndSessionAlert = false
@@ -26,6 +27,7 @@ struct ContentView: View {
                     }
                 }
                 HStack {
+                    infoButton
                     Spacer()
                     
                     if !vm.mobTimer.isTimerRunning {
@@ -55,6 +57,9 @@ struct ContentView: View {
                     vm.endSession()
                 }
             }
+            .sheet(isPresented: $showingInfoSheet) {
+                OnboardingView(firstTime: $showingInfoSheet)
+            }
             .onAppear(perform: vm.requestPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
                 vm.movedToBackground()
@@ -63,6 +68,14 @@ struct ContentView: View {
                 vm.movingToForeGround()
             }
         }
+    }
+    
+    var infoButton: some View {
+        SymbolButton(action: {
+            showingInfoSheet = true
+        }, symbolName: "info.circle", color: .mobOrange)
+        .font(.title)
+        .padding(.leading, 30)
     }
     
     var shuffleButton: some View {

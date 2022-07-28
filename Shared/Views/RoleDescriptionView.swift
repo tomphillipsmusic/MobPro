@@ -13,18 +13,7 @@ struct RoleDescriptionView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Image(systemName: "x.circle")
-                        .font(.largeTitle)
-                        .foregroundColor(.mobOrange)
-                        .padding()
-                })
-            }
-            //Spacer()
+            CloseButton()
             Text("You are \(role == .researcher ? "a" : "the") \(role.rawValue) \(Image(systemName: role.symbolName))")
                 .font(.largeTitle)
                 .padding()
