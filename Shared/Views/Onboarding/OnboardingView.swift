@@ -43,7 +43,6 @@ struct OnboardingView: View {
                     .frame(minWidth: 20, maxWidth: .infinity)
                     .foregroundColor(.mobYellow)
                     .padding()
-                   // .background(Rectangle().fill(Color.mobYellowGreen))
             })
         }
     }
