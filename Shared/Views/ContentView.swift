@@ -27,6 +27,7 @@ struct ContentView: View {
                     }
                 }
                 HStack {
+                    infoButton
                     Spacer()
                     
                     if !vm.mobTimer.isTimerRunning {
@@ -67,6 +68,14 @@ struct ContentView: View {
                 vm.movingToForeGround()
             }
         }
+    }
+    
+    var infoButton: some View {
+        SymbolButton(action: {
+            firstTime = true
+        }, symbolName: "info.circle", color: .mobOrange)
+        .font(.title)
+        .padding(.leading, 30)
     }
     
     var shuffleButton: some View {
