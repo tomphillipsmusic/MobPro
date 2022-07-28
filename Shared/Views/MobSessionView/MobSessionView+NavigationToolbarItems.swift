@@ -32,6 +32,7 @@ extension MobSessionView {
                         .foregroundColor(.mobGreen)
                 } else {
                     Image(systemName: "gear")
+                        .foregroundColor(.mobOrange)
                 }
             })
         }

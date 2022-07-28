@@ -19,7 +19,7 @@ struct TeamMemberListRow: View {
             
             SymbolButton(action: {
                 isShowingRoleDescription.toggle()
-            }, symbolName: teamMember.role.symbolName, color: .blue)
+            }, symbolName: teamMember.role.symbolName, color: teamMember.role.color)
         }
         .popover(isPresented: $isShowingRoleDescription) {
             RoleDescriptionView(role: teamMember.role)
