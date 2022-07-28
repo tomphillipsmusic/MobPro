@@ -20,6 +20,11 @@ struct AddTeamMemberRow: View {
                 SymbolButton(action: addMember, symbolName: "plus", color: .mobGreen)
             }
         }
+        .onReceive(keyboardPublisher) { value in
+            if !newMemberName.isEmpty && !value {
+                addMember()
+            }
+        }
     }
     
     func addMember() {
@@ -27,6 +32,9 @@ struct AddTeamMemberRow: View {
             vm.addMember(named: newMemberName)
             newMemberName = ""
         }
+        
+        UIApplication.shared.endEditing()
+        vm.isKeyboardPresented = false
     }
 }
 

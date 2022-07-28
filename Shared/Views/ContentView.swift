@@ -16,22 +16,25 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if vm.isEditing {
-                    ConfigureSessionView()
-                } else {
-                    RotationLabel()
-                    if vm.mobTimer.isTimerRunning {
-                        TimerCountdown()
+                
+                if !vm.isKeyboardPresented {
+                    if vm.isEditing {
+                        ConfigureSessionView()
                     } else {
-                        TimerView()
+                        RotationLabel()
+                        if vm.mobTimer.isTimerRunning {
+                            TimerCountdown()
+                        } else {
+                            TimerView()
+                        }
                     }
-                }
-                HStack {
-                    infoButton
-                    Spacer()
-                    
-                    if !vm.mobTimer.isTimerRunning {
-                        shuffleButton
+                    HStack {
+                        infoButton
+                        Spacer()
+                        
+                        if !vm.mobTimer.isTimerRunning {
+                            shuffleButton
+                        }
                     }
                 }
                 
@@ -67,6 +70,10 @@ struct ContentView: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                 vm.movingToForeGround()
             }
+            .onReceive(keyboardPublisher) { value in
+                vm.isKeyboardPresented = value
+            }
+            .animation(.spring(), value: vm.isKeyboardPresented)
         }
     }
     
