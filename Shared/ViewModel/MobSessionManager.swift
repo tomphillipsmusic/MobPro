@@ -189,7 +189,6 @@ extension MobSessionManager {
     func scheduleLocalNotification() {
         let content = UNMutableNotificationContent()
         content.title = "\(isOnBreak ? "Break" : "Round") has ended."
-        content.body = "Tap to return to MobPro"
         content.sound = .default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(mobTimer.rotationLength.value), repeats: false)
