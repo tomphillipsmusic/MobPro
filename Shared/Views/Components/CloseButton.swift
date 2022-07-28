@@ -21,7 +21,8 @@ struct CloseButton: View {
                     .foregroundColor(.mobRed)
                     .padding()
             })
-        }    }
+        }
+    }
 }
 
 struct CloseButton_Previews: PreviewProvider {
