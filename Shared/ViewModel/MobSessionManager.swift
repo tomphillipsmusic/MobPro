@@ -75,6 +75,7 @@ extension MobSessionManager {
         isOnBreak = false
         currentRotationNumber = 1
         mobTimer.timeRemaining = mobTimer.rotationLength.value
+        mobTimer.rotationLength.value = mobTimer.rotationLength.value
     }
     
     private func setUpNextRound() {
@@ -87,6 +88,7 @@ extension MobSessionManager {
     private func startBreak() {
         isOnBreak = true
         mobTimer.timeRemaining = session.breakLengthInSeconds.value
+        mobTimer.rotationLength.value = session.breakLengthInSeconds.value
         startTimer()
     }
 
