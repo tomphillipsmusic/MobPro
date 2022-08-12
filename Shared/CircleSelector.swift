@@ -68,6 +68,8 @@ struct CircleSelector: View {
             self.configuration.value = configuration.formattedValue * Constants.secondsPerMinute
             self.configuration.angle = Double(angle)
         }
+        
+        HapticsManager.shared.configurationValueChange(progress: Float(configuration.progress))
     }
 }
 
