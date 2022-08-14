@@ -63,6 +63,7 @@ extension MobSessionManager {
             setUpNextRound()
         }
         
+        HapticsManager.shared.timerEnd()
         resetTimer()
         let isBreakTime = currentRotationNumber == numberOfRoundsBeforeBreak + 1
         
@@ -188,6 +189,8 @@ extension MobSessionManager {
             mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
             startTimer()
         }
+        
+        HapticsManager.shared.prepareHaptics()
     }
     
     func applicationTerminating() {

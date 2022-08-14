@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0D0D3F289EDCB60027F464 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */; };
+		3E0D0D40289EDCB60027F464 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */; };
 		3E128FBF287732E5007D18DB /* MobSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FBE287732E5007D18DB /* MobSession.swift */; };
 		3E128FC0287732E5007D18DB /* MobSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FBE287732E5007D18DB /* MobSession.swift */; };
 		3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FC128773ABB007D18DB /* TeamMemberList.swift */; };
@@ -68,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		3E128FBE287732E5007D18DB /* MobSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSession.swift; sourceTree = "<group>"; };
 		3E128FC128773ABB007D18DB /* TeamMemberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberList.swift; sourceTree = "<group>"; };
 		3E128FC428773F1A007D18DB /* RotationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLabel.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 				3E128FDE28778B15007D18DB /* MobTimer.swift */,
 				3E128FBE287732E5007D18DB /* MobSession.swift */,
 				3EACA7432891D56A001FF168 /* Role.swift */,
+				3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -374,6 +378,7 @@
 				3EACA76228922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */,
 				3EACA7442891D56A001FF168 /* Role.swift in Sources */,
 				3EACA75928922770001FF168 /* OnboardingDetailRow.swift in Sources */,
+				3E0D0D3F289EDCB60027F464 /* HapticsManager.swift in Sources */,
 				3EACA7472891D7B3001FF168 /* RoleDescriptionView.swift in Sources */,
 				3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */,
 				3EACA75F28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */,
@@ -400,6 +405,7 @@
 				3E128FCC28774193007D18DB /* TeamMemberListRow.swift in Sources */,
 				3EACA75228921B92001FF168 /* View+KeyboardReadable.swift in Sources */,
 				3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */,
+				3E0D0D40289EDCB60027F464 /* HapticsManager.swift in Sources */,
 				3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */,
 				3EACA74B28920C1E001FF168 /* OnboardingView.swift in Sources */,
 				3E128FCF28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
