@@ -16,9 +16,7 @@ struct ConfigureSessionView: View {
             CircleSelector(configuration: $vm.session.numberOfRotationsBetweenBreaks)
             CircleSelector(configuration: $vm.session.breakLengthInSeconds)
         }
-        .frame(minHeight: UIScreen.main.bounds.height * 0.42)
         .tabViewStyle(.page(indexDisplayMode: .always))
-        .padding()
     }
 }
 

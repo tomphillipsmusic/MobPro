@@ -37,7 +37,6 @@ struct MobSessionView: View {
                     RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
                         showingEndSessionAlert = true
                     }
-                    .padding()
                 }
             }
             .toolbar {
