@@ -41,7 +41,6 @@ extension MobSessionView {
                 }
             })
             .disabled(vm.mobTimer.isTimerRunning)
-            .hapticFeedbackOnTap(style: .heavy)
         }
     }
 }

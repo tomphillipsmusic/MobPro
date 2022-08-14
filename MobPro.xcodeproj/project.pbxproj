@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3E0D0D3F289EDCB60027F464 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */; };
 		3E0D0D40289EDCB60027F464 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */; };
-		3E0D0D42289EEC160027F464 /* View+HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D0D41289EEC160027F464 /* View+HapticFeedback.swift */; };
-		3E0D0D43289EEC160027F464 /* View+HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D0D41289EEC160027F464 /* View+HapticFeedback.swift */; };
 		3E128FBF287732E5007D18DB /* MobSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FBE287732E5007D18DB /* MobSession.swift */; };
 		3E128FC0287732E5007D18DB /* MobSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FBE287732E5007D18DB /* MobSession.swift */; };
 		3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FC128773ABB007D18DB /* TeamMemberList.swift */; };
@@ -73,7 +71,6 @@
 
 /* Begin PBXFileReference section */
 		3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
-		3E0D0D41289EEC160027F464 /* View+HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+HapticFeedback.swift"; sourceTree = "<group>"; };
 		3E128FBE287732E5007D18DB /* MobSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobSession.swift; sourceTree = "<group>"; };
 		3E128FC128773ABB007D18DB /* TeamMemberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberList.swift; sourceTree = "<group>"; };
 		3E128FC428773F1A007D18DB /* RotationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLabel.swift; sourceTree = "<group>"; };
@@ -182,7 +179,6 @@
 				3EACA75028921A9B001FF168 /* View+KeyboardReadable.swift */,
 				3E128FE1287797AA007D18DB /* Array+Extension.swift */,
 				3EACA75328921DEF001FF168 /* UIApplication+EndEditing.swift */,
-				3E0D0D41289EEC160027F464 /* View+HapticFeedback.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,7 +388,6 @@
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
-				3E0D0D42289EEC160027F464 /* View+HapticFeedback.swift in Sources */,
 				3E74F4F4288327E4004B57C0 /* Constants.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
@@ -423,7 +418,6 @@
 				3EACA75A28922770001FF168 /* OnboardingDetailRow.swift in Sources */,
 				3EACA74E28920C4F001FF168 /* CloseButton.swift in Sources */,
 				3E128FDD287787BF007D18DB /* InactiveTimerView.swift in Sources */,
-				3E0D0D43289EEC160027F464 /* View+HapticFeedback.swift in Sources */,
 				3E128FD2287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E37287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3EACA7482891D7B3001FF168 /* RoleDescriptionView.swift in Sources */,

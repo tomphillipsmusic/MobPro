@@ -16,7 +16,7 @@ class HapticsManager {
         prepareHaptics()
     }
     
-    private func prepareHaptics() {
+    func prepareHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
             return
         }
