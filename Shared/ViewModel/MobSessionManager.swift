@@ -15,7 +15,11 @@ class MobSessionManager: ObservableObject {
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
     @Published var movedToBackgroundDate: Date?
-    @Published var isKeyboardPresented = false
+    @Published var isKeyboardPresented = false {
+        didSet {
+            print("Is Keyboard presented: \(isKeyboardPresented)")
+        }
+    }
 
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60

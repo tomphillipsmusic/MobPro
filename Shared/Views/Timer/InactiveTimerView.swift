@@ -45,8 +45,14 @@ struct InactiveTimerView: View {
                     .disabled(!vm.isTeamValid)
                 }
             }
+            .opacity(vm.isTeamValid ? 1 : 0.5)
             .font(.largeTitle)
             .foregroundColor(.white)
+            
+            if !vm.isTeamValid {
+                Text("You need at least two Team Members")
+                    .foregroundColor(.mobRed)
+            }
         }
     }
 }
