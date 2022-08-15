@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Constants {
-    static let circleSize = UIScreen.main.bounds.width * 0.54
+    static let circleSize = UIScreen.main.bounds.height * 0.21
     static let lineWidth: CGFloat = 25.0
     static let secondsPerMinute = 60
     static let degreesInACircle = 360.0

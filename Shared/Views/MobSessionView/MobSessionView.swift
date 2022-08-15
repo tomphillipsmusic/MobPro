@@ -30,14 +30,18 @@ struct MobSessionView: View {
                     }
                 }
                 
-                TeamMemberList()
-                    .environment(\.editMode, $editMode)
-                
-                if vm.isEditing {
-                    RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
-                        showingEndSessionAlert = true
+                VStack {
+                    TeamMemberList()
+                        .environment(\.editMode, $editMode)
+                    
+                    if vm.isEditing {
+                        RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
+                            showingEndSessionAlert = true
+                        }
                     }
                 }
+                .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
+                
             }
             .toolbar {
                 logo

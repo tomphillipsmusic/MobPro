@@ -17,7 +17,7 @@ struct ActiveTimerView: View {
 
             ZStack {
                 Circle()
-                    .frame(width: Constants.circleSize, height: Constants.circleSize)
+                    .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
 
                     .foregroundColor(.mobGray)
                 
@@ -37,7 +37,7 @@ struct ActiveTimerView: View {
                     Text("\(vm.timerText)")
                         .font(
                         .largeTitle)
-                        .padding()
+                        //.padding()
                    
                     
                     if !vm.isOnBreak {
