@@ -137,6 +137,7 @@ extension MobSessionManager {
         
         if mobTimer.isTimerRunning && !isTeamValid {
             resetTimer()
+            cancelLocalNotification()
         }
     }
     
@@ -151,6 +152,7 @@ extension MobSessionManager {
     func timerTapped() {
         if mobTimer.isTimerRunning {
             resetTimer()
+            cancelLocalNotification()
         } else {
             startTimer()
             scheduleLocalNotification()
@@ -167,7 +169,6 @@ extension MobSessionManager {
                 }
             }
         }
-        
     }
 
     private func resetTimer() {
@@ -179,6 +180,7 @@ extension MobSessionManager {
 // MARK: Timer End Notification
 extension MobSessionManager {
     static let timerEndNotification = "timerEndNotification"
+    
     func requestNotificationPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge , .sound]) { success, error in
             if success {
@@ -191,8 +193,11 @@ extension MobSessionManager {
                       
     func movedToBackground() {
         print("Moving to the background")
-        movedToBackgroundDate = Date()
-        resetTimer()
+        
+        if mobTimer.isTimerRunning {
+            movedToBackgroundDate = Date()
+            resetTimer()
+        }
     }
     
     func movingToForeGround() {
@@ -214,7 +219,7 @@ extension MobSessionManager {
     
     func applicationTerminating() {
         print("App terminating")
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.timerEndNotification])
+        cancelLocalNotification()
     }
     
     func scheduleLocalNotification() {
@@ -226,5 +231,9 @@ extension MobSessionManager {
         let request = UNNotificationRequest(identifier: Self.timerEndNotification, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    func cancelLocalNotification() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.timerEndNotification])
     }
 }
