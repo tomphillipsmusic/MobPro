@@ -18,7 +18,6 @@ struct ActiveTimerView: View {
             ZStack {
                 Circle()
                     .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
-
                     .foregroundColor(.mobGray)
                 
                 ProgressCircle(progress: vm.mobTimer.timerProgress, color: vm.mobTimer.color)
@@ -37,8 +36,6 @@ struct ActiveTimerView: View {
                     Text("\(vm.timerText)")
                         .font(
                         .largeTitle)
-                        //.padding()
-                   
                     
                     if !vm.isOnBreak {
                         Button(action: {

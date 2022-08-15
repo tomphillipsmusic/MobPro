@@ -34,7 +34,6 @@ struct InactiveTimerView: View {
                 }
                 
                 Text(vm.timerText)
-                    //.padding()
                 
                 if !vm.isOnBreak {
                     Button(action: {
