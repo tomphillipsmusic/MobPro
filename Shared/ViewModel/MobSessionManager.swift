@@ -15,11 +15,8 @@ class MobSessionManager: ObservableObject {
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
     @Published var movedToBackgroundDate: Date?
-    @Published var isKeyboardPresented = false {
-        didSet {
-            print("Is Keyboard presented: \(isKeyboardPresented)")
-        }
-    }
+    @Published var isKeyboardPresented = false
+    @Published var localNotificationService = LocalNotificationService()
 
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
@@ -137,7 +134,7 @@ extension MobSessionManager {
         
         if mobTimer.isTimerRunning && !isTeamValid {
             resetTimer()
-            cancelLocalNotification()
+            localNotificationService.cancelLocalNotification()
         }
     }
     
@@ -152,7 +149,7 @@ extension MobSessionManager {
     func timerTapped() {
         if mobTimer.isTimerRunning {
             resetTimer()
-            cancelLocalNotification()
+            localNotificationService.cancelLocalNotification()
         } else {
             startTimer()
             scheduleLocalNotification()
@@ -179,18 +176,7 @@ extension MobSessionManager {
 
 // MARK: Timer End Notification
 extension MobSessionManager {
-    static let timerEndNotification = "timerEndNotification"
-    
-    func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge , .sound]) { success, error in
-            if success {
-                print("Permission Granted!")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-                      
+
     func movedToBackground() {
         print("Moving to the background")
         
@@ -219,21 +205,12 @@ extension MobSessionManager {
     
     func applicationTerminating() {
         print("App terminating")
-        cancelLocalNotification()
+        localNotificationService.cancelLocalNotification()
     }
     
     func scheduleLocalNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "\(isOnBreak ? "Break" : "Round") has ended."
-        content.sound = .default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(mobTimer.rotationLength.value), repeats: false)
-        let request = UNNotificationRequest(identifier: Self.timerEndNotification, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request)
-    }
-    
-    func cancelLocalNotification() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.timerEndNotification])
+        let title = "\(isOnBreak ? "Break" : "Round") has ended."
+        let timeInterval = Double(mobTimer.rotationLength.value)
+        localNotificationService.scheduleLocalNotification(with: title, scheduledFor: timeInterval)
     }
 }
