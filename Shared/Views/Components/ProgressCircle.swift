@@ -15,7 +15,7 @@ struct ProgressCircle: View {
         Circle()
             .trim(from: 0, to: progress)
             .stroke(color, style: StrokeStyle(lineWidth: Constants.lineWidth, lineCap: .round))
-            .frame(width: Constants.circleSize, height: Constants.circleSize)
+            .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
             .rotationEffect(.init(degrees: -90))
     }
 }

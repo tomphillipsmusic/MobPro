@@ -17,7 +17,7 @@ struct CircleSelector: View {
                 .font(.title2)
             ZStack {
                 Circle()
-                    .frame(width: Constants.circleSize, height: Constants.circleSize)
+                    .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
                     .foregroundColor(.mobGray)
                 
                 ProgressCircle(progress: configuration.progress, color: Color(configuration.color))

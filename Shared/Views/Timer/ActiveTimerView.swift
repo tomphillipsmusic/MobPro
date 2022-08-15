@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ActiveTimerView: View {
     @EnvironmentObject var vm: MobSessionManager
-    @State private var size = UIScreen.main.bounds.width - 120
 
     let lineWidth: CGFloat = 25.0
     
@@ -18,7 +17,7 @@ struct ActiveTimerView: View {
 
             ZStack {
                 Circle()
-                    .frame(width: size, height: size)
+                    .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
                     .foregroundColor(.mobGray)
                 
                 ProgressCircle(progress: vm.mobTimer.timerProgress, color: vm.mobTimer.color)
@@ -37,8 +36,6 @@ struct ActiveTimerView: View {
                     Text("\(vm.timerText)")
                         .font(
                         .largeTitle)
-                        .padding()
-                   
                     
                     if !vm.isOnBreak {
                         Button(action: {
