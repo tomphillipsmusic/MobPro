@@ -201,6 +201,7 @@ extension MobSessionManager {
                 
                 mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
                 startTimer()
+                self.movedToBackgroundDate = nil
             }
         }
         
