@@ -22,7 +22,10 @@ class MobSessionManager: ObservableObject {
     }
     
     var timerText: String {
-        if mobTimer.isTimerRunning {
+        let shouldShowTime = mobTimer.isTimerRunning ||
+        mobTimer.timeRemaining < mobTimer.rotationLength.value
+        
+        if shouldShowTime {
             return mobTimer.formattedTime
         } else {
             return "START"
