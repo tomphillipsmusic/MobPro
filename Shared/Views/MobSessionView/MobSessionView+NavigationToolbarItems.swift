@@ -37,7 +37,7 @@ extension MobSessionView {
                     Image(systemName: "gear")
                         .foregroundColor(.mobOrange)
                         .font(.title3)
-                        .opacity(vm.mobTimer.isTimerRunning ? 0.6 : 1.0)
+                        .opacity(vm.mobTimer.isTimerRunning ? 0.5 : 1.0)
                 }
             })
             .disabled(vm.mobTimer.isTimerRunning)
