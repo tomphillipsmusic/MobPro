@@ -15,7 +15,6 @@ struct InactiveTimerView: View {
             Circle()
                 .foregroundColor(vm.isOnBreak ? .mobOrangeButtonBG : .mobGreenButtonBG)
                 .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
-
                 .padding()
                 .animation(.default, value: vm.isOnBreak)
                 .animation(.default, value: vm.mobTimer.isTimerRunning)
