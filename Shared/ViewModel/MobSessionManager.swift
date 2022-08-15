@@ -33,7 +33,7 @@ class MobSessionManager: ObservableObject {
     }
     
     var isTeamValid: Bool {
-        session.teamMembers.count > 1
+        session.teamMembers.count >= Constants.minimumNumberOfMobbers
     }
 }
 
@@ -130,6 +130,10 @@ extension MobSessionManager {
     func delete(at offsets: IndexSet) {
         session.teamMembers.remove(atOffsets: offsets)
         assignRoles()
+        
+        if mobTimer.isTimerRunning && !isTeamValid {
+            resetTimer()
+        }
     }
     
     func delete(teamMember: TeamMember) {
