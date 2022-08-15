@@ -14,7 +14,7 @@ class MobSessionManager: ObservableObject {
     @Published var isEditing = false
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
-    @Published var movedToBackgroundDate = Date()
+    @Published var movedToBackgroundDate: Date?
     @Published var isKeyboardPresented = false
 
     var numberOfRoundsBeforeBreak: Int {
@@ -147,13 +147,16 @@ extension MobSessionManager {
     }
     
     private func startTimer() {
-        mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if self.mobTimer.timeRemaining == 0 {
-                self.setUpNewRotation()
-            } else {
-                self.mobTimer.timeRemaining -= 1
+        if mobTimer.timer == nil {
+            mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.mobTimer.timeRemaining == 0 {
+                    self.setUpNewRotation()
+                } else {
+                    self.mobTimer.timeRemaining -= 1
+                }
             }
         }
+        
     }
 
     private func resetTimer() {
@@ -183,11 +186,15 @@ extension MobSessionManager {
     
     func movingToForeGround() {
         print("Moving to the foreground")
-        if mobTimer.timeRemaining < mobTimer.rotationLength.value {
-            let deltaTime = Int(Date().timeIntervalSince(movedToBackgroundDate))
+        if let movedToBackgroundDate = movedToBackgroundDate {
+            let timerHasStarted = mobTimer.timeRemaining < mobTimer.rotationLength.value
             
-            mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
-            startTimer()
+            if timerHasStarted {
+                let deltaTime = Int(Date().timeIntervalSince(movedToBackgroundDate))
+                
+                mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
+                startTimer()
+            }
         }
         
         HapticsManager.shared.prepareHaptics()
