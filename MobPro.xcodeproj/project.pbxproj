@@ -33,6 +33,8 @@
 		3E128FE3287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
 		3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
+		3E4D5AC428A9F49F002515B6 /* ConfigurationSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */; };
+		3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */; };
 		3E6175DF287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
 		3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
 		3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */; };
@@ -83,6 +85,8 @@
 		3E128FDE28778B15007D18DB /* MobTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimer.swift; sourceTree = "<group>"; };
 		3E128FE1287797AA007D18DB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		3E129004287B3A30007D18DB /* CircleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleSelector.swift; path = Shared/CircleSelector.swift; sourceTree = SOURCE_ROOT; };
+		3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSwipeButton.swift; sourceTree = "<group>"; };
+		3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigurationSwipeButton+SwipeDirection.swift"; sourceTree = "<group>"; };
 		3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimerView.swift; sourceTree = "<group>"; };
 		3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSessionView.swift; sourceTree = "<group>"; };
 		3E74F4EF28832669004B57C0 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
@@ -148,12 +152,12 @@
 		3E128FD5287746FB007D18DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E4D5AC228A9F463002515B6 /* ConfigureSessionView */,
 				3EACA76428922E7D001FF168 /* MobSessionView */,
 				3EACA75728922756001FF168 /* Onboarding */,
 				3EACA75628922710001FF168 /* Timer */,
 				3EACA755289226FB001FF168 /* TeamMemberList */,
 				3E128FD62877471C007D18DB /* Components */,
-				3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */,
 				3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */,
 			);
 			path = Views;
@@ -181,6 +185,16 @@
 				3EACA75328921DEF001FF168 /* UIApplication+EndEditing.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E4D5AC228A9F463002515B6 /* ConfigureSessionView */ = {
+			isa = PBXGroup;
+			children = (
+				3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */,
+				3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */,
+				3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */,
+			);
+			path = ConfigureSessionView;
 			sourceTree = "<group>";
 		};
 		3EA31E20287729AA00972DB5 = {
@@ -385,11 +399,13 @@
 				3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */,
 				3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */,
 				3E128FDC287787BF007D18DB /* InactiveTimerView.swift in Sources */,
+				3E4D5AC428A9F49F002515B6 /* ConfigurationSwipeButton.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
 				3E74F4F4288327E4004B57C0 /* Constants.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
+				3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
 				3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */,
 				3EACA75128921A9B001FF168 /* View+KeyboardReadable.swift in Sources */,
