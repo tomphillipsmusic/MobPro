@@ -60,7 +60,7 @@ extension MobSessionManager {
         assignRoles()
     }
     
-    func setUpNewRotation() {
+    private func setUpNewRotation() {
         if isOnBreak {
             endBreak()
         } else {
@@ -134,7 +134,7 @@ extension MobSessionManager {
         
         if mobTimer.isTimerRunning && !isTeamValid {
             resetTimer()
-            localNotificationService.cancelLocalNotification()
+            localNotificationService.cancelTimerEndNotification()
         }
     }
     
@@ -149,7 +149,7 @@ extension MobSessionManager {
     func timerTapped() {
         if mobTimer.isTimerRunning {
             resetTimer()
-            localNotificationService.cancelLocalNotification()
+            localNotificationService.cancelTimerEndNotification()
         } else {
             startTimer()
             scheduleLocalNotification()
@@ -205,12 +205,17 @@ extension MobSessionManager {
     
     func applicationTerminating() {
         print("App terminating")
-        localNotificationService.cancelLocalNotification()
+        localNotificationService.cancelTimerEndNotification()
     }
     
     func scheduleLocalNotification() {
         let title = "\(isOnBreak ? "Break" : "Round") has ended."
         let timeInterval = Double(mobTimer.rotationLength.value)
-        localNotificationService.scheduleLocalNotification(with: title, scheduledFor: timeInterval)
+        localNotificationService.scheduleLocalNotification(with: title, scheduledIn: timeInterval)
+    }
+    
+    func handleTimerEndNotification() {
+        setUpNewRotation()
+        timerTapped()
     }
 }

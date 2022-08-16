@@ -71,9 +71,8 @@ struct MobSessionView: View {
             .onReceive(keyboardPublisher) { value in
                 vm.isKeyboardPresented = value
             }
-            .onReceive(NotificationCenter.default.publisher(for: Notification.Name( LocalNotificationService.timerEndNotification))) { _ in
-                vm.setUpNewRotation()
-                vm.timerTapped()
+            .onReceive(NotificationCenter.default.publisher(for: .timerEndNotification)) { _ in
+                vm.handleTimerEndNotification()
             }
             .animation(.spring(), value: vm.isKeyboardPresented)
         }

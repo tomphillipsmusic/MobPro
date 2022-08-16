@@ -8,20 +8,19 @@
 import UserNotifications
 
 class LocalNotificationService: NSObject {
-    static let timerEndNotification = "timerEndNotification"
     static let timerEndCategoryId = "timerEndCategory"
-    static let startNextRoundActionId = "timerEndNotification.startNextRound"
-    let startNextRound: UNNotificationAction
-    let timerEndCategory: UNNotificationCategory
+    static let startNextRoundActionId = "\(Notification.Name.timerEndNotification.rawValue).startNextRound"
     
     override init() {
-        startNextRound = UNNotificationAction(identifier: Self.startNextRoundActionId, title: "Start Next Round", options: [.foreground])
-        timerEndCategory = UNNotificationCategory(identifier: Self.timerEndCategoryId, actions: [startNextRound], intentIdentifiers: [])
-        
-        UNUserNotificationCenter.current().setNotificationCategories([timerEndCategory])
-        
         super.init()
+        configureTimerEndNotificationAction()
         UNUserNotificationCenter.current().delegate = self
+    }
+    
+    private func configureTimerEndNotificationAction() {
+        let startNextRound = UNNotificationAction(identifier: Self.startNextRoundActionId, title: "Start Next Round", options: [.foreground])
+        let timerEndCategory = UNNotificationCategory(identifier: Self.timerEndCategoryId, actions: [startNextRound], intentIdentifiers: [])
+        UNUserNotificationCenter.current().setNotificationCategories([timerEndCategory])
     }
      
     func requestNotificationPermission() {
@@ -34,32 +33,42 @@ class LocalNotificationService: NSObject {
         }
     }
     
-    func scheduleLocalNotification(with title: String, scheduledFor timeInterval: TimeInterval) {
+    func scheduleLocalNotification(with title: String, scheduledIn timeInterval: TimeInterval) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.sound = .default
         content.categoryIdentifier = Self.timerEndCategoryId
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(timeInterval), repeats: false)
-        let request = UNNotificationRequest(identifier: Self.timerEndNotification, content: content, trigger: trigger)
-        
+        let request = UNNotificationRequest(identifier: Notification.Name.timerEndNotification.rawValue, content: content, trigger: trigger)
+                
         UNUserNotificationCenter.current().add(request)
     }
     
-    func cancelLocalNotification() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.timerEndNotification])
+    func cancelLocalNotification(withIdentifier identifier: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    
+    func cancelTimerEndNotification() {
+        cancelLocalNotification(withIdentifier: Notification.Name.timerEndNotification.rawValue)
     }
 }
 
+//MARK: Notification.Name extension
+extension Notification.Name {
+    static let timerEndNotification = Notification.Name("timerEndNotification")
+    
+    
+}
+
+
+
+//MARK: UNUserNotificationCenterDelegate
 extension LocalNotificationService: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case Self.startNextRoundActionId:
-            // Handle action
-            print("Start next round action")
-            let notificationName = Notification.Name(response.notification.request.identifier)
-            print(notificationName)
-            NotificationCenter.default.post(name:notificationName , object: response.notification.request.content)
+            NotificationCenter.default.post(name: .timerEndNotification, object: response.notification.request.content)
         default:
             break
         }
