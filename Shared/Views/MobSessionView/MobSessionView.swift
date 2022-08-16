@@ -58,7 +58,7 @@ struct MobSessionView: View {
             .sheet(isPresented: $showingInfoSheet) {
                 OnboardingView(firstTime: $showingInfoSheet)
             }
-            .onAppear(perform: vm.requestNotificationPermission)
+            .onAppear(perform: vm.localNotificationService.requestNotificationPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
                 vm.movedToBackground()
             }
@@ -70,6 +70,9 @@ struct MobSessionView: View {
             }
             .onReceive(keyboardPublisher) { value in
                 vm.isKeyboardPresented = value
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .timerEndNotification)) { _ in
+                vm.handleTimerEndNotification()
             }
             .animation(.spring(), value: vm.isKeyboardPresented)
         }

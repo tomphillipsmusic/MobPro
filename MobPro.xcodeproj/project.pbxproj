@@ -37,6 +37,7 @@
 		3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */; };
 		3E6175DF287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
 		3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
+		3E72366B28AAC7D400F1A596 /* LocalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E72366A28AAC7D400F1A596 /* LocalNotificationService.swift */; };
 		3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */; };
 		3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4EF28832669004B57C0 /* ProgressCircle.swift */; };
 		3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */; };
@@ -88,6 +89,7 @@
 		3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSwipeButton.swift; sourceTree = "<group>"; };
 		3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigurationSwipeButton+SwipeDirection.swift"; sourceTree = "<group>"; };
 		3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimerView.swift; sourceTree = "<group>"; };
+		3E72366A28AAC7D400F1A596 /* LocalNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationService.swift; sourceTree = "<group>"; };
 		3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSessionView.swift; sourceTree = "<group>"; };
 		3E74F4EF28832669004B57C0 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentValueCircle.swift; sourceTree = "<group>"; };
@@ -197,6 +199,14 @@
 			path = ConfigureSessionView;
 			sourceTree = "<group>";
 		};
+		3E72366928AAC7C500F1A596 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3E72366A28AAC7D400F1A596 /* LocalNotificationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		3EA31E20287729AA00972DB5 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +225,7 @@
 				3E128FD5287746FB007D18DB /* Views */,
 				3E128FD4287746EF007D18DB /* ViewModel */,
 				3E128FD3287746DD007D18DB /* Models */,
+				3E72366928AAC7C500F1A596 /* Service */,
 				3E128FD728776D3F007D18DB /* Extensions */,
 				3EA31E28287729AB00972DB5 /* Assets.xcassets */,
 			);
@@ -400,6 +411,7 @@
 				3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */,
 				3E128FDC287787BF007D18DB /* InactiveTimerView.swift in Sources */,
 				3E4D5AC428A9F49F002515B6 /* ConfigurationSwipeButton.swift in Sources */,
+				3E72366B28AAC7D400F1A596 /* LocalNotificationService.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
