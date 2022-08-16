@@ -60,7 +60,7 @@ extension MobSessionManager {
         assignRoles()
     }
     
-    private func setUpNewRotation() {
+    func setUpNewRotation() {
         if isOnBreak {
             endBreak()
         } else {
