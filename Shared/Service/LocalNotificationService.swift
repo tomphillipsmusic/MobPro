@@ -57,11 +57,7 @@ class LocalNotificationService: NSObject {
 //MARK: Notification.Name extension
 extension Notification.Name {
     static let timerEndNotification = Notification.Name("timerEndNotification")
-    
-    
 }
-
-
 
 //MARK: UNUserNotificationCenterDelegate
 extension LocalNotificationService: UNUserNotificationCenterDelegate {
