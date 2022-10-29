@@ -49,6 +49,10 @@ class LocalNotificationService: NSObject {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
+    func removeDeliveredNotifications() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    }
+    
     func cancelTimerEndNotification() {
         cancelLocalNotification(withIdentifier: Notification.Name.timerEndNotification.rawValue)
     }

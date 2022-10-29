@@ -167,6 +167,7 @@ extension MobSessionManager {
             localNotificationService.cancelTimerEndNotification()
         } else {
             startTimer()
+            localNotificationService.removeDeliveredNotifications()
             scheduleLocalNotification()
         }
     }
