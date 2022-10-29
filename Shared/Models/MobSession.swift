@@ -14,7 +14,7 @@ struct MobSession {
     var numberOfRotationsBetweenBreaks = Configuration.defaultNumberOfRotationsBetweenBreaks
     
     init() {
-        if let teamMemberData: [TeamMember] = try? JSONUtility.read(from: Constants.teamMemberNamesPath) {
+        if let teamMemberData: [TeamMember] = JSONUtility.read(from: Constants.teamMemberNamesPath) {
             teamMembers = teamMemberData
         } else {
             teamMembers = []
