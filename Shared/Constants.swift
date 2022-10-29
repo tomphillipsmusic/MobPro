@@ -13,4 +13,5 @@ struct Constants {
     static let secondsPerMinute = 60
     static let degreesInACircle = 360.0
     static let minimumNumberOfMobbers = 2
+    static let teamMemberNamesPath = "team-members.json"
 }

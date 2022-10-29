@@ -8,14 +8,22 @@
 import Foundation
 
 struct MobSession {
-    var teamMembers: [TeamMember] = sampleTeam
+    var teamMembers: [TeamMember]
     var isActive = false
     var breakLengthInSeconds = Configuration(value: 5 * 60, maxValue: 60 * 30, isTimeValue: true, label: "Break Length", color: "MobOrange")
     var numberOfRotationsBetweenBreaks = Configuration(value: 5 * 60, maxValue: 10 * 60, isTimeValue: false, label: "Rounds Between Breaks", color: "MobYellowGreen")
+    
+    init() {
+        if let teamMemberData: [TeamMember] = JSONUtility.read(from: Constants.teamMemberNamesPath) {
+            teamMembers = teamMemberData
+        } else {
+            teamMembers = []
+        }
+    }
 }
 
-struct TeamMember: Identifiable, Equatable {
-    let id = UUID()
+struct TeamMember: Identifiable, Equatable, Codable {
+    var id = UUID()
     var name: String
     var role: Role
 }

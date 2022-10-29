@@ -206,6 +206,7 @@ extension MobSessionManager {
     func applicationTerminating() {
         print("App terminating")
         localNotificationService.cancelTimerEndNotification()
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
     }
     
     func scheduleLocalNotification() {
