@@ -36,6 +36,14 @@ class MobSessionManager: ObservableObject {
     var isTeamValid: Bool {
         session.teamMembers.count >= Constants.minimumNumberOfMobbers
     }
+    
+    init() {
+        if let storedConfigurationsData: Configurations = JSONUtility.read(from: Constants.configurationsPath) {
+            mobTimer.rotationLength = storedConfigurationsData.rotationLength
+            session.numberOfRotationsBetweenBreaks = storedConfigurationsData.numberOfRotationsBetweenBreaks
+            session.breakLengthInSeconds = storedConfigurationsData.breakLengthInSeconds
+        }
+    }
 }
 
 // MARK: Team Management Logic
@@ -48,6 +56,13 @@ extension MobSessionManager {
         isOnBreak = false
         isEditing = false
         session.teamMembers = []
+        setDefaultConfigurations()
+    }
+    
+    private func setDefaultConfigurations() {
+        mobTimer.rotationLength = Configuration.defaultRotationLength
+        session.breakLengthInSeconds = Configuration.defaulBreakLengthInSeconds
+        session.numberOfRotationsBetweenBreaks = Configuration.defaultNumberOfRotationsBetweenBreaks
     }
     
     func shuffleTeam() {
@@ -184,6 +199,11 @@ extension MobSessionManager {
             movedToBackgroundDate = Date()
             resetTimer()
         }
+        
+        
+        let configurations = Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
+        
+        JSONUtility.write(configurations, to: Constants.configurationsPath)
     }
     
     func movingToForeGround() {
@@ -206,6 +226,7 @@ extension MobSessionManager {
     func applicationTerminating() {
         print("App terminating")
         localNotificationService.cancelTimerEndNotification()
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
     }
     
     func scheduleLocalNotification() {

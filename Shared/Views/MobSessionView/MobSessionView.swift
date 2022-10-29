@@ -47,7 +47,7 @@ struct MobSessionView: View {
                 logo
                 toggleSettingsButton
             }
-            .alert("Are You Sure You Want to End Your Mobbing Session?", isPresented: $showingEndSessionAlert) {
+            .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $showingEndSessionAlert) {
                 Button("Cancel", role: .cancel) {
                     showingEndSessionAlert = false
                 }
