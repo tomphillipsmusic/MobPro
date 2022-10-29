@@ -36,6 +36,14 @@ class MobSessionManager: ObservableObject {
     var isTeamValid: Bool {
         session.teamMembers.count >= Constants.minimumNumberOfMobbers
     }
+    
+    init() {
+        if let configurationData: Configurations = JSONUtility.read(from: Constants.configurationsPath) {
+            mobTimer.rotationLength = configurationData.rotationLength
+            session.breakLengthInSeconds = configurationData.breakLengthInSeconds
+            session.numberOfRotationsBetweenBreaks = configurationData.numberOfRotationsBetweenBreaks
+        }
+    }
 }
 
 // MARK: Team Management Logic
@@ -184,6 +192,11 @@ extension MobSessionManager {
             movedToBackgroundDate = Date()
             resetTimer()
         }
+        
+        
+        let configurations = Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
+        
+        JSONUtility.write(configurations, to: Constants.configurationsPath)
     }
     
     func movingToForeGround() {

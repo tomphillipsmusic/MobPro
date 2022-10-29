@@ -18,7 +18,7 @@ struct MobSession {
             teamMembers = teamMemberData
         } else {
             teamMembers = []
-        }
+        }    
     }
 }
 
@@ -28,8 +28,14 @@ struct TeamMember: Identifiable, Equatable, Codable {
     var role: Role
 }
 
-struct Configuration: Identifiable {
-    let id = UUID()
+struct Configurations: Codable {
+    var rotationLength: Configuration
+    var breakLengthInSeconds: Configuration
+    var numberOfRotationsBetweenBreaks: Configuration
+}
+
+struct Configuration: Identifiable, Codable {
+    var id = UUID()
     var value: Int
     let maxValue: Int
     let isTimeValue: Bool
