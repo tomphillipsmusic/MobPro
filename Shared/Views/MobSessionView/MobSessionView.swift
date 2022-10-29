@@ -58,6 +58,9 @@ struct MobSessionView: View {
             .sheet(isPresented: $showingInfoSheet) {
                 OnboardingView(firstTime: $showingInfoSheet)
             }
+            .onTapGesture {
+                UIApplication.shared.endEditing()
+            }
             .onAppear(perform: vm.localNotificationService.requestNotificationPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
                 vm.movedToBackground()
