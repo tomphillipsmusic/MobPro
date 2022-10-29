@@ -38,10 +38,10 @@ class MobSessionManager: ObservableObject {
     }
     
     init() {
-        if let configurationData: Configurations = JSONUtility.read(from: Constants.configurationsPath) {
-            mobTimer.rotationLength = configurationData.rotationLength
-            session.breakLengthInSeconds = configurationData.breakLengthInSeconds
-            session.numberOfRotationsBetweenBreaks = configurationData.numberOfRotationsBetweenBreaks
+        if let storedConfigurationsData: Configurations = JSONUtility.read(from: Constants.configurationsPath) {
+            mobTimer.rotationLength = storedConfigurationsData.rotationLength
+            session.numberOfRotationsBetweenBreaks = storedConfigurationsData.numberOfRotationsBetweenBreaks
+            session.breakLengthInSeconds = storedConfigurationsData.breakLengthInSeconds
         }
     }
 }

@@ -31,7 +31,9 @@ struct JSONUtility {
             let decodedData = try JSONDecoder().decode(T.self, from: data)
             return decodedData
         } catch {
+            #if DEBUG
             print(error)
+            #endif
             return nil
         }
     }

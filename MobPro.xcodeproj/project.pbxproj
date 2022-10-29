@@ -69,6 +69,7 @@
 		3EACA76228922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */; };
 		3EACA76328922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */; };
 		3EBF0BFC290D7E7200D7A7B7 /* JSONUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF0BFB290D7E7200D7A7B7 /* JSONUtility.swift */; };
+		3EBF0BFE290D9CB800D7A7B7 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF0BFD290D9CB800D7A7B7 /* Configuration.swift */; };
 		5DFDCA6828930A090083CEDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDCA6728930A090083CEDD /* Launch Screen.storyboard */; };
 		5DFDCA6928930A090083CEDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDCA6728930A090083CEDD /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobSessionView+NavigationToolbarItems.swift"; sourceTree = "<group>"; };
 		3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobSessionView+MiddleButtons.swift"; sourceTree = "<group>"; };
 		3EBF0BFB290D7E7200D7A7B7 /* JSONUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtility.swift; sourceTree = "<group>"; };
+		3EBF0BFD290D9CB800D7A7B7 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		5DFDCA6728930A090083CEDD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				3E128FBE287732E5007D18DB /* MobSession.swift */,
 				3EACA7432891D56A001FF168 /* Role.swift */,
 				3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */,
+				3EBF0BFD290D9CB800D7A7B7 /* Configuration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
+				3EBF0BFE290D9CB800D7A7B7 /* Configuration.swift in Sources */,
 				3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */,
 				3EACA75128921A9B001FF168 /* View+KeyboardReadable.swift in Sources */,
 				3EBF0BFC290D7E7200D7A7B7 /* JSONUtility.swift in Sources */,
