@@ -56,6 +56,13 @@ extension MobSessionManager {
         isOnBreak = false
         isEditing = false
         session.teamMembers = []
+        setDefaultConfigurations()
+    }
+    
+    private func setDefaultConfigurations() {
+        mobTimer.rotationLength = Configuration.defaultRotationLength
+        session.breakLengthInSeconds = Configuration.defaulBreakLengthInSeconds
+        session.numberOfRotationsBetweenBreaks = Configuration.defaultNumberOfRotationsBetweenBreaks
     }
     
     func shuffleTeam() {
