@@ -68,9 +68,6 @@ struct MobSessionView: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification)) { _ in
                 vm.applicationTerminating()
             }
-            .onReceive(keyboardPublisher) { value in
-                vm.isKeyboardPresented = value
-            }
             .onReceive(NotificationCenter.default.publisher(for: .timerEndNotification)) { _ in
                 vm.handleTimerEndNotification()
             }
