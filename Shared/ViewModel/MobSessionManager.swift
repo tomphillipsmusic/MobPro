@@ -33,6 +33,8 @@ class MobSessionManager: ObservableObject {
         
         if shouldShowTime {
             return mobTimer.formattedTime
+        }else if isOnBreak {
+            return "BREAK"
         } else {
             return "START"
         }
@@ -89,11 +91,7 @@ extension MobSessionManager {
         
         HapticsManager.shared.timerEnd()
         resetTimer()
-        let isBreakTime = currentRotationNumber == numberOfRoundsBeforeBreak + 1
-        
-        if isBreakTime {
-            startBreak()
-        }
+        isOnBreak = currentRotationNumber == numberOfRoundsBeforeBreak + 1
     }
     
     private func endBreak() {
@@ -146,6 +144,7 @@ extension MobSessionManager {
         let role = determineRole(for: indexOfNewMember)
         let memberToAdd = TeamMember(name: name, role: role)
         session.teamMembers.append(memberToAdd)
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
     }
     
     func save(_ updatedConfigurations: Configurations) {
@@ -155,11 +154,14 @@ extension MobSessionManager {
         isEditing = false
         hasPendingEdits = false
         currentRotationNumber = 1
+        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
+
     }
     
     func delete(at offsets: IndexSet) {
         session.teamMembers.remove(atOffsets: offsets)
         assignRoles()
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
         
         if mobTimer.isTimerRunning && !isTeamValid {
             resetTimer()
@@ -176,7 +178,10 @@ extension MobSessionManager {
 // MARK: Timer Logic
 extension MobSessionManager {
     func timerTapped() {
-        if mobTimer.isTimerRunning {
+        if isOnBreak {
+            startBreak()
+            scheduleLocalNotification()
+        } else if mobTimer.isTimerRunning {
             resetTimer()
             localNotificationService.cancelTimerEndNotification()
         } else {
@@ -214,8 +219,6 @@ extension MobSessionManager {
             movedToBackgroundDate = Date()
             resetTimer()
         }
-        
-        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
     }
     
     func movingToForeGround() {
@@ -238,7 +241,6 @@ extension MobSessionManager {
     func applicationTerminating() {
         print("App terminating")
         localNotificationService.cancelTimerEndNotification()
-        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
     }
     
     func scheduleLocalNotification() {

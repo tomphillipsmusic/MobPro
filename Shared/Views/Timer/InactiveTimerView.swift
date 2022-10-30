@@ -27,23 +27,17 @@ struct InactiveTimerView: View {
                     }
                 }
             VStack {
-                
-                if vm.isOnBreak {
-                    Text("BREAK")
-                }
-                
+                                
                 Text(vm.timerText)
                 
-                if !vm.isOnBreak {
-                    Button(action: {
-                        withAnimation {
-                            vm.timerTapped()
-                        }
-                    }, label: {
-                        Image(systemName: "play.fill")
-                    })
-                    .disabled(!vm.isTeamValid)
-                }
+                Button(action: {
+                    withAnimation {
+                        vm.timerTapped()
+                    }
+                }, label: {
+                    Image(systemName: "play.fill")
+                })
+                .disabled(!vm.isTeamValid)
             }
             .opacity(vm.isTeamValid ? 1 : 0.5)
             .font(.largeTitle)
