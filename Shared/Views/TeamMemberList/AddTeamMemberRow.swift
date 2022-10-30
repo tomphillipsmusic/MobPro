@@ -17,6 +17,8 @@ struct AddTeamMemberRow: View, KeyboardReadable {
                 .onSubmit {
                     if !newMemberName.isEmpty {
                         addMember()
+                        UIApplication.shared.endEditing()
+                        vm.isKeyboardPresented = false
                     }
                 }
                 
@@ -37,9 +39,6 @@ struct AddTeamMemberRow: View, KeyboardReadable {
             vm.addMember(named: newMemberName)
             newMemberName = ""
         }
-        
-        UIApplication.shared.endEditing()
-        vm.isKeyboardPresented = false
     }
 }
 

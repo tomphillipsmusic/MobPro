@@ -18,6 +18,9 @@ struct TeamMemberList: View {
                 }
                 .onMove(perform: move)
                 .onDelete(perform: vm.delete)
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
                 
                 AddTeamMemberRow()
             }, header: {

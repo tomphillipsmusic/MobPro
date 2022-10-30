@@ -58,9 +58,6 @@ struct MobSessionView: View {
             .sheet(isPresented: $showingInfoSheet) {
                 OnboardingView(firstTime: $showingInfoSheet)
             }
-            .onTapGesture {
-                UIApplication.shared.endEditing()
-            }
             .onChange(of: vm.isEditing) { _ in
                 editMode.toggle()
             }
