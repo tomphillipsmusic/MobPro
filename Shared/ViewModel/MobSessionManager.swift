@@ -70,6 +70,7 @@ extension MobSessionManager {
         mobTimer.rotationLength = Configuration.defaultRotationLength
         session.breakLengthInSeconds = Configuration.defaulBreakLengthInSeconds
         session.numberOfRotationsBetweenBreaks = Configuration.defaultNumberOfRotationsBetweenBreaks
+        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
     }
     
     func shuffleTeam() {
