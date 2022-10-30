@@ -7,9 +7,19 @@
 
 import SwiftUI
 
+// MARK: View Definition
 struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
     @State private var selectedTab = 0
+    @State private var configurations: Configurations
+    
+    var hasChangedConfigurations: Bool {
+        configurations != vm.currentConfigurations
+    }
+    
+    init(existingConfigurations: Configurations) {
+        _configurations = State(initialValue: existingConfigurations)
+    }
     
     var body: some View {
         HStack {
@@ -18,11 +28,11 @@ struct ConfigureSessionView: View {
             Spacer()
             
             TabView(selection: $selectedTab) {
-                CircleSelector(configuration: $vm.mobTimer.rotationLength)
+                CircleSelector(configuration: $configurations.rotationLength)
                     .tag(0)
-                CircleSelector(configuration: $vm.session.numberOfRotationsBetweenBreaks)
+                CircleSelector(configuration: $configurations.numberOfRotationsBetweenBreaks)
                     .tag(1)
-                CircleSelector(configuration: $vm.session.breakLengthInSeconds)
+                CircleSelector(configuration: $configurations.breakLengthInSeconds)
                     .tag(2)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
@@ -30,12 +40,57 @@ struct ConfigureSessionView: View {
             Spacer()
             ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .right)
         }
+        .onChange(of: configurations) { _ in
+            vm.hasPendingEdits = hasChangedConfigurations
+        }
+        .toolbar {
+            cancelEditingButton
+            saveEditsButton
+        }
     }
 }
 
+// MARK: Navigation Toolbar Items
+extension ConfigureSessionView {
+    var saveEditsButton: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button(action: {
+                withAnimation {
+                    vm.save(configurations)
+                }
+            }, label: {
+                Text("Save")
+                        .foregroundColor(.mobGreen)
+                        .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
+            })
+            .disabled(!vm.hasPendingEdits)
+        }
+    }
+    
+    var cancelEditingButton: some ToolbarContent {
+        
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button(action: {
+                withAnimation {
+                    vm.isEditing.toggle()
+                    vm.hasPendingEdits = false
+                }
+            }, label: {
+                if vm.isEditing {
+                    Text("Cancel")
+                        .foregroundColor(.mobYellow)
+                }
+                
+            })
+        }
+        
+    }
+}
+
+
 struct ConfigureSessionView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigureSessionView()
+        ConfigureSessionView(existingConfigurations: .defaultValues)
             .environmentObject(MobSessionManager())
     }
 }

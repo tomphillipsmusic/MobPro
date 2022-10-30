@@ -19,7 +19,7 @@ struct MobSessionView: View {
                 
                 if !vm.isKeyboardPresented {
                     if vm.isEditing {
-                        ConfigureSessionView()
+                        ConfigureSessionView(existingConfigurations: vm.currentConfigurations)
                     } else {
                         MobTimerView(isTimerRunning: vm.mobTimer.isTimerRunning)
                     }
@@ -60,6 +60,9 @@ struct MobSessionView: View {
             }
             .onTapGesture {
                 UIApplication.shared.endEditing()
+            }
+            .onChange(of: vm.isEditing) { _ in
+                editMode.toggle()
             }
             .onAppear(perform: vm.localNotificationService.requestNotificationPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in

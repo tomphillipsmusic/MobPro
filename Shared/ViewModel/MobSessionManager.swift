@@ -12,12 +12,17 @@ class MobSessionManager: ObservableObject {
     @Published var session = MobSession()
     @Published var mobTimer = MobTimer()
     @Published var isEditing = false
+    @Published var hasPendingEdits = false
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
     @Published var movedToBackgroundDate: Date?
     @Published var isKeyboardPresented = false
     @Published var localNotificationService = LocalNotificationService()
 
+    var currentConfigurations: Configurations {
+        Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
+    }
+    
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
     }
@@ -143,6 +148,15 @@ extension MobSessionManager {
         session.teamMembers.append(memberToAdd)
     }
     
+    func save(_ updatedConfigurations: Configurations) {
+        mobTimer.rotationLength = updatedConfigurations.rotationLength
+        session.breakLengthInSeconds = updatedConfigurations.breakLengthInSeconds
+        session.numberOfRotationsBetweenBreaks = updatedConfigurations.numberOfRotationsBetweenBreaks
+        isEditing = false
+        hasPendingEdits = false
+        currentRotationNumber = 1
+    }
+    
     func delete(at offsets: IndexSet) {
         session.teamMembers.remove(atOffsets: offsets)
         assignRoles()
@@ -201,10 +215,7 @@ extension MobSessionManager {
             resetTimer()
         }
         
-        
-        let configurations = Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
-        
-        JSONUtility.write(configurations, to: Constants.configurationsPath)
+        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
     }
     
     func movingToForeGround() {

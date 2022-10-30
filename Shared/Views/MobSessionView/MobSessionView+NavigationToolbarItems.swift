@@ -9,6 +9,7 @@ import SwiftUI
 
 // MARK: Navigation Toolbar Items
 extension MobSessionView {
+    
     var logo: some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Image("MobProLogo")
@@ -19,28 +20,23 @@ extension MobSessionView {
     }
     
     var toggleSettingsButton: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: {
-                withAnimation {
-                    if editMode == .inactive {
-                        editMode = .active
-                    } else if editMode == .active{
-                        editMode = .inactive
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
+            if !vm.isEditing {
+                Button(action: {
+                    withAnimation {
+                        vm.isEditing.toggle()
                     }
-                    vm.isEditing.toggle()
-                }
-            }, label: {
-                if vm.isEditing {
-                    Text("Save")
-                        .foregroundColor(.mobGreen)
-                } else {
+                }, label: {
                     Image(systemName: "gear")
                         .foregroundColor(.mobOrange)
                         .font(.title3)
                         .opacity(vm.mobTimer.isTimerRunning ? 0.5 : 1.0)
-                }
-            })
-            .disabled(vm.mobTimer.isTimerRunning)
+                    
+                })
+                .disabled(vm.mobTimer.isTimerRunning)
+            }
         }
     }
+
+
 }
