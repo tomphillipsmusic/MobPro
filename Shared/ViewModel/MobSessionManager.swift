@@ -148,6 +148,15 @@ extension MobSessionManager {
         session.teamMembers.append(memberToAdd)
     }
     
+    func save(_ updatedConfigurations: Configurations) {
+        mobTimer.rotationLength = updatedConfigurations.rotationLength
+        session.breakLengthInSeconds = updatedConfigurations.breakLengthInSeconds
+        session.numberOfRotationsBetweenBreaks = updatedConfigurations.numberOfRotationsBetweenBreaks
+        isEditing = false
+        hasPendingEdits = false
+        currentRotationNumber = 1
+    }
+    
     func delete(at offsets: IndexSet) {
         session.teamMembers.remove(atOffsets: offsets)
         assignRoles()
@@ -205,9 +214,6 @@ extension MobSessionManager {
             movedToBackgroundDate = Date()
             resetTimer()
         }
-        
-        
-        let configurations = Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
         
         JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
     }

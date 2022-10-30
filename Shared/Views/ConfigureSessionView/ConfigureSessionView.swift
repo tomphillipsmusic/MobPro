@@ -11,17 +11,6 @@ struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
     @State private var selectedTab = 0
     @State private var configurations: Configurations
-    /* pass in an initial configuration
-        - when saving check to see if anything has changed
-     
-        - if something has changed reset round back to 1
-     
-        - if nothing has changed
-     
-        - cancel button in left corner if nothign is changed
-     
-        - save button only pressed if something has changed
-     */
     
     var hasChangedConfigurations: Bool {
         configurations != vm.currentConfigurations
@@ -53,6 +42,22 @@ struct ConfigureSessionView: View {
         .onChange(of: configurations) { _ in
             vm.hasPendingEdits = hasChangedConfigurations
         }
+        .toolbar {
+            saveEditsButton
+        }
+    }
+    
+    var saveEditsButton: some View {
+        Button(action: {
+            withAnimation {
+                vm.save(configurations)
+            }
+        }, label: {
+            Text("Save")
+                    .foregroundColor(.mobGreen)
+                    .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
+        })
+        .disabled(!vm.hasPendingEdits)
     }
 }
 

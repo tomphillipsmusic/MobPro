@@ -62,6 +62,13 @@ struct MobSessionView: View {
             .onTapGesture {
                 UIApplication.shared.endEditing()
             }
+            .onChange(of: vm.isEditing) { _ in
+                if editMode == .inactive {
+                    editMode = .active
+                } else if editMode == .active{
+                    editMode = .inactive
+                }
+            }
             .onAppear(perform: vm.localNotificationService.requestNotificationPermission)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
                 vm.movedToBackground()

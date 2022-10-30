@@ -21,22 +21,20 @@ extension MobSessionView {
     
     var trailingNavigationToolbarItem: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
-            if vm.isEditing {
-                saveEditsButton
-            } else {
+            if !vm.isEditing {
                 toggleSettingsButton
             }
         }
     }
     
-    fileprivate var toggleSettingsButton: some View {
+    var toggleSettingsButton: some View {
         Button(action: {
             withAnimation {
-                if editMode == .inactive {
-                    editMode = .active
-                } else if editMode == .active{
-                    editMode = .inactive
-                }
+//                if editMode == .inactive {
+//                    editMode = .active
+//                } else if editMode == .active{
+//                    editMode = .inactive
+//                }
                 vm.isEditing.toggle()
             }
         }, label: {
@@ -49,30 +47,30 @@ extension MobSessionView {
         .disabled(vm.mobTimer.isTimerRunning)
     }
     
-    fileprivate var saveEditsButton: some View {
-        Button(action: {
-            withAnimation {
-                if editMode == .inactive {
-                    editMode = .active
-                } else if editMode == .active{
-                    editMode = .inactive
-                }
-                vm.isEditing.toggle()
-            }
-        }, label: {
-            Text("Save")
-                    .foregroundColor(.mobGreen)
-                    .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
-        })
-        .disabled(!vm.hasPendingEdits)
-    }
+//    fileprivate var saveEditsButton: some View {
+//        Button(action: {
+//            withAnimation {
+//                if editMode == .inactive {
+//                    editMode = .active
+//                } else if editMode == .active{
+//                    editMode = .inactive
+//                }
+//                vm.isEditing.toggle()
+//            }
+//        }, label: {
+//            Text("Save")
+//                    .foregroundColor(.mobGreen)
+//                    .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
+//        })
+//        .disabled(!vm.hasPendingEdits)
+//    }
     
     var cancelEditingButton: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarLeading) {
             if vm.isEditing {
                 Button(action: {
                     withAnimation {
-                        editMode = .inactive
+                        //editMode = .inactive
                         vm.isEditing.toggle()
                         vm.hasPendingEdits = false
                     }
