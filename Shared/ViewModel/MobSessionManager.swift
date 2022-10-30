@@ -18,6 +18,10 @@ class MobSessionManager: ObservableObject {
     @Published var isKeyboardPresented = false
     @Published var localNotificationService = LocalNotificationService()
 
+    var currentConfigurations: Configurations {
+        Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
+    }
+    
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
     }
@@ -204,7 +208,7 @@ extension MobSessionManager {
         
         let configurations = Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
         
-        JSONUtility.write(configurations, to: Constants.configurationsPath)
+        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
     }
     
     func movingToForeGround() {

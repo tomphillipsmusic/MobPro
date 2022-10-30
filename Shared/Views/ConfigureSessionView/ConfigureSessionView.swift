@@ -10,6 +10,22 @@ import SwiftUI
 struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
     @State private var selectedTab = 0
+    @State private var configurations: Configurations
+    /* pass in an initial configuration
+        - when saving check to see if anything has changed
+     
+        - if something has changed reset round back to 1
+     
+        - if nothing has changed
+     
+        - cancel button in left corner if nothign is changed
+     
+        - save button only pressed if something has changed
+     */
+    
+    init(existingConfigurations: Configurations) {
+        _configurations = State(initialValue: existingConfigurations)
+    }
     
     var body: some View {
         HStack {
@@ -18,11 +34,11 @@ struct ConfigureSessionView: View {
             Spacer()
             
             TabView(selection: $selectedTab) {
-                CircleSelector(configuration: $vm.mobTimer.rotationLength)
+                CircleSelector(configuration: $configurations.rotationLength)
                     .tag(0)
-                CircleSelector(configuration: $vm.session.numberOfRotationsBetweenBreaks)
+                CircleSelector(configuration: $configurations.numberOfRotationsBetweenBreaks)
                     .tag(1)
-                CircleSelector(configuration: $vm.session.breakLengthInSeconds)
+                CircleSelector(configuration: $configurations.breakLengthInSeconds)
                     .tag(2)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
@@ -35,7 +51,7 @@ struct ConfigureSessionView: View {
 
 struct ConfigureSessionView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigureSessionView()
+        ConfigureSessionView(existingConfigurations: .defaultValues)
             .environmentObject(MobSessionManager())
     }
 }

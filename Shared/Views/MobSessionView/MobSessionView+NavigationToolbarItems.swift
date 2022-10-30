@@ -9,6 +9,7 @@ import SwiftUI
 
 // MARK: Navigation Toolbar Items
 extension MobSessionView {
+    
     var logo: some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Image("MobProLogo")
@@ -41,6 +42,25 @@ extension MobSessionView {
                 }
             })
             .disabled(vm.mobTimer.isTimerRunning)
+        }
+    }
+    
+    var cancelEditingButton: some ToolbarContent {
+        ToolbarItemGroup(placement: .navigationBarLeading) {
+            if vm.isEditing {
+                Button(action: {
+                    withAnimation {
+                        editMode = .inactive
+                        vm.isEditing.toggle()
+                    }
+                }, label: {
+                    if vm.isEditing {
+                        Text("Cancel")
+                            .foregroundColor(.mobYellow)
+                    }
+                    
+                })
+            }
         }
     }
 }

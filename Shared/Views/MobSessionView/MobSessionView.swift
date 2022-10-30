@@ -19,7 +19,7 @@ struct MobSessionView: View {
                 
                 if !vm.isKeyboardPresented {
                     if vm.isEditing {
-                        ConfigureSessionView()
+                        ConfigureSessionView(existingConfigurations: vm.currentConfigurations)
                     } else {
                         MobTimerView(isTimerRunning: vm.mobTimer.isTimerRunning)
                     }
@@ -45,6 +45,7 @@ struct MobSessionView: View {
             }
             .toolbar {
                 logo
+                cancelEditingButton
                 toggleSettingsButton
             }
             .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $showingEndSessionAlert) {

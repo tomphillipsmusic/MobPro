@@ -38,6 +38,11 @@ struct Configuration: Identifiable, Codable {
     }
 }
 
+// MARK: Default Configurations
+extension Configurations {
+    static let defaultValues = Configurations(rotationLength: .defaultRotationLength, breakLengthInSeconds: .defaulBreakLengthInSeconds, numberOfRotationsBetweenBreaks: .defaultNumberOfRotationsBetweenBreaks)
+}
+
 // MARK: Default Configuration Values
 extension Configuration {
     static let defaultRotationLength = Configuration(value: 6 * Constants.secondsPerMinute, maxValue: 60 * Constants.secondsPerMinute, isTimeValue: true, label: "Round Length", color: "MobGreen")
