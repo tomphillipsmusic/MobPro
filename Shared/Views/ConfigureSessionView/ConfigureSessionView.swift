@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: View Definition
 struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
     @State private var selectedTab = 0
@@ -43,23 +44,49 @@ struct ConfigureSessionView: View {
             vm.hasPendingEdits = hasChangedConfigurations
         }
         .toolbar {
+            cancelEditingButton
             saveEditsButton
         }
     }
+}
+
+// MARK: Navigation Toolbar Items
+extension ConfigureSessionView {
+    var saveEditsButton: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button(action: {
+                withAnimation {
+                    vm.save(configurations)
+                }
+            }, label: {
+                Text("Save")
+                        .foregroundColor(.mobGreen)
+                        .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
+            })
+            .disabled(!vm.hasPendingEdits)
+        }
+    }
     
-    var saveEditsButton: some View {
-        Button(action: {
-            withAnimation {
-                vm.save(configurations)
-            }
-        }, label: {
-            Text("Save")
-                    .foregroundColor(.mobGreen)
-                    .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
-        })
-        .disabled(!vm.hasPendingEdits)
+    var cancelEditingButton: some ToolbarContent {
+        
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button(action: {
+                withAnimation {
+                    vm.isEditing.toggle()
+                    vm.hasPendingEdits = false
+                }
+            }, label: {
+                if vm.isEditing {
+                    Text("Cancel")
+                        .foregroundColor(.mobYellow)
+                }
+                
+            })
+        }
+        
     }
 }
+
 
 struct ConfigureSessionView_Previews: PreviewProvider {
     static var previews: some View {

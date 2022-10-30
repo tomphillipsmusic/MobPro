@@ -45,8 +45,7 @@ struct MobSessionView: View {
             }
             .toolbar {
                 logo
-                cancelEditingButton
-                trailingNavigationToolbarItem
+                toggleSettingsButton
             }
             .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $showingEndSessionAlert) {
                 Button("Cancel", role: .cancel) {
