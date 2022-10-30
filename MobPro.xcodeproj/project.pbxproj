@@ -49,6 +49,8 @@
 		3EA31E39287729AB00972DB5 /* MobSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* MobSessionView.swift */; };
 		3EA31E3A287729AB00972DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA31E28287729AB00972DB5 /* Assets.xcassets */; };
 		3EA31E3B287729AB00972DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA31E28287729AB00972DB5 /* Assets.xcassets */; };
+		3EA6FD68290F06F100F8E228 /* EditMode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */; };
+		3EA6FD69290F06F100F8E228 /* EditMode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */; };
 		3EACA7442891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
 		3EACA7452891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
 		3EACA7472891D7B3001FF168 /* RoleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */; };
@@ -103,6 +105,7 @@
 		3EA31E2D287729AB00972DB5 /* MobPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA31E33287729AB00972DB5 /* MobPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA31E35287729AB00972DB5 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+Extension.swift"; sourceTree = "<group>"; };
 		3EACA7432891D56A001FF168 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleDescriptionView.swift; sourceTree = "<group>"; };
 		3EACA74928920C1E001FF168 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 				3EACA75028921A9B001FF168 /* View+KeyboardReadable.swift */,
 				3E128FE1287797AA007D18DB /* Array+Extension.swift */,
 				3EACA75328921DEF001FF168 /* UIApplication+EndEditing.swift */,
+				3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +415,7 @@
 				3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */,
 				3E74F4F628835412004B57C0 /* RoundedRectangleButton.swift in Sources */,
 				3EACA75C289229AC001FF168 /* MobTimerView.swift in Sources */,
+				3EA6FD68290F06F100F8E228 /* EditMode+Extension.swift in Sources */,
 				3EACA74D28920C4F001FF168 /* CloseButton.swift in Sources */,
 				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E38287729AB00972DB5 /* MobSessionView.swift in Sources */,
@@ -448,6 +453,7 @@
 			files = (
 				3E128FCC28774193007D18DB /* TeamMemberListRow.swift in Sources */,
 				3EACA75228921B92001FF168 /* View+KeyboardReadable.swift in Sources */,
+				3EA6FD69290F06F100F8E228 /* EditMode+Extension.swift in Sources */,
 				3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */,
 				3E0D0D40289EDCB60027F464 /* HapticsManager.swift in Sources */,
 				3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */,

@@ -41,11 +41,7 @@ struct Configuration: Identifiable, Codable {
 // MARK: Equatable Conformance
 
 extension Configurations: Equatable {}
-extension Configuration: Equatable {
-//    static func == (lhs: Configuration, rhs: Configuration) -> Bool {
-//        lhs.
-//       }
-}
+extension Configuration: Equatable {}
 
 // MARK: Default Configurations
 extension Configurations {
