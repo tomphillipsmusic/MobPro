@@ -23,6 +23,10 @@ struct ConfigureSessionView: View {
         - save button only pressed if something has changed
      */
     
+    var hasChangedConfigurations: Bool {
+        configurations != vm.currentConfigurations
+    }
+    
     init(existingConfigurations: Configurations) {
         _configurations = State(initialValue: existingConfigurations)
     }
@@ -45,6 +49,9 @@ struct ConfigureSessionView: View {
             
             Spacer()
             ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .right)
+        }
+        .onChange(of: configurations) { _ in
+            vm.hasPendingEdits = hasChangedConfigurations
         }
     }
 }

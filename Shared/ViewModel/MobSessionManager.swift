@@ -12,6 +12,7 @@ class MobSessionManager: ObservableObject {
     @Published var session = MobSession()
     @Published var mobTimer = MobTimer()
     @Published var isEditing = false
+    @Published var hasPendingEdits = false
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
     @Published var movedToBackgroundDate: Date?

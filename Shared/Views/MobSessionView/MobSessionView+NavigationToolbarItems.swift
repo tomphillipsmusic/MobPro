@@ -19,30 +19,52 @@ extension MobSessionView {
         }
     }
     
-    var toggleSettingsButton: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: {
-                withAnimation {
-                    if editMode == .inactive {
-                        editMode = .active
-                    } else if editMode == .active{
-                        editMode = .inactive
-                    }
-                    vm.isEditing.toggle()
-                }
-            }, label: {
-                if vm.isEditing {
-                    Text("Save")
-                        .foregroundColor(.mobGreen)
-                } else {
-                    Image(systemName: "gear")
-                        .foregroundColor(.mobOrange)
-                        .font(.title3)
-                        .opacity(vm.mobTimer.isTimerRunning ? 0.5 : 1.0)
-                }
-            })
-            .disabled(vm.mobTimer.isTimerRunning)
+    var trailingNavigationToolbarItem: some ToolbarContent {
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
+            if vm.isEditing {
+                saveEditsButton
+            } else {
+                toggleSettingsButton
+            }
         }
+    }
+    
+    fileprivate var toggleSettingsButton: some View {
+        Button(action: {
+            withAnimation {
+                if editMode == .inactive {
+                    editMode = .active
+                } else if editMode == .active{
+                    editMode = .inactive
+                }
+                vm.isEditing.toggle()
+            }
+        }, label: {
+            Image(systemName: "gear")
+                .foregroundColor(.mobOrange)
+                .font(.title3)
+                .opacity(vm.mobTimer.isTimerRunning ? 0.5 : 1.0)
+            
+        })
+        .disabled(vm.mobTimer.isTimerRunning)
+    }
+    
+    fileprivate var saveEditsButton: some View {
+        Button(action: {
+            withAnimation {
+                if editMode == .inactive {
+                    editMode = .active
+                } else if editMode == .active{
+                    editMode = .inactive
+                }
+                vm.isEditing.toggle()
+            }
+        }, label: {
+            Text("Save")
+                    .foregroundColor(.mobGreen)
+                    .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
+        })
+        .disabled(!vm.hasPendingEdits)
     }
     
     var cancelEditingButton: some ToolbarContent {
@@ -52,6 +74,7 @@ extension MobSessionView {
                     withAnimation {
                         editMode = .inactive
                         vm.isEditing.toggle()
+                        vm.hasPendingEdits = false
                     }
                 }, label: {
                     if vm.isEditing {

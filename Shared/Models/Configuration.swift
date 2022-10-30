@@ -38,6 +38,15 @@ struct Configuration: Identifiable, Codable {
     }
 }
 
+// MARK: Equatable Conformance
+
+extension Configurations: Equatable {}
+extension Configuration: Equatable {
+//    static func == (lhs: Configuration, rhs: Configuration) -> Bool {
+//        lhs.
+//       }
+}
+
 // MARK: Default Configurations
 extension Configurations {
     static let defaultValues = Configurations(rotationLength: .defaultRotationLength, breakLengthInSeconds: .defaulBreakLengthInSeconds, numberOfRotationsBetweenBreaks: .defaultNumberOfRotationsBetweenBreaks)
