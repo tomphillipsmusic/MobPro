@@ -15,6 +15,7 @@ struct RotationLabel: View {
             Text("Rotation \(vm.currentRotationNumber) / \(vm.numberOfRoundsBeforeBreak)")
                 .font(.title2)
                 .bold()
+                .accessibilityLabel(Text("Rotation \(vm.currentRotationNumber) of \(vm.numberOfRoundsBeforeBreak)"))
         }
     }
 }

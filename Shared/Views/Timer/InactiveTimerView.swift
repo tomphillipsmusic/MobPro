@@ -46,8 +46,12 @@ struct InactiveTimerView: View {
             if !vm.isTeamValid {
                 Text("You need at least two Team Members")
                     .foregroundColor(.mobRed)
+                    .accessibilityLabel("You need at least two Team Members. You currently have \(vm.session.teamMembers.count) in your mob.")
             }
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
+        .accessibilityHint(Text("Tap to begin the mob timer."))
     }
 }
 
