@@ -15,6 +15,7 @@ class MobSessionManager: ObservableObject {
     @Published var hasPendingEdits = false
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
+    @Published var showingEndSessionAlert = false
     @Published var movedToBackgroundDate: Date?
     @Published var isKeyboardPresented = false
     @Published var localNotificationService = LocalNotificationService()

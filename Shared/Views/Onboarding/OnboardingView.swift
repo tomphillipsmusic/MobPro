@@ -52,7 +52,7 @@ struct OnboardingView: View {
                     .accessibilityHint(Text("Tap to open a link to a web resource that goes more into depth about the benefits of mob programming."))
             })
         }
-
+        .largeTextScrollView()
     }
 }
 

@@ -33,6 +33,7 @@ struct RoleDescriptionView: View {
             .accessibilityElement(children: .combine)
             .onAppear { isFocusedOnDescription = true }
         }
+        .largeTextScrollView()
     }
 }
 

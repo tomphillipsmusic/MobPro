@@ -11,6 +11,7 @@ import SwiftUI
 struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
     @Environment(\.accessibilityVoiceOverEnabled) var isVoiceOverEnabled
+    @Environment(\.sizeCategory) var sizeCategory
     @State private var selectedTab = 0
     @State private var configurations: Configurations
     
@@ -25,11 +26,14 @@ struct ConfigureSessionView: View {
     var body: some View {
         HStack {
             
-            if isVoiceOverEnabled {
+            if isVoiceOverEnabled || sizeCategory > .accessibilityMedium {
                 ScrollView {
                     ConfigurationStepper(configuration: $configurations.rotationLength)
                     ConfigurationStepper(configuration: $configurations.numberOfRotationsBetweenBreaks)
                     ConfigurationStepper(configuration: $configurations.breakLengthInSeconds)
+                    RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
+                        vm.showingEndSessionAlert = true
+                    }
                 }
             } else {
                 ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .left)
@@ -57,6 +61,14 @@ struct ConfigureSessionView: View {
         .toolbar {
             cancelEditingButton
             saveEditsButton
+        }
+        .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $vm.showingEndSessionAlert) {
+            Button("Cancel", role: .cancel) {
+                vm.showingEndSessionAlert = false
+            }
+            Button("End Session", role: .destructive) {
+                vm.endSession()
+            }
         }
     }
 }
