@@ -40,8 +40,7 @@ struct MobSessionView: View {
                         }
                     }
                 }
-                // Need to test if i need this line or not
-               // .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
+                .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
                 
             }
             .toolbar {
@@ -83,6 +82,7 @@ struct MobSessionView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MobSessionView()
+            .previewDevice("iPhone 14 Plus")
             .environmentObject(MobSessionManager())
     }
 }
