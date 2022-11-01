@@ -20,12 +20,10 @@ struct MobSession {
             teamMembers = []
         }    
     }
-}
-
-struct TeamMember: Identifiable, Equatable, Codable {
-    var id = UUID()
-    var name: String
-    var role: Role
+    
+    var teamDescription: String {
+        teamMembers.reduce("") { $0 + $1.description }
+    }
 }
 
 // MARK: Test Data

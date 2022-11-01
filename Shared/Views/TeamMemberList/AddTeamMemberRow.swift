@@ -21,12 +21,11 @@ struct AddTeamMemberRow: View, KeyboardReadable {
                         vm.isKeyboardPresented = false
                     }
                 }
-                
             
             Spacer()
                 
             if !newMemberName.isEmpty {
-                SymbolButton(action: addMember, symbolName: "plus", color: .mobGreen)
+                SymbolButton(action: addMember, symbolName: "plus", color: .mobGreen, accessibilityLabel: "Add member", accessibilityHint: "Tap to add the specified person to your mob.")
             }
         }
         .onReceive(keyboardPublisher) { isKeyboardVisible in

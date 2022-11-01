@@ -25,6 +25,7 @@ struct TeamMemberList: View {
                 AddTeamMemberRow()
             }, header: {
                 Text("Team Members")
+                    .accessibilityHint(Text(vm.session.teamDescription))
                     .font(.headline)
                 
             })
