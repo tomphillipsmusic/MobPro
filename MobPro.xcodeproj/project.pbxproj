@@ -53,6 +53,7 @@
 		3EA6FD69290F06F100F8E228 /* EditMode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */; };
 		3EA6FD6E290F5C7700F8E228 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD6D290F5C7700F8E228 /* TeamMember.swift */; };
 		3EA6FD72291047BE00F8E228 /* ConfigurationStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD71291047BE00F8E228 /* ConfigurationStepper.swift */; };
+		3EA6FD752911D28B00F8E228 /* LargeTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD742911D28B00F8E228 /* LargeTextScrollView.swift */; };
 		3EACA7442891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
 		3EACA7452891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
 		3EACA7472891D7B3001FF168 /* RoleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */; };
@@ -110,6 +111,7 @@
 		3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+Extension.swift"; sourceTree = "<group>"; };
 		3EA6FD6D290F5C7700F8E228 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		3EA6FD71291047BE00F8E228 /* ConfigurationStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStepper.swift; sourceTree = "<group>"; };
+		3EA6FD742911D28B00F8E228 /* LargeTextScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextScrollView.swift; sourceTree = "<group>"; };
 		3EACA7432891D56A001FF168 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleDescriptionView.swift; sourceTree = "<group>"; };
 		3EACA74928920C1E001FF168 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				3E128FD3287746DD007D18DB /* Models */,
 				3E72366928AAC7C500F1A596 /* Service */,
 				3E128FD728776D3F007D18DB /* Extensions */,
+				3EA6FD732911D10E00F8E228 /* Modifiers */,
 				3EBF0BFA290D7E6000D7A7B7 /* Utilities */,
 				3EA31E28287729AB00972DB5 /* Assets.xcassets */,
 			);
@@ -263,6 +266,14 @@
 				3EA31E35287729AB00972DB5 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		3EA6FD732911D10E00F8E228 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3EA6FD742911D28B00F8E228 /* LargeTextScrollView.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		3EACA755289226FB001FF168 /* TeamMemberList */ = {
@@ -443,6 +454,7 @@
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
 				3E74F4F4288327E4004B57C0 /* Constants.swift in Sources */,
+				3EA6FD752911D28B00F8E228 /* LargeTextScrollView.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
 				3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
