@@ -11,6 +11,7 @@ import SwiftUI
 struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
     @Environment(\.accessibilityVoiceOverEnabled) var isVoiceOverEnabled
+    @Environment(\.sizeCategory) var sizeCategory
     @State private var selectedTab = 0
     @State private var configurations: Configurations
     
@@ -25,7 +26,7 @@ struct ConfigureSessionView: View {
     var body: some View {
         HStack {
             
-            if isVoiceOverEnabled {
+            if isVoiceOverEnabled || sizeCategory > .accessibilityMedium {
                 ScrollView {
                     ConfigurationStepper(configuration: $configurations.rotationLength)
                     ConfigurationStepper(configuration: $configurations.numberOfRotationsBetweenBreaks)

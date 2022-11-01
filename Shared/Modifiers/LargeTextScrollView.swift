@@ -10,10 +10,11 @@ import SwiftUI
 struct LargeTextScrollView: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
     let maxSizeBeforeScroll: ContentSizeCategory
+    let axis: Axis.Set
     
     func body(content: Content) -> some View {
         if sizeCategory > maxSizeBeforeScroll {
-            ScrollView {
+            ScrollView(axis) {
                 content
             }
         } else {
@@ -23,7 +24,7 @@ struct LargeTextScrollView: ViewModifier {
 }
 
 extension View {
-    func largeTextScrollView(maxSizeBeforeScroll: ContentSizeCategory = .large) -> some View {
-        modifier(LargeTextScrollView(maxSizeBeforeScroll: maxSizeBeforeScroll))
+    func largeTextScrollView(whenBiggerThan maxSizeBeforeScroll: ContentSizeCategory = .large, withAxis axis: Axis.Set = .vertical) -> some View {
+        modifier(LargeTextScrollView(maxSizeBeforeScroll: maxSizeBeforeScroll, axis: axis))
     }
 }
