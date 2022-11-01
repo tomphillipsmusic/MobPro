@@ -41,7 +41,6 @@ struct ConfigurationStepper: View {
     
     func increment() {
         if configuration.value <= configuration.maxValue - 120 {
-            configuration.progress -= configuration.progress.truncatingRemainder(dividingBy: 60)
             configuration.value += 60
             configuration.progress = Double(configuration.value) / Double(configuration.maxValue)
             configuration.angle = Double(configuration.progress * Double(360))
