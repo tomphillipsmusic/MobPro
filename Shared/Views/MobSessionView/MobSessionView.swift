@@ -10,8 +10,8 @@ import SwiftUI
 struct MobSessionView: View {
     @AppStorage("firstTimeUser") var showingInfoSheet = true
     @EnvironmentObject var vm: MobSessionManager
+    @Environment(\.sizeCategory) var sizeCategory
     @State internal var editMode = EditMode.inactive
-    @State private var showingEndSessionAlert = false
     
     var body: some View {
         NavigationView {
@@ -34,22 +34,23 @@ struct MobSessionView: View {
                     TeamMemberList()
                         .environment(\.editMode, $editMode)
                     
-                    if vm.isEditing {
+                    if vm.isEditing && sizeCategory <= .accessibilityMedium {
                         RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
-                            showingEndSessionAlert = true
+                            vm.showingEndSessionAlert = true
                         }
                     }
                 }
-                .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
+                // Need to test if i need this line or not
+               // .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
                 
             }
             .toolbar {
                 logo
                 toggleSettingsButton
             }
-            .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $showingEndSessionAlert) {
+            .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $vm.showingEndSessionAlert) {
                 Button("Cancel", role: .cancel) {
-                    showingEndSessionAlert = false
+                    vm.showingEndSessionAlert = false
                 }
                 Button("End Session", role: .destructive) {
                     vm.endSession()

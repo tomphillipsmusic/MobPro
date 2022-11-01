@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeamMemberList: View {
     @EnvironmentObject var vm: MobSessionManager
-    
+
     var body: some View {
         List {
             Section(content:  {

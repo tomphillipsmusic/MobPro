@@ -31,6 +31,9 @@ struct ConfigureSessionView: View {
                     ConfigurationStepper(configuration: $configurations.rotationLength)
                     ConfigurationStepper(configuration: $configurations.numberOfRotationsBetweenBreaks)
                     ConfigurationStepper(configuration: $configurations.breakLengthInSeconds)
+                    RoundedRectangleButton(label: "End Mobbing Session", color: .mobRedButtonBG) {
+                        vm.showingEndSessionAlert = true
+                    }
                 }
             } else {
                 ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .left)
@@ -58,6 +61,14 @@ struct ConfigureSessionView: View {
         .toolbar {
             cancelEditingButton
             saveEditsButton
+        }
+        .alert("Are You Sure You Want to End Your Mobbing Session and Restore the Default Settings?", isPresented: $vm.showingEndSessionAlert) {
+            Button("Cancel", role: .cancel) {
+                vm.showingEndSessionAlert = false
+            }
+            Button("End Session", role: .destructive) {
+                vm.endSession()
+            }
         }
     }
 }
