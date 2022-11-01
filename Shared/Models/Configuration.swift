@@ -27,6 +27,10 @@ struct Configuration: Identifiable, Codable {
         (Int(progress * Double(maxValue)) / 60) + 1
     }
     
+    var voiceOverValue: String {
+        "\(value / Constants.secondsPerMinute)"
+    }
+    
     init(value: Int, maxValue: Int, isTimeValue: Bool, label: String, color: String) {
         self.value = value
         self.maxValue = maxValue
@@ -50,9 +54,9 @@ extension Configurations {
 
 // MARK: Default Configuration Values
 extension Configuration {
-    static let defaultRotationLength = Configuration(value: 5, maxValue: 60 * Constants.secondsPerMinute, isTimeValue: true, label: "Round Length", color: "MobGreen")
+    static let defaultRotationLength = Configuration(value: 60, maxValue: 60 * Constants.secondsPerMinute, isTimeValue: true, label: "Round Length", color: "MobGreen")
     
-    static let defaulBreakLengthInSeconds = Configuration(value: 5, maxValue: 60 * 30, isTimeValue: true, label: "Break Length", color: "MobOrange")
+    static let defaulBreakLengthInSeconds = Configuration(value: 60, maxValue: 60 * 30, isTimeValue: true, label: "Break Length", color: "MobOrange")
     
     static let defaultNumberOfRotationsBetweenBreaks = Configuration(value: 120, maxValue: 10 * 60, isTimeValue: false, label: "Rounds Between Breaks", color: "MobYellowGreen")
 }

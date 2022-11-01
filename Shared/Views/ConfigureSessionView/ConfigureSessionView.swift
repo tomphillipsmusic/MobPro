@@ -10,6 +10,7 @@ import SwiftUI
 // MARK: View Definition
 struct ConfigureSessionView: View {
     @EnvironmentObject var vm: MobSessionManager
+    @Environment(\.accessibilityVoiceOverEnabled) var isVoiceOverEnabled
     @State private var selectedTab = 0
     @State private var configurations: Configurations
     
@@ -23,23 +24,33 @@ struct ConfigureSessionView: View {
     
     var body: some View {
         HStack {
-            ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .left)
             
-            Spacer()
-            
-            TabView(selection: $selectedTab) {
-                CircleSelector(configuration: $configurations.rotationLength)
-                    .tag(0)
-                CircleSelector(configuration: $configurations.numberOfRotationsBetweenBreaks)
-                    .tag(1)
-                CircleSelector(configuration: $configurations.breakLengthInSeconds)
-                    .tag(2)
+            if isVoiceOverEnabled {
+                ScrollView {
+                    ConfigurationStepper(configuration: $vm.mobTimer.rotationLength)
+                    ConfigurationStepper(configuration: $vm.session.numberOfRotationsBetweenBreaks)
+                    ConfigurationStepper(configuration: $vm.session.breakLengthInSeconds)
+                }
+            } else {
+                ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .left)
+                
+                Spacer()
+                
+                TabView(selection: $selectedTab) {
+                    CircleSelector(configuration: $configurations.rotationLength)
+                        .tag(0)
+                    CircleSelector(configuration: $configurations.numberOfRotationsBetweenBreaks)
+                        .tag(1)
+                    CircleSelector(configuration: $configurations.breakLengthInSeconds)
+                        .tag(2)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                
+                Spacer()
+                ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .right)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            
-            Spacer()
-            ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .right)
         }
+        
         .onChange(of: configurations) { _ in
             vm.hasPendingEdits = hasChangedConfigurations
         }
@@ -60,8 +71,8 @@ extension ConfigureSessionView {
                 }
             }, label: {
                 Text("Save")
-                        .foregroundColor(.mobGreen)
-                        .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
+                    .foregroundColor(.mobGreen)
+                    .opacity(!vm.hasPendingEdits ? 0.5 : 1.0)
             })
             .disabled(!vm.hasPendingEdits)
         }
