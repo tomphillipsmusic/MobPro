@@ -82,7 +82,6 @@ struct MobSessionView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MobSessionView()
-            .previewDevice("iPhone 14 Plus")
             .environmentObject(MobSessionManager())
     }
 }
