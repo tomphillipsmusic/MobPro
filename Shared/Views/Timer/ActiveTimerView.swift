@@ -21,7 +21,9 @@ struct ActiveTimerView: View {
                     .foregroundColor(.mobGray)
                     .onTapGesture {
                         withAnimation {
-                            vm.timerTapped()
+                            if !vm.isOnBreak {
+                                vm.timerTapped()
+                            }
                         }
                     }
                 
