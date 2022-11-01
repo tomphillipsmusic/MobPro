@@ -10,33 +10,49 @@ import SwiftUI
 struct ConfigurationStepper: View {
     @Binding var configuration: Configuration
     var body: some View {
-        VStack {
-            Text("\(configuration.voiceOverValue) \(configuration.isTimeValue ? "Minutes" : "")")
-
-            Button("Increment") {
-                configuration.value += 60
-            }
-
-            Button("Decrement") {
-                configuration.value -= 60
-            }
+        HStack {
+            Text("\(configuration.label): \(configuration.formattedValue) \(configuration.isTimeValue ? "Minutes" : "")")
+            
+            Button(action: increment, label: {
+                Image(systemName: "arrow.up")
+                    .accessibilityLabel(Text("Increment"))
+            })
+            
+           Button(action: decrement, label: {
+               Image(systemName: "arrow.down")
+                   .accessibilityLabel(Text("Decrement"))
+           })
         }
+        .padding()
         .accessibilityElement()
         .accessibilityLabel(configuration.label)
-        .accessibilityValue("\(configuration.voiceOverValue) \(configuration.isTimeValue ? "Minutes" : "")")
+        .accessibilityValue("\(configuration.formattedValue) \(configuration.isTimeValue ? "Minutes" : "")")
         .accessibilityAdjustableAction { direction in
             switch direction {
             case .increment:
-                if configuration.value + 60 <= configuration.maxValue {
-                    configuration.value += 60
-                }
+                increment()
             case .decrement:
-                if configuration.value - 60 >= 60 {
-                    configuration.value -= 60
-                }
+               decrement()
             default:
                 print("Not handled.")
             }
+        }
+    }
+    
+    func increment() {
+        if configuration.value <= configuration.maxValue - 120 {
+            configuration.progress -= configuration.progress.truncatingRemainder(dividingBy: 60)
+            configuration.value += 60
+            configuration.progress = Double(configuration.value) / Double(configuration.maxValue)
+            configuration.angle = Double(configuration.progress * Double(360))
+        }
+    }
+    
+    func decrement() {
+        if configuration.value - 60 >= 0 {
+            configuration.value -= 60
+            configuration.progress = Double(configuration.value) / Double(configuration.maxValue)
+            configuration.angle = Double(configuration.progress * Double(360))
         }
     }
 }

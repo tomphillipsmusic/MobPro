@@ -27,9 +27,9 @@ struct ConfigureSessionView: View {
             
             if isVoiceOverEnabled {
                 ScrollView {
-                    ConfigurationStepper(configuration: $vm.mobTimer.rotationLength)
-                    ConfigurationStepper(configuration: $vm.session.numberOfRotationsBetweenBreaks)
-                    ConfigurationStepper(configuration: $vm.session.breakLengthInSeconds)
+                    ConfigurationStepper(configuration: $configurations.rotationLength)
+                    ConfigurationStepper(configuration: $configurations.numberOfRotationsBetweenBreaks)
+                    ConfigurationStepper(configuration: $configurations.breakLengthInSeconds)
                 }
             } else {
                 ConfigurationSwipeButton(selectedTab: $selectedTab, swipeDirection: .left)

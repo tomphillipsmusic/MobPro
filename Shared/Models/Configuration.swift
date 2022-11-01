@@ -27,10 +27,6 @@ struct Configuration: Identifiable, Codable {
         (Int(progress * Double(maxValue)) / 60) + 1
     }
     
-    var voiceOverValue: String {
-        "\(value / Constants.secondsPerMinute)"
-    }
-    
     init(value: Int, maxValue: Int, isTimeValue: Bool, label: String, color: String) {
         self.value = value
         self.maxValue = maxValue
