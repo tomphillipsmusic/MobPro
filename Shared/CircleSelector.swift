@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CircleSelector: View {
     @Binding var configuration: Configuration
-    
+
     var body: some View {
         VStack {
             Text(configuration.label)

@@ -21,6 +21,7 @@ struct CloseButton: View {
                     .foregroundColor(.mobRed)
                     .padding()
             })
+            .accessibilityLabel("Close")
         }
     }
 }

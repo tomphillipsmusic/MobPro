@@ -11,7 +11,7 @@ struct MobTimer {
     var timer: Timer? = nil
     var timeRemaining: Int
     
-    var rotationLength = Configuration(value: 7 * Constants.secondsPerMinute, maxValue: 60 * Constants.secondsPerMinute, isTimeValue: true, label: "Round Length", color: "MobGreen") {
+    var rotationLength = Configuration.defaultRotationLength {
         didSet {
             timeRemaining = rotationLength.value
         }

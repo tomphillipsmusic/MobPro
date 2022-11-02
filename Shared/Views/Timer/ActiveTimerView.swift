@@ -19,6 +19,13 @@ struct ActiveTimerView: View {
                 Circle()
                     .frame(maxWidth: Constants.circleSize, maxHeight: Constants.circleSize)
                     .foregroundColor(.mobGray)
+                    .onTapGesture {
+                        withAnimation {
+                            if !vm.isOnBreak {
+                                vm.timerTapped()
+                            }
+                        }
+                    }
                 
                 ProgressCircle(progress: vm.mobTimer.timerProgress, color: vm.mobTimer.color)
                     .animation(.linear, value: vm.mobTimer.timeRemaining)

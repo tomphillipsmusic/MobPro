@@ -7,23 +7,29 @@
 
 import SwiftUI
 
-struct AddTeamMemberRow: View {
+struct AddTeamMemberRow: View, KeyboardReadable {
     @EnvironmentObject var vm: MobSessionManager
     @State private var newMemberName = ""
     
     var body: some View {
         HStack {
             TextField("Add Team Member", text: $newMemberName, prompt: Text("Add member..."))
+                .onSubmit {
+                    if !newMemberName.isEmpty {
+                        addMember()
+                        UIApplication.shared.endEditing()
+                        vm.isKeyboardPresented = false
+                    }
+                }
+            
             Spacer()
                 
             if !newMemberName.isEmpty {
-                SymbolButton(action: addMember, symbolName: "plus", color: .mobGreen)
+                SymbolButton(action: addMember, symbolName: "plus", color: .mobGreen, accessibilityLabel: "Add member", accessibilityHint: "Tap to add the specified person to your mob.")
             }
         }
-        .onReceive(keyboardPublisher) { value in
-            if !newMemberName.isEmpty && !value {
-                addMember()
-            }
+        .onReceive(keyboardPublisher) { isKeyboardVisible in
+            vm.isKeyboardPresented = isKeyboardVisible
         }
     }
     
@@ -32,9 +38,6 @@ struct AddTeamMemberRow: View {
             vm.addMember(named: newMemberName)
             newMemberName = ""
         }
-        
-        UIApplication.shared.endEditing()
-        vm.isKeyboardPresented = false
     }
 }
 

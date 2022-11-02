@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum Role: String {
+enum Role: String, Codable {
     case driver = "Driver"
     case navigator = "Navigator"
     case researcher = "Researcher"

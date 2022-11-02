@@ -33,8 +33,11 @@
 		3E128FE3287797AA007D18DB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E128FE1287797AA007D18DB /* Array+Extension.swift */; };
 		3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
 		3E129006287B3A30007D18DB /* CircleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E129004287B3A30007D18DB /* CircleSelector.swift */; };
+		3E4D5AC428A9F49F002515B6 /* ConfigurationSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */; };
+		3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */; };
 		3E6175DF287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
 		3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */; };
+		3E72366B28AAC7D400F1A596 /* LocalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E72366A28AAC7D400F1A596 /* LocalNotificationService.swift */; };
 		3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */; };
 		3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4EF28832669004B57C0 /* ProgressCircle.swift */; };
 		3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */; };
@@ -46,6 +49,11 @@
 		3EA31E39287729AB00972DB5 /* MobSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31E27287729AA00972DB5 /* MobSessionView.swift */; };
 		3EA31E3A287729AB00972DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA31E28287729AB00972DB5 /* Assets.xcassets */; };
 		3EA31E3B287729AB00972DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA31E28287729AB00972DB5 /* Assets.xcassets */; };
+		3EA6FD68290F06F100F8E228 /* EditMode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */; };
+		3EA6FD69290F06F100F8E228 /* EditMode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */; };
+		3EA6FD6E290F5C7700F8E228 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD6D290F5C7700F8E228 /* TeamMember.swift */; };
+		3EA6FD72291047BE00F8E228 /* ConfigurationStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD71291047BE00F8E228 /* ConfigurationStepper.swift */; };
+		3EA6FD752911D28B00F8E228 /* LargeTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6FD742911D28B00F8E228 /* LargeTextScrollView.swift */; };
 		3EACA7442891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
 		3EACA7452891D56A001FF168 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7432891D56A001FF168 /* Role.swift */; };
 		3EACA7472891D7B3001FF168 /* RoleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */; };
@@ -65,6 +73,8 @@
 		3EACA76028922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */; };
 		3EACA76228922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */; };
 		3EACA76328922CDE001FF168 /* MobSessionView+MiddleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */; };
+		3EBF0BFC290D7E7200D7A7B7 /* JSONUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF0BFB290D7E7200D7A7B7 /* JSONUtility.swift */; };
+		3EBF0BFE290D9CB800D7A7B7 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF0BFD290D9CB800D7A7B7 /* Configuration.swift */; };
 		5DFDCA6828930A090083CEDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDCA6728930A090083CEDD /* Launch Screen.storyboard */; };
 		5DFDCA6928930A090083CEDD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDCA6728930A090083CEDD /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -83,7 +93,10 @@
 		3E128FDE28778B15007D18DB /* MobTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimer.swift; sourceTree = "<group>"; };
 		3E128FE1287797AA007D18DB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		3E129004287B3A30007D18DB /* CircleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleSelector.swift; path = Shared/CircleSelector.swift; sourceTree = SOURCE_ROOT; };
+		3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSwipeButton.swift; sourceTree = "<group>"; };
+		3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigurationSwipeButton+SwipeDirection.swift"; sourceTree = "<group>"; };
 		3E6175DE287C9F98004EB19B /* ActiveTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTimerView.swift; sourceTree = "<group>"; };
+		3E72366A28AAC7D400F1A596 /* LocalNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationService.swift; sourceTree = "<group>"; };
 		3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSessionView.swift; sourceTree = "<group>"; };
 		3E74F4EF28832669004B57C0 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		3E74F4F128832685004B57C0 /* CurrentValueCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentValueCircle.swift; sourceTree = "<group>"; };
@@ -95,6 +108,10 @@
 		3EA31E2D287729AB00972DB5 /* MobPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA31E33287729AB00972DB5 /* MobPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA31E35287729AB00972DB5 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+Extension.swift"; sourceTree = "<group>"; };
+		3EA6FD6D290F5C7700F8E228 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		3EA6FD71291047BE00F8E228 /* ConfigurationStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStepper.swift; sourceTree = "<group>"; };
+		3EA6FD742911D28B00F8E228 /* LargeTextScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextScrollView.swift; sourceTree = "<group>"; };
 		3EACA7432891D56A001FF168 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleDescriptionView.swift; sourceTree = "<group>"; };
 		3EACA74928920C1E001FF168 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -105,6 +122,8 @@
 		3EACA75B289229AC001FF168 /* MobTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobTimerView.swift; sourceTree = "<group>"; };
 		3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobSessionView+NavigationToolbarItems.swift"; sourceTree = "<group>"; };
 		3EACA76128922CDE001FF168 /* MobSessionView+MiddleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobSessionView+MiddleButtons.swift"; sourceTree = "<group>"; };
+		3EBF0BFB290D7E7200D7A7B7 /* JSONUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtility.swift; sourceTree = "<group>"; };
+		3EBF0BFD290D9CB800D7A7B7 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		5DFDCA6728930A090083CEDD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +152,8 @@
 				3E128FBE287732E5007D18DB /* MobSession.swift */,
 				3EACA7432891D56A001FF168 /* Role.swift */,
 				3E0D0D3E289EDCB60027F464 /* HapticsManager.swift */,
+				3EBF0BFD290D9CB800D7A7B7 /* Configuration.swift */,
+				3EA6FD6D290F5C7700F8E228 /* TeamMember.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,12 +169,12 @@
 		3E128FD5287746FB007D18DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E4D5AC228A9F463002515B6 /* ConfigureSessionView */,
 				3EACA76428922E7D001FF168 /* MobSessionView */,
 				3EACA75728922756001FF168 /* Onboarding */,
 				3EACA75628922710001FF168 /* Timer */,
 				3EACA755289226FB001FF168 /* TeamMemberList */,
 				3E128FD62877471C007D18DB /* Components */,
-				3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */,
 				3EACA7462891D7B3001FF168 /* RoleDescriptionView.swift */,
 			);
 			path = Views;
@@ -179,8 +200,28 @@
 				3EACA75028921A9B001FF168 /* View+KeyboardReadable.swift */,
 				3E128FE1287797AA007D18DB /* Array+Extension.swift */,
 				3EACA75328921DEF001FF168 /* UIApplication+EndEditing.swift */,
+				3EA6FD67290F06F100F8E228 /* EditMode+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E4D5AC228A9F463002515B6 /* ConfigureSessionView */ = {
+			isa = PBXGroup;
+			children = (
+				3E74F4ED28831E0D004B57C0 /* ConfigureSessionView.swift */,
+				3E4D5AC328A9F49F002515B6 /* ConfigurationSwipeButton.swift */,
+				3E4D5AC728A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift */,
+				3EA6FD71291047BE00F8E228 /* ConfigurationStepper.swift */,
+			);
+			path = ConfigureSessionView;
+			sourceTree = "<group>";
+		};
+		3E72366928AAC7C500F1A596 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3E72366A28AAC7D400F1A596 /* LocalNotificationService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3EA31E20287729AA00972DB5 = {
@@ -201,7 +242,10 @@
 				3E128FD5287746FB007D18DB /* Views */,
 				3E128FD4287746EF007D18DB /* ViewModel */,
 				3E128FD3287746DD007D18DB /* Models */,
+				3E72366928AAC7C500F1A596 /* Service */,
 				3E128FD728776D3F007D18DB /* Extensions */,
+				3EA6FD732911D10E00F8E228 /* Modifiers */,
+				3EBF0BFA290D7E6000D7A7B7 /* Utilities */,
 				3EA31E28287729AB00972DB5 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -222,6 +266,14 @@
 				3EA31E35287729AB00972DB5 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		3EA6FD732911D10E00F8E228 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3EA6FD742911D28B00F8E228 /* LargeTextScrollView.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		3EACA755289226FB001FF168 /* TeamMemberList */ = {
@@ -262,6 +314,14 @@
 				3EACA75E28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift */,
 			);
 			path = MobSessionView;
+			sourceTree = "<group>";
+		};
+		3EBF0BFA290D7E6000D7A7B7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3EBF0BFB290D7E7200D7A7B7 /* JSONUtility.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +369,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					3EA31E2C287729AB00972DB5 = {
 						CreatedOnToolsVersion = 13.4;
@@ -368,10 +428,12 @@
 				3EACA75428921DEF001FF168 /* UIApplication+EndEditing.swift in Sources */,
 				3E6175DF287C9F98004EB19B /* ActiveTimerView.swift in Sources */,
 				3E128FD928776D52007D18DB /* Color+Extension.swift in Sources */,
+				3EA6FD72291047BE00F8E228 /* ConfigurationStepper.swift in Sources */,
 				3E128FCE28774205007D18DB /* AddTeamMemberRow.swift in Sources */,
 				3E74F4F028832669004B57C0 /* ProgressCircle.swift in Sources */,
 				3E74F4F628835412004B57C0 /* RoundedRectangleButton.swift in Sources */,
 				3EACA75C289229AC001FF168 /* MobTimerView.swift in Sources */,
+				3EA6FD68290F06F100F8E228 /* EditMode+Extension.swift in Sources */,
 				3EACA74D28920C4F001FF168 /* CloseButton.swift in Sources */,
 				3E128FBF287732E5007D18DB /* MobSession.swift in Sources */,
 				3EA31E38287729AB00972DB5 /* MobSessionView.swift in Sources */,
@@ -381,18 +443,25 @@
 				3E0D0D3F289EDCB60027F464 /* HapticsManager.swift in Sources */,
 				3EACA7472891D7B3001FF168 /* RoleDescriptionView.swift in Sources */,
 				3E128FC228773ABB007D18DB /* TeamMemberList.swift in Sources */,
+				3EA6FD6E290F5C7700F8E228 /* TeamMember.swift in Sources */,
 				3EACA75F28922BC8001FF168 /* MobSessionView+NavigationToolbarItems.swift in Sources */,
 				3E129005287B3A30007D18DB /* CircleSelector.swift in Sources */,
 				3E74F4F228832685004B57C0 /* CurrentValueCircle.swift in Sources */,
 				3E128FDC287787BF007D18DB /* InactiveTimerView.swift in Sources */,
+				3E4D5AC428A9F49F002515B6 /* ConfigurationSwipeButton.swift in Sources */,
+				3E72366B28AAC7D400F1A596 /* LocalNotificationService.swift in Sources */,
 				3E128FD1287742EC007D18DB /* MobSessionManager.swift in Sources */,
 				3EA31E36287729AB00972DB5 /* MobProApp.swift in Sources */,
 				3E128FDF28778B15007D18DB /* MobTimer.swift in Sources */,
 				3E74F4F4288327E4004B57C0 /* Constants.swift in Sources */,
+				3EA6FD752911D28B00F8E228 /* LargeTextScrollView.swift in Sources */,
 				3E128FC528773F1A007D18DB /* RotationLabel.swift in Sources */,
+				3E4D5AC828A9F8E5002515B6 /* ConfigurationSwipeButton+SwipeDirection.swift in Sources */,
 				3E128FE2287797AA007D18DB /* Array+Extension.swift in Sources */,
+				3EBF0BFE290D9CB800D7A7B7 /* Configuration.swift in Sources */,
 				3E74F4EE28831E0D004B57C0 /* ConfigureSessionView.swift in Sources */,
 				3EACA75128921A9B001FF168 /* View+KeyboardReadable.swift in Sources */,
+				3EBF0BFC290D7E7200D7A7B7 /* JSONUtility.swift in Sources */,
 				3EACA74A28920C1E001FF168 /* OnboardingView.swift in Sources */,
 				3E128FC8287740AD007D18DB /* SymbolButton.swift in Sources */,
 			);
@@ -404,6 +473,7 @@
 			files = (
 				3E128FCC28774193007D18DB /* TeamMemberListRow.swift in Sources */,
 				3EACA75228921B92001FF168 /* View+KeyboardReadable.swift in Sources */,
+				3EA6FD69290F06F100F8E228 /* EditMode+Extension.swift in Sources */,
 				3E6175E0287C9F98004EB19B /* ActiveTimerView.swift in Sources */,
 				3E0D0D40289EDCB60027F464 /* HapticsManager.swift in Sources */,
 				3E128FDA28776D52007D18DB /* Color+Extension.swift in Sources */,
@@ -466,6 +536,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -524,6 +595,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -615,9 +687,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 3;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PU4JAM9L7Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -643,9 +717,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 3;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PU4JAM9L7Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

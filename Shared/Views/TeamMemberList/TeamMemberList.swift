@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeamMemberList: View {
     @EnvironmentObject var vm: MobSessionManager
-    
+
     var body: some View {
         List {
             Section(content:  {
@@ -18,10 +18,14 @@ struct TeamMemberList: View {
                 }
                 .onMove(perform: move)
                 .onDelete(perform: vm.delete)
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
                 
                 AddTeamMemberRow()
             }, header: {
                 Text("Team Members")
+                    .accessibilityHint(Text(vm.session.teamDescription))
                     .font(.headline)
                 
             })

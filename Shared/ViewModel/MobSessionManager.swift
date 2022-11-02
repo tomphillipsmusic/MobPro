@@ -12,25 +12,45 @@ class MobSessionManager: ObservableObject {
     @Published var session = MobSession()
     @Published var mobTimer = MobTimer()
     @Published var isEditing = false
+    @Published var hasPendingEdits = false
     @Published var currentRotationNumber = 1
     @Published var isOnBreak = false
-    @Published var movedToBackgroundDate = Date()
+    @Published var showingEndSessionAlert = false
+    @Published var movedToBackgroundDate: Date?
     @Published var isKeyboardPresented = false
+    @Published var localNotificationService = LocalNotificationService()
 
+    var currentConfigurations: Configurations {
+        Configurations(rotationLength: mobTimer.rotationLength, breakLengthInSeconds: session.breakLengthInSeconds, numberOfRotationsBetweenBreaks: session.numberOfRotationsBetweenBreaks)
+    }
+    
     var numberOfRoundsBeforeBreak: Int {
         session.numberOfRotationsBetweenBreaks.value / 60
     }
     
     var timerText: String {
-        if mobTimer.isTimerRunning {
+        let shouldShowTime = mobTimer.isTimerRunning ||
+        mobTimer.timeRemaining < mobTimer.rotationLength.value
+        
+        if shouldShowTime {
             return mobTimer.formattedTime
+        }else if isOnBreak {
+            return "BREAK"
         } else {
             return "START"
         }
     }
     
     var isTeamValid: Bool {
-        session.teamMembers.count > 1
+        session.teamMembers.count >= Constants.minimumNumberOfMobbers
+    }
+    
+    init() {
+        if let storedConfigurationsData: Configurations = JSONUtility.read(from: Constants.configurationsPath) {
+            mobTimer.rotationLength = storedConfigurationsData.rotationLength
+            session.numberOfRotationsBetweenBreaks = storedConfigurationsData.numberOfRotationsBetweenBreaks
+            session.breakLengthInSeconds = storedConfigurationsData.breakLengthInSeconds
+        }
     }
 }
 
@@ -44,6 +64,15 @@ extension MobSessionManager {
         isOnBreak = false
         isEditing = false
         session.teamMembers = []
+        setDefaultConfigurations()
+    }
+    
+    private func setDefaultConfigurations() {
+        mobTimer.rotationLength = Configuration.defaultRotationLength
+        session.breakLengthInSeconds = Configuration.defaulBreakLengthInSeconds
+        session.numberOfRotationsBetweenBreaks = Configuration.defaultNumberOfRotationsBetweenBreaks
+        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
     }
     
     func shuffleTeam() {
@@ -65,11 +94,7 @@ extension MobSessionManager {
         
         HapticsManager.shared.timerEnd()
         resetTimer()
-        let isBreakTime = currentRotationNumber == numberOfRoundsBeforeBreak + 1
-        
-        if isBreakTime {
-            startBreak()
-        }
+        isOnBreak = currentRotationNumber == numberOfRoundsBeforeBreak + 1
     }
     
     private func endBreak() {
@@ -122,11 +147,29 @@ extension MobSessionManager {
         let role = determineRole(for: indexOfNewMember)
         let memberToAdd = TeamMember(name: name, role: role)
         session.teamMembers.append(memberToAdd)
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
+    }
+    
+    func save(_ updatedConfigurations: Configurations) {
+        mobTimer.rotationLength = updatedConfigurations.rotationLength
+        session.breakLengthInSeconds = updatedConfigurations.breakLengthInSeconds
+        session.numberOfRotationsBetweenBreaks = updatedConfigurations.numberOfRotationsBetweenBreaks
+        isEditing = false
+        hasPendingEdits = false
+        currentRotationNumber = 1
+        JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
+
     }
     
     func delete(at offsets: IndexSet) {
         session.teamMembers.remove(atOffsets: offsets)
         assignRoles()
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
+        
+        if mobTimer.isTimerRunning && !isTeamValid {
+            resetTimer()
+            localNotificationService.cancelTimerEndNotification()
+        }
     }
     
     func delete(teamMember: TeamMember) {
@@ -138,20 +181,27 @@ extension MobSessionManager {
 // MARK: Timer Logic
 extension MobSessionManager {
     func timerTapped() {
-        if mobTimer.isTimerRunning {
+        if isOnBreak {
+            startBreak()
+            scheduleLocalNotification()
+        } else if mobTimer.isTimerRunning {
             resetTimer()
+            localNotificationService.cancelTimerEndNotification()
         } else {
             startTimer()
+            localNotificationService.removeDeliveredNotifications()
             scheduleLocalNotification()
         }
     }
     
     private func startTimer() {
-        mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if self.mobTimer.timeRemaining == 0 {
-                self.setUpNewRotation()
-            } else {
-                self.mobTimer.timeRemaining -= 1
+        if mobTimer.timer == nil {
+            mobTimer.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.mobTimer.timeRemaining == 0 {
+                    self.setUpNewRotation()
+                } else {
+                    self.mobTimer.timeRemaining -= 1
+                }
             }
         }
     }
@@ -164,30 +214,28 @@ extension MobSessionManager {
 
 // MARK: Timer End Notification
 extension MobSessionManager {
-    static let timerEndNotification = "timerEndNotification"
-    func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge , .sound]) { success, error in
-            if success {
-                print("Permission Granted!")
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-                      
+
     func movedToBackground() {
         print("Moving to the background")
-        movedToBackgroundDate = Date()
-        resetTimer()
+        
+        if mobTimer.isTimerRunning {
+            movedToBackgroundDate = Date()
+            resetTimer()
+        }
     }
     
     func movingToForeGround() {
         print("Moving to the foreground")
-        if mobTimer.timeRemaining < mobTimer.rotationLength.value {
-            let deltaTime = Int(Date().timeIntervalSince(movedToBackgroundDate))
+        if let movedToBackgroundDate = movedToBackgroundDate {
+            let timerHasStarted = mobTimer.timeRemaining < mobTimer.rotationLength.value
             
-            mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
-            startTimer()
+            if timerHasStarted {
+                let deltaTime = Int(Date().timeIntervalSince(movedToBackgroundDate))
+                
+                mobTimer.timeRemaining = mobTimer.timeRemaining - deltaTime < 0 ? 0 : mobTimer.timeRemaining - deltaTime
+                startTimer()
+                self.movedToBackgroundDate = nil
+            }
         }
         
         HapticsManager.shared.prepareHaptics()
@@ -195,17 +243,17 @@ extension MobSessionManager {
     
     func applicationTerminating() {
         print("App terminating")
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.timerEndNotification])
+        localNotificationService.cancelTimerEndNotification()
     }
     
     func scheduleLocalNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "\(isOnBreak ? "Break" : "Round") has ended."
-        content.sound = .default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(mobTimer.rotationLength.value), repeats: false)
-        let request = UNNotificationRequest(identifier: Self.timerEndNotification, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request)
+        let title = "\(isOnBreak ? "Break" : "Round") has ended."
+        let timeInterval = Double(mobTimer.rotationLength.value)
+        localNotificationService.scheduleLocalNotification(with: title, scheduledIn: timeInterval)
+    }
+    
+    func handleTimerEndNotification() {
+        setUpNewRotation()
+        timerTapped()
     }
 }

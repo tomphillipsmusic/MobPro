@@ -12,4 +12,7 @@ struct Constants {
     static let lineWidth: CGFloat = 25.0
     static let secondsPerMinute = 60
     static let degreesInACircle = 360.0
+    static let minimumNumberOfMobbers = 2
+    static let teamMemberNamesPath = "team-members.json"
+    static let configurationsPath = "configuration.json"
 }
