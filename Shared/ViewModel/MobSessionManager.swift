@@ -72,6 +72,7 @@ extension MobSessionManager {
         session.breakLengthInSeconds = Configuration.defaulBreakLengthInSeconds
         session.numberOfRotationsBetweenBreaks = Configuration.defaultNumberOfRotationsBetweenBreaks
         JSONUtility.write(currentConfigurations, to: Constants.configurationsPath)
+        JSONUtility.write(session.teamMembers, to: Constants.teamMemberNamesPath)
     }
     
     func shuffleTeam() {
